@@ -1,0 +1,68 @@
+{
+  "wcagLevel": "AA",
+  "wcagVersion": "2.1",
+  "colorContrast": {
+    "normalTextRatio": 4.5,
+    "largeTextRatio": 3.0,
+    "nonTextRatio": 3.0,
+    "largeTextThreshold": 18
+  },
+  "keyboard": {
+    "focusVisible": true,
+    "focusOrder": true,
+    "noKeyboardTrap": true,
+    "skipLinks": true,
+    "focusIndicatorMinSize": 2
+  },
+  "screenReader": {
+    "semanticHtml": true,
+    "ariaLabels": true,
+    "liveRegions": true,
+    "headingStructure": true,
+    "supportedReaders": ["VoiceOver", "NVDA", "JAWS", "TalkBack"]
+  },
+  "motion": {
+    "reducedMotion": true,
+    "noAutoPlay": true,
+    "pauseControl": true,
+    "flashingThreshold": 3
+  },
+  "touchTarget": {
+    "minSize": "48px",
+    "minSpacing": "8px"
+  },
+  "guidelines": [
+    {
+      "id": "color-sufficient-contrast",
+      "title": "Sufficient Color Contrast",
+      "description": "Text and interactive elements must meet WCAG contrast requirements.",
+      "wcagCriteria": ["1.4.3", "1.4.6", "1.4.11"]
+    },
+    {
+      "id": "keyboard-accessible",
+      "title": "Keyboard Accessible",
+      "description": "All functionality must be accessible via keyboard.",
+      "wcagCriteria": ["2.1.1", "2.1.2", "2.4.3"]
+    },
+    {
+      "id": "touch-targets",
+      "title": "Touch Target Size",
+      "description": "Interactive elements must be at least 48x48dp for touch accessibility.",
+      "wcagCriteria": ["2.5.5"]
+    }
+  ],
+  "testingRequirements": [
+    {
+      "type": "automated",
+      "tools": ["axe-core", "lighthouse"],
+      "frequency": "on every PR",
+      "coverage": "All components"
+    },
+    {
+      "type": "manual",
+      "tools": ["Screen reader testing", "Keyboard navigation"],
+      "frequency": "quarterly",
+      "coverage": "Critical user flows"
+    }
+  ]
+}

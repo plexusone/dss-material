@@ -1,0 +1,92 @@
+[
+  {
+    "id": "md-sys-color-primary",
+    "value": "#6750A4",
+    "semantic": "primary",
+    "usage": "Primary brand color for key actions and emphasis"
+  },
+  {
+    "id": "md-sys-color-on-primary",
+    "value": "#FFFFFF",
+    "semantic": "on-primary",
+    "usage": "Text/icons on primary color"
+  },
+  {
+    "id": "md-sys-color-primary-container",
+    "value": "#EADDFF",
+    "semantic": "primary-container",
+    "usage": "Elevated containers with primary tone"
+  },
+  {
+    "id": "md-sys-color-on-primary-container",
+    "value": "#21005D",
+    "semantic": "on-primary-container",
+    "usage": "Text/icons on primary container"
+  },
+  {
+    "id": "md-sys-color-secondary",
+    "value": "#625B71",
+    "semantic": "secondary",
+    "usage": "Secondary actions and less prominent UI elements"
+  },
+  {
+    "id": "md-sys-color-on-secondary",
+    "value": "#FFFFFF",
+    "semantic": "on-secondary",
+    "usage": "Text/icons on secondary color"
+  },
+  {
+    "id": "md-sys-color-secondary-container",
+    "value": "#E8DEF8",
+    "semantic": "secondary-container",
+    "usage": "Containers with secondary emphasis"
+  },
+  {
+    "id": "md-sys-color-tertiary",
+    "value": "#7D5260",
+    "semantic": "tertiary",
+    "usage": "Accent color for contrast with primary and secondary"
+  },
+  {
+    "id": "md-sys-color-error",
+    "value": "#B3261E",
+    "semantic": "error",
+    "usage": "Error states and destructive actions"
+  },
+  {
+    "id": "md-sys-color-on-error",
+    "value": "#FFFFFF",
+    "semantic": "on-error",
+    "usage": "Text/icons on error color"
+  },
+  {
+    "id": "md-sys-color-surface",
+    "value": "#FFFBFE",
+    "semantic": "surface",
+    "usage": "Background for cards, sheets, and menus"
+  },
+  {
+    "id": "md-sys-color-on-surface",
+    "value": "#1C1B1F",
+    "semantic": "on-surface",
+    "usage": "Text/icons on surface"
+  },
+  {
+    "id": "md-sys-color-surface-variant",
+    "value": "#E7E0EC",
+    "semantic": "surface-variant",
+    "usage": "Alternative surface for differentiation"
+  },
+  {
+    "id": "md-sys-color-outline",
+    "value": "#79747E",
+    "semantic": "outline",
+    "usage": "Borders and dividers"
+  },
+  {
+    "id": "md-sys-color-outline-variant",
+    "value": "#CAC4D0",
+    "semantic": "outline-variant",
+    "usage": "Subtle borders and dividers"
+  }
+]

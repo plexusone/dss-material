@@ -1,0 +1,143 @@
+{
+  "id": "button",
+  "name": "Button",
+  "description": "Buttons communicate actions that users can take. They help users interact with and take action on content.",
+  "category": "actions",
+  "documentationUrl": "https://m3.material.io/components/buttons/overview",
+  "variants": [
+    {
+      "id": "filled",
+      "name": "Filled",
+      "description": "High-emphasis buttons for primary, important, or final actions.",
+      "isDefault": true
+    },
+    {
+      "id": "outlined",
+      "name": "Outlined",
+      "description": "Medium-emphasis buttons for important actions that don't distract from other content."
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "description": "Low-emphasis buttons for less important actions, often used in cards and dialogs."
+    },
+    {
+      "id": "elevated",
+      "name": "Elevated",
+      "description": "Medium-emphasis buttons that lift up from the page with shadow."
+    },
+    {
+      "id": "tonal",
+      "name": "Tonal",
+      "description": "Medium-emphasis buttons using secondary container color."
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default interactive state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Visual style of the button",
+      "default": "filled",
+      "enumValues": ["filled", "outlined", "text", "elevated", "tonal"]
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the button is disabled",
+      "default": false
+    },
+    {
+      "name": "icon",
+      "type": "node",
+      "description": "Optional leading icon"
+    },
+    {
+      "name": "trailingIcon",
+      "type": "boolean",
+      "description": "Whether icon appears after text",
+      "default": false
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "Fired when the button is clicked or activated",
+      "bubbles": true
+    },
+    {
+      "name": "focus",
+      "description": "Fired when the button receives focus"
+    },
+    {
+      "name": "blur",
+      "description": "Fired when the button loses focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Button label text",
+      "required": true
+    },
+    {
+      "name": "icon",
+      "description": "Leading icon slot"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-primary",
+    "md-sys-color-primary-container",
+    "md-sys-color-outline"
+  ],
+  "accessibility": {
+    "role": "button",
+    "requiredAttributes": ["aria-label (when icon-only)"],
+    "keyboardSupport": [
+      {"key": "Enter", "action": "Activate the button"},
+      {"key": "Space", "action": "Activate the button"}
+    ],
+    "screenReaderNotes": "Announce button label and state. For icon-only buttons, provide aria-label.",
+    "focusManagement": "Receives focus in tab order. Focus ring visible on keyboard focus."
+  },
+  "constraints": {
+    "minWidth": "64px",
+    "responsiveBehavior": "Scales with content, wraps on narrow screens"
+  },
+  "llm": {
+    "intent": "Trigger user actions and form submissions",
+    "allowedContexts": [
+      "Primary call-to-action in forms",
+      "Dialog actions (confirm, cancel)",
+      "Card actions",
+      "Toolbar actions"
+    ],
+    "forbiddenContexts": [
+      "Navigation (use links instead)",
+      "Inline text actions"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<Button variant=\"filled\">Submit</Button>",
+      "<Button variant=\"outlined\" icon={<AddIcon />}>Add Item</Button>",
+      "<Button variant=\"text\" disabled>Loading...</Button>"
+    ],
+    "antiPatterns": [
+      "Multiple filled buttons in the same view - use one primary action",
+      "Icon-only button without aria-label",
+      "Disabled button without explanation why",
+      "Using button for navigation instead of link"
+    ],
+    "semanticMeaning": "Interactive element that triggers an action when activated",
+    "relatedElements": ["fab", "iconbutton", "segmented-button"],
+    "priorityScore": 95,
+    "tags": ["action", "primary", "form", "interactive"]
+  }
+}

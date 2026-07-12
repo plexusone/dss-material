@@ -1,0 +1,15 @@
+{
+  "name": "Material Design 3",
+  "version": "3.0.0",
+  "description": "Google's open-source design system for building beautiful, usable products across platforms.",
+  "documentationUrl": "https://m3.material.io",
+  "license": "Apache-2.0",
+  "maintainers": [
+    {
+      "name": "PlexusOne",
+      "email": "dss@plexusone.com",
+      "role": "DSS Maintainer"
+    }
+  ],
+  "repository": "https://github.com/plexusone/dss-material"
+}

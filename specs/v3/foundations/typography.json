@@ -1,0 +1,120 @@
+{
+  "fontFamilies": [
+    {
+      "id": "md-sys-typescale-font-family",
+      "name": "Roboto",
+      "stack": "'Roboto', 'Noto Sans', sans-serif",
+      "weights": [400, 500, 700],
+      "source": "https://fonts.google.com/specimen/Roboto",
+      "usage": "Primary font for all M3 typography"
+    }
+  ],
+  "fontSizes": [
+    {"id": "display-large", "value": "57px", "pixelValue": 57},
+    {"id": "display-medium", "value": "45px", "pixelValue": 45},
+    {"id": "display-small", "value": "36px", "pixelValue": 36},
+    {"id": "headline-large", "value": "32px", "pixelValue": 32},
+    {"id": "headline-medium", "value": "28px", "pixelValue": 28},
+    {"id": "headline-small", "value": "24px", "pixelValue": 24},
+    {"id": "title-large", "value": "22px", "pixelValue": 22},
+    {"id": "title-medium", "value": "16px", "pixelValue": 16},
+    {"id": "title-small", "value": "14px", "pixelValue": 14},
+    {"id": "body-large", "value": "16px", "pixelValue": 16},
+    {"id": "body-medium", "value": "14px", "pixelValue": 14},
+    {"id": "body-small", "value": "12px", "pixelValue": 12},
+    {"id": "label-large", "value": "14px", "pixelValue": 14},
+    {"id": "label-medium", "value": "12px", "pixelValue": 12},
+    {"id": "label-small", "value": "11px", "pixelValue": 11}
+  ],
+  "fontWeights": [
+    {"id": "regular", "value": 400},
+    {"id": "medium", "value": 500},
+    {"id": "bold", "value": 700}
+  ],
+  "lineHeights": [
+    {"id": "display-large", "value": "64px"},
+    {"id": "display-medium", "value": "52px"},
+    {"id": "display-small", "value": "44px"},
+    {"id": "headline-large", "value": "40px"},
+    {"id": "headline-medium", "value": "36px"},
+    {"id": "headline-small", "value": "32px"},
+    {"id": "title-large", "value": "28px"},
+    {"id": "title-medium", "value": "24px"},
+    {"id": "title-small", "value": "20px"},
+    {"id": "body-large", "value": "24px"},
+    {"id": "body-medium", "value": "20px"},
+    {"id": "body-small", "value": "16px"},
+    {"id": "label-large", "value": "20px"},
+    {"id": "label-medium", "value": "16px"},
+    {"id": "label-small", "value": "16px"}
+  ],
+  "letterSpacings": [
+    {"id": "display-large", "value": "-0.25px"},
+    {"id": "display-medium", "value": "0px"},
+    {"id": "display-small", "value": "0px"},
+    {"id": "headline-large", "value": "0px"},
+    {"id": "headline-medium", "value": "0px"},
+    {"id": "headline-small", "value": "0px"},
+    {"id": "title-large", "value": "0px"},
+    {"id": "title-medium", "value": "0.15px"},
+    {"id": "title-small", "value": "0.1px"},
+    {"id": "body-large", "value": "0.5px"},
+    {"id": "body-medium", "value": "0.25px"},
+    {"id": "body-small", "value": "0.4px"},
+    {"id": "label-large", "value": "0.1px"},
+    {"id": "label-medium", "value": "0.5px"},
+    {"id": "label-small", "value": "0.5px"}
+  ],
+  "typeScale": [
+    {
+      "id": "display-large",
+      "name": "Display Large",
+      "fontFamily": "md-sys-typescale-font-family",
+      "fontSize": "display-large",
+      "fontWeight": "regular",
+      "lineHeight": "display-large",
+      "letterSpacing": "display-large",
+      "usage": "Hero text, large promotional content"
+    },
+    {
+      "id": "headline-medium",
+      "name": "Headline Medium",
+      "fontFamily": "md-sys-typescale-font-family",
+      "fontSize": "headline-medium",
+      "fontWeight": "regular",
+      "lineHeight": "headline-medium",
+      "letterSpacing": "headline-medium",
+      "usage": "Page headlines, dialog titles"
+    },
+    {
+      "id": "title-large",
+      "name": "Title Large",
+      "fontFamily": "md-sys-typescale-font-family",
+      "fontSize": "title-large",
+      "fontWeight": "regular",
+      "lineHeight": "title-large",
+      "letterSpacing": "title-large",
+      "usage": "Card titles, list headers"
+    },
+    {
+      "id": "body-large",
+      "name": "Body Large",
+      "fontFamily": "md-sys-typescale-font-family",
+      "fontSize": "body-large",
+      "fontWeight": "regular",
+      "lineHeight": "body-large",
+      "letterSpacing": "body-large",
+      "usage": "Primary body text"
+    },
+    {
+      "id": "label-large",
+      "name": "Label Large",
+      "fontFamily": "md-sys-typescale-font-family",
+      "fontSize": "label-large",
+      "fontWeight": "medium",
+      "lineHeight": "label-large",
+      "letterSpacing": "label-large",
+      "usage": "Button text, form labels"
+    }
+  ]
+}

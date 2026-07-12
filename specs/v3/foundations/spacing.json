@@ -1,0 +1,18 @@
+{
+  "baseUnit": "4px",
+  "scale": [
+    {"id": "0", "value": "0px", "pixelValue": 0},
+    {"id": "1", "value": "4px", "pixelValue": 4},
+    {"id": "2", "value": "8px", "pixelValue": 8},
+    {"id": "3", "value": "12px", "pixelValue": 12},
+    {"id": "4", "value": "16px", "pixelValue": 16},
+    {"id": "5", "value": "20px", "pixelValue": 20},
+    {"id": "6", "value": "24px", "pixelValue": 24},
+    {"id": "8", "value": "32px", "pixelValue": 32},
+    {"id": "10", "value": "40px", "pixelValue": 40},
+    {"id": "12", "value": "48px", "pixelValue": 48},
+    {"id": "16", "value": "64px", "pixelValue": 64},
+    {"id": "20", "value": "80px", "pixelValue": 80},
+    {"id": "24", "value": "96px", "pixelValue": 96}
+  ]
+}
