@@ -1,7 +1,6 @@
 # Components
 
-<div class="dss-content" markdown>
-
+<div class="dss-content">
 <div class="page-header">
     <h1>Components</h1>
     <p class="description">All 1 components in the design system</p>
@@ -20,6 +19,5 @@
     </a>
     
 </div>
-
 
 </div>

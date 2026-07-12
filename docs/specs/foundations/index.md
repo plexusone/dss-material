@@ -1,7 +1,6 @@
 # Foundations
 
-<div class="dss-content" markdown>
-
+<div class="dss-content">
 <div class="page-header">
     <h1>Design Tokens</h1>
     <p class="description">Colors, typography, spacing, and more</p>
@@ -392,7 +391,6 @@
         
     </div>
 </section>
-
 
 
 </div>

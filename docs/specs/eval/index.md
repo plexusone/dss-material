@@ -1,7 +1,6 @@
 # Evaluation
 
-<div class="dss-content" markdown>
-
+<div class="dss-content">
 <div class="page-header">
     <h1>Evaluation</h1>
     <p class="description">Design system spec completeness and quality</p>
@@ -15,7 +14,7 @@
     </div>
     <div class="eval-meta">
         <p>Good</p>
-        <p>Evaluated: 2026-07-12 19:13:28</p>
+        <p>Evaluated: 2026-07-12 19:48:47</p>
         <p>Decision: conditional</p>
     </div>
 </div>
@@ -136,7 +135,6 @@
         
     </div>
 </section>
-
 
 
 

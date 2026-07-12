@@ -1,7 +1,6 @@
 # Material Design 3 Specification
 
-<div class="dss-content" markdown>
-
+<div class="dss-content">
 <div class="page-header">
     <h1>Material Design 3</h1>
     <p class="description">Google&#39;s open-source design system for building beautiful, usable products across platforms.</p>
@@ -47,6 +46,5 @@
         </a>
     </div>
 </section>
-
 
 </div>

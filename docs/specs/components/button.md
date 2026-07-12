@@ -1,7 +1,6 @@
 # Button
 
-<div class="dss-content" markdown>
-
+<div class="dss-content">
 <div class="page-header">
     <nav class="breadcrumb">
         <a href="components.html">Components</a> / Button
@@ -205,7 +204,6 @@
         
     </div>
 </section>
-
 
 
 </div>
