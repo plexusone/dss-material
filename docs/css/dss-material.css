@@ -1,0 +1,429 @@
+/* DSS Material - Custom styles for Material Design spec visualization */
+
+/* ==========================================
+   DSS-specific CSS variables
+   ========================================== */
+
+:root {
+  /* Eval score grade colors */
+  --dss-grade-a: #22c55e;
+  --dss-grade-b: #84cc16;
+  --dss-grade-c: #eab308;
+  --dss-grade-d: #f97316;
+  --dss-grade-f: #ef4444;
+
+  /* Coverage colors */
+  --dss-coverage-complete: var(--dss-grade-a);
+  --dss-coverage-partial: var(--dss-grade-c);
+  --dss-coverage-missing: var(--dss-grade-f);
+
+  /* Component card styles */
+  --dss-card-bg: var(--md-default-bg-color);
+  --dss-card-border: var(--md-default-fg-color--lightest);
+  --dss-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-md-color-scheme="slate"] {
+  --dss-card-bg: #1e293b;
+  --dss-card-border: #334155;
+  --dss-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   Score Circle (Eval Dashboard)
+   ========================================== */
+
+.dss-score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin: 0 auto;
+}
+
+.dss-score-circle.grade-a { background: var(--dss-grade-a); color: white; }
+.dss-score-circle.grade-b { background: var(--dss-grade-b); color: white; }
+.dss-score-circle.grade-c { background: var(--dss-grade-c); color: #1a1a1a; }
+.dss-score-circle.grade-d { background: var(--dss-grade-d); color: white; }
+.dss-score-circle.grade-f { background: var(--dss-grade-f); color: white; }
+
+.dss-score-value {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.dss-score-label {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* ==========================================
+   Progress Bars
+   ========================================== */
+
+.dss-progress {
+  height: 8px;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.dss-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.dss-progress-bar.grade-a { background: var(--dss-grade-a); }
+.dss-progress-bar.grade-b { background: var(--dss-grade-b); }
+.dss-progress-bar.grade-c { background: var(--dss-grade-c); }
+.dss-progress-bar.grade-d { background: var(--dss-grade-d); }
+.dss-progress-bar.grade-f { background: var(--dss-grade-f); }
+
+/* ==========================================
+   Category Cards
+   ========================================== */
+
+.dss-category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.dss-category-card {
+  background: var(--dss-card-bg);
+  border: 1px solid var(--dss-card-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: var(--dss-card-shadow);
+}
+
+.dss-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.dss-category-name {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.dss-category-weight {
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.dss-category-score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ==========================================
+   Coverage Table
+   ========================================== */
+
+.dss-coverage-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.dss-coverage-table th,
+.dss-coverage-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--dss-card-border);
+}
+
+.dss-coverage-table th {
+  font-weight: 600;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dss-coverage-percent {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.dss-coverage-percent.complete { color: var(--dss-grade-a); }
+.dss-coverage-percent.partial { color: var(--dss-grade-c); }
+.dss-coverage-percent.low { color: var(--dss-grade-f); }
+
+/* ==========================================
+   Findings List
+   ========================================== */
+
+.dss-findings-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.dss-finding {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: var(--dss-card-bg);
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.dss-finding.critical { border-left-color: var(--dss-grade-f); }
+.dss-finding.high { border-left-color: var(--dss-grade-d); }
+.dss-finding.medium { border-left-color: var(--dss-grade-c); }
+.dss-finding.low { border-left-color: var(--dss-grade-b); }
+.dss-finding.info { border-left-color: var(--md-primary-fg-color); }
+
+.dss-finding-severity {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.dss-finding-severity.critical { background: var(--dss-grade-f); color: white; }
+.dss-finding-severity.high { background: var(--dss-grade-d); color: white; }
+.dss-finding-severity.medium { background: var(--dss-grade-c); color: #1a1a1a; }
+.dss-finding-severity.low { background: var(--dss-grade-b); color: white; }
+.dss-finding-severity.info { background: var(--md-primary-fg-color); color: white; }
+
+.dss-finding-content {
+  flex: 1;
+}
+
+.dss-finding-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.dss-finding-description {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.875rem;
+}
+
+/* ==========================================
+   Component Cards (Spec View)
+   ========================================== */
+
+.dss-component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.dss-component-card {
+  background: var(--dss-card-bg);
+  border: 1px solid var(--dss-card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dss-component-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.dss-component-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.dss-component-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--md-primary-fg-color);
+  color: white;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.dss-component-description {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.dss-component-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--lighter);
+}
+
+/* ==========================================
+   Token Swatches (Colors)
+   ========================================== */
+
+.dss-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.dss-color-swatch {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--dss-card-border);
+}
+
+.dss-color-preview {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dss-color-info {
+  padding: 0.75rem;
+  background: var(--dss-card-bg);
+}
+
+.dss-color-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.dss-color-value {
+  font-family: var(--md-code-font-family);
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ==========================================
+   Typography Scale
+   ========================================== */
+
+.dss-type-scale {
+  margin: 1rem 0;
+}
+
+.dss-type-sample {
+  padding: 1rem;
+  border-bottom: 1px solid var(--dss-card-border);
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.dss-type-name {
+  min-width: 120px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.dss-type-preview {
+  flex: 1;
+}
+
+.dss-type-meta {
+  font-family: var(--md-code-font-family);
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--lighter);
+  white-space: nowrap;
+}
+
+/* ==========================================
+   Spacing Scale
+   ========================================== */
+
+.dss-spacing-scale {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.dss-spacing-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dss-spacing-name {
+  min-width: 80px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.dss-spacing-bar {
+  height: 24px;
+  background: var(--md-primary-fg-color);
+  border-radius: 4px;
+  opacity: 0.3;
+}
+
+.dss-spacing-value {
+  font-family: var(--md-code-font-family);
+  font-size: 0.75rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ==========================================
+   Accessibility Badge
+   ========================================== */
+
+.dss-a11y-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: #059669;
+  color: white;
+}
+
+/* ==========================================
+   Stats Grid (Overview)
+   ========================================== */
+
+.dss-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.dss-stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--dss-card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--dss-card-border);
+}
+
+.dss-stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.dss-stat-label {
+  font-size: 0.875rem;
+  color: var(--md-default-fg-color--light);
+}
