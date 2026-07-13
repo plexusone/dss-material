@@ -16,6 +16,8 @@
         <link rel="prev" href="../mcp/">
       
       
+        <link rel="next" href="../../releases/v0.1.0/">
+      
       
         
       
@@ -61,6 +63,61 @@
 
     
     
+<!-- Material Web Components via CDN -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "@material/web/": "https://esm.run/@material/web/"
+  }
+}
+</script>
+<script type="module">
+  import '@material/web/all.js';
+  import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+  document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+</script>
+<style>
+  /* Material Web demo containers */
+  .md-demo {
+    padding: 1.5rem;
+    background: var(--md-default-bg-color--lighter, #1e293b);
+    border-radius: 8px;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  .md-demo-vertical {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .md-demo-label {
+    font-size: 0.75rem;
+    color: var(--md-default-fg-color--light);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  /* Ensure Material Web components are visible */
+  md-filled-button, md-outlined-button, md-text-button,
+  md-elevated-button, md-filled-tonal-button,
+  md-checkbox, md-switch, md-radio,
+  md-filled-text-field, md-outlined-text-field,
+  md-slider, md-icon, md-icon-button,
+  md-fab, md-chip-set, md-list, md-menu,
+  md-dialog, md-tabs, md-divider,
+  md-circular-progress, md-linear-progress {
+    --md-sys-color-primary: var(--md-primary-fg-color, #06b6d4);
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-surface: var(--md-default-bg-color--lighter, #1e293b);
+    --md-sys-color-on-surface: var(--md-default-fg-color, #f1f5f9);
+    --md-sys-color-outline: var(--md-default-fg-color--lighter, #64748b);
+  }
+</style>
+
   </head>
   
   
@@ -722,6 +779,95 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Releases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../releases/v0.1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    v0.1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
