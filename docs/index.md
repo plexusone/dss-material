@@ -48,6 +48,66 @@ Machine-readable Material Design 3 specifications in Design System Spec format.
 
 </div>
 
+## Live Component Demos
+
+Material Web components rendered directly from the [material-web](https://github.com/material-components/material-web) library:
+
+### Buttons
+
+<div class="md-demo">
+  <md-filled-button>Filled</md-filled-button>
+  <md-outlined-button>Outlined</md-outlined-button>
+  <md-text-button>Text</md-text-button>
+  <md-elevated-button>Elevated</md-elevated-button>
+  <md-filled-tonal-button>Tonal</md-filled-tonal-button>
+</div>
+
+### Selection Controls
+
+<div class="md-demo">
+  <md-checkbox></md-checkbox>
+  <md-checkbox checked></md-checkbox>
+  <md-checkbox indeterminate></md-checkbox>
+  <md-switch></md-switch>
+  <md-switch selected></md-switch>
+</div>
+
+### Text Fields
+
+<div class="md-demo md-demo-vertical">
+  <md-filled-text-field label="Filled text field" value="Input text"></md-filled-text-field>
+  <md-outlined-text-field label="Outlined text field" value="Input text"></md-outlined-text-field>
+</div>
+
+### Icon Buttons & FABs
+
+<div class="md-demo">
+  <md-icon-button><md-icon>settings</md-icon></md-icon-button>
+  <md-filled-icon-button><md-icon>favorite</md-icon></md-filled-icon-button>
+  <md-filled-tonal-icon-button><md-icon>edit</md-icon></md-filled-tonal-icon-button>
+  <md-outlined-icon-button><md-icon>share</md-icon></md-outlined-icon-button>
+  <md-fab><md-icon slot="icon">add</md-icon></md-fab>
+</div>
+
+### Progress Indicators
+
+<div class="md-demo md-demo-vertical" style="width: 100%;">
+  <md-linear-progress value="0.6" style="width: 100%;"></md-linear-progress>
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <md-circular-progress value="0.7"></md-circular-progress>
+    <md-circular-progress indeterminate></md-circular-progress>
+  </div>
+</div>
+
+### Slider
+
+<div class="md-demo md-demo-vertical" style="width: 100%;">
+  <md-slider value="50" style="width: 100%;"></md-slider>
+  <md-slider range value-start="25" value-end="75" style="width: 100%;"></md-slider>
+</div>
+
+---
+
 ## Why DSS?
 
 Official Material Design implementations are in maintenance mode:
