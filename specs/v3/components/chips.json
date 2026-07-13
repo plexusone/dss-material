@@ -1,0 +1,159 @@
+{
+  "id": "chips",
+  "name": "Chips",
+  "description": "Chips help people enter information, make selections, filter content, or trigger actions. They are compact elements representing inputs, attributes, or actions.",
+  "category": "actions",
+  "documentationUrl": "https://m3.material.io/components/chips/overview",
+  "variants": [
+    {
+      "id": "assist",
+      "name": "Assist",
+      "description": "Represent smart or automated actions",
+      "isDefault": true
+    },
+    {
+      "id": "filter",
+      "name": "Filter",
+      "description": "Allow selection to filter content"
+    },
+    {
+      "id": "input",
+      "name": "Input",
+      "description": "Represent user-provided information"
+    },
+    {
+      "id": "suggestion",
+      "name": "Suggestion",
+      "description": "Offer dynamically generated suggestions"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default interactive state"},
+    {"id": "selected", "name": "Selected", "description": "Filter chip selected state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Type of chip",
+      "default": "assist",
+      "enumValues": ["assist", "filter", "input", "suggestion"]
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The chip text label",
+      "required": true
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the chip is disabled",
+      "default": false
+    },
+    {
+      "name": "elevated",
+      "type": "boolean",
+      "description": "Apply elevated styling with shadow",
+      "default": false
+    },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "description": "Whether a filter chip is selected",
+      "default": false
+    },
+    {
+      "name": "removable",
+      "type": "boolean",
+      "description": "Show remove button for input chips",
+      "default": false
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "description": "Make chip a link"
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "Fired when the chip is clicked",
+      "bubbles": true
+    },
+    {
+      "name": "remove",
+      "description": "Fired when the remove button is clicked",
+      "bubbles": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "icon",
+      "description": "Leading icon"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-sys-color-secondary-container",
+    "md-assist-chip-container-shape",
+    "md-assist-chip-label-text-font",
+    "md-assist-chip-outline-color",
+    "md-filter-chip-selected-container-color",
+    "md-input-chip-container-shape"
+  ],
+  "accessibility": {
+    "role": "button (action chips), checkbox (filter chips)",
+    "requiredAttributes": ["aria-label (when icon-only)", "aria-pressed (for filter chips)"],
+    "keyboardSupport": [
+      {"key": "Enter/Space", "action": "Activate chip or toggle selection"},
+      {"key": "Delete/Backspace", "action": "Remove input chip"},
+      {"key": "Tab", "action": "Move focus between chips"}
+    ],
+    "screenReaderNotes": "Chips should announce their label and state. Filter chips use aria-pressed for selected state.",
+    "focusManagement": "Chips are focusable in tab order. Chip sets may use arrow key navigation."
+  },
+  "constraints": {
+    "minWidth": "Auto (fits content)",
+    "minHeight": "32px",
+    "responsiveBehavior": "Chips wrap to next line when horizontal space is limited"
+  },
+  "llm": {
+    "intent": "Provide compact interactive elements for actions, selections, or inputs",
+    "allowedContexts": [
+      "Filter controls",
+      "Search suggestions",
+      "Tag inputs",
+      "Quick actions",
+      "Attribute display"
+    ],
+    "forbiddenContexts": [
+      "Primary page actions (use button)",
+      "Navigation (use tabs or links)",
+      "Form inputs (use proper form elements)"
+    ],
+    "dependencies": ["icon"],
+    "exampleUsage": [
+      "<md-assist-chip label=\"Add to calendar\"><md-icon slot=\"icon\">event</md-icon></md-assist-chip>",
+      "<md-filter-chip label=\"Vegetarian\" selected></md-filter-chip>",
+      "<md-input-chip label=\"john@example.com\" removable></md-input-chip>",
+      "<md-suggestion-chip label=\"Try this\"></md-suggestion-chip>"
+    ],
+    "antiPatterns": [
+      "Chip without label text",
+      "Too many chips making content overwhelming",
+      "Using chips for primary actions",
+      "Filter chips without aria-pressed"
+    ],
+    "semanticMeaning": "Compact interactive element for actions, filtering, or data entry",
+    "relatedElements": ["button", "checkbox"],
+    "priorityScore": 75,
+    "tags": ["action", "filter", "input", "compact", "interactive"]
+  }
+}

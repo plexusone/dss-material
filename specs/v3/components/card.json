@@ -1,0 +1,145 @@
+{
+  "id": "card",
+  "name": "Card",
+  "description": "Cards contain content and actions about a single subject. They are surfaces that display content and actions on a single topic.",
+  "category": "containment",
+  "documentationUrl": "https://m3.material.io/components/cards/overview",
+  "variants": [
+    {
+      "id": "elevated",
+      "name": "Elevated",
+      "description": "Card with shadow elevation",
+      "isDefault": true
+    },
+    {
+      "id": "filled",
+      "name": "Filled",
+      "description": "Card with filled background, no shadow"
+    },
+    {
+      "id": "outlined",
+      "name": "Outlined",
+      "description": "Card with outline border, no shadow"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state (interactive cards)"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state (interactive cards)"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state (interactive cards)"},
+    {"id": "dragged", "name": "Dragged", "description": "Being dragged (draggable cards)"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Visual style of the card",
+      "default": "elevated",
+      "enumValues": ["elevated", "filled", "outlined"]
+    },
+    {
+      "name": "clickable",
+      "type": "boolean",
+      "description": "Whether the entire card is clickable",
+      "default": false
+    },
+    {
+      "name": "draggable",
+      "type": "boolean",
+      "description": "Whether the card can be dragged",
+      "default": false
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "Fired when a clickable card is clicked",
+      "bubbles": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Card content",
+      "required": true
+    },
+    {
+      "name": "media",
+      "description": "Media content (image, video)"
+    },
+    {
+      "name": "headline",
+      "description": "Card title"
+    },
+    {
+      "name": "subhead",
+      "description": "Card subtitle"
+    },
+    {
+      "name": "supporting-text",
+      "description": "Body text content"
+    },
+    {
+      "name": "actions",
+      "description": "Action buttons"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface",
+    "md-sys-color-surface-container-low",
+    "md-sys-color-surface-container-highest",
+    "md-sys-color-outline",
+    "md-sys-elevation-level1",
+    "md-elevated-card-container-color",
+    "md-elevated-card-container-shape",
+    "md-elevated-card-container-elevation",
+    "md-filled-card-container-color",
+    "md-outlined-card-container-color",
+    "md-outlined-card-outline-color"
+  ],
+  "accessibility": {
+    "role": "article (content) or button (clickable)",
+    "requiredAttributes": ["aria-label (for clickable cards without visible text)"],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move focus to card (clickable) or first focusable element"},
+      {"key": "Enter/Space", "action": "Activate clickable card"}
+    ],
+    "screenReaderNotes": "Use role=\"article\" for content cards. Clickable cards should be role=\"button\" or use a button/link inside. Ensure card content is accessible.",
+    "focusManagement": "Clickable cards receive focus. Non-clickable cards should have focusable actions inside."
+  },
+  "constraints": {
+    "minWidth": "Auto",
+    "responsiveBehavior": "Cards adapt to container width. Use grid or flexbox for card layouts."
+  },
+  "llm": {
+    "intent": "Group related content and actions about a single subject",
+    "allowedContexts": [
+      "Content feeds",
+      "Product listings",
+      "Feature highlights",
+      "User profiles",
+      "Media galleries"
+    ],
+    "forbiddenContexts": [
+      "Primary page layout containers",
+      "Navigation menus",
+      "Dialog content (use dialog component)"
+    ],
+    "dependencies": ["button", "iconbutton"],
+    "exampleUsage": [
+      "<md-elevated-card><div slot=\"headline\">Card Title</div><div slot=\"supporting-text\">Card content goes here.</div><div slot=\"actions\"><md-text-button>Action</md-text-button></div></md-elevated-card>",
+      "<md-outlined-card clickable><div slot=\"headline\">Clickable Card</div></md-outlined-card>",
+      "<md-filled-card><img slot=\"media\" src=\"image.jpg\"><div slot=\"headline\">Image Card</div></md-filled-card>"
+    ],
+    "antiPatterns": [
+      "Cards with too much content",
+      "Clickable cards with too many internal actions",
+      "Cards without clear visual hierarchy",
+      "Using cards as general-purpose containers"
+    ],
+    "semanticMeaning": "Self-contained content surface for a single subject",
+    "relatedElements": ["dialog", "list"],
+    "priorityScore": 85,
+    "tags": ["container", "content", "surface", "layout"]
+  }
+}

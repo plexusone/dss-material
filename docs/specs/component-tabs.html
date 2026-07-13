@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1255,7 +1255,7 @@ pre code {
                         
                         <li><a href="component-switch.html" >Switch</a></li>
                         
-                        <li><a href="component-tabs.html" >Tabs</a></li>
+                        <li><a href="component-tabs.html" class="active">Tabs</a></li>
                         
                         <li><a href="component-textfield.html" >Text Field</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Tabs
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Tabs</h1>
+    <span class="badge large">navigation</span>
+    <p class="description">Tabs organize groups of related content that are at the same level of hierarchy. They enable navigation between different views.</p>
 </div>
 
 
@@ -1289,33 +1289,15 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Primary</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Primary tabs at top of content pane under app bar</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Outlined</h4>
+            <h4>Secondary</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Text</h4>
-            
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Secondary tabs within content area to further separate content</p>
         </div>
         
     </div>
@@ -1341,32 +1323,24 @@ pre code {
                 <td><code>variant</code></td>
                 <td><code>enum</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td><code>primary</code></td>
+                <td>Type of tabs</td>
             </tr>
             
             <tr>
-                <td><code>disabled</code></td>
+                <td><code>autoActivate</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Automatically select tab when focused</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
+                <td><code>activeTabIndex</code></td>
+                <td><code>number</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
-                <td><code>boolean</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Index of the active tab</td>
             </tr>
             
         </tbody>
@@ -1380,13 +1354,13 @@ pre code {
     <div class="states-grid">
         
         <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
+            <h4>inactive</h4>
+            <p>Tab is not selected</p>
         </div>
         
         <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
+            <h4>active</h4>
+            <p>Tab is currently selected</p>
         </div>
         
         <div class="state-card">
@@ -1414,7 +1388,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>tablist</code>
         </div>
         
         
@@ -1422,16 +1396,24 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>Tab</kbd> - Move focus into/out of tab list</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>ArrowLeft</kbd> - Move to previous tab</li>
+                
+                <li><kbd>ArrowRight</kbd> - Move to next tab</li>
+                
+                <li><kbd>Home</kbd> - Move to first tab</li>
+                
+                <li><kbd>End</kbd> - Move to last tab</li>
+                
+                <li><kbd>Enter/Space</kbd> - Activate focused tab</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Tab bar needs aria-label. Each tab should reference its panel with aria-controls. Panels need role=&#34;tabpanel&#34; and aria-labelledby.
         </div>
         
     </div>
@@ -1444,7 +1426,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Navigate between related content views at the same hierarchy level
         </div>
         
         
@@ -1452,13 +1434,15 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Tabs without aria-label on container</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Tab panels without proper ARIA relationship</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Too many tabs (more than 5-7)</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Mixing primary and secondary tabs</li>
+                
+                <li>Tabs for unrelated content</li>
                 
             </ul>
         </div>
@@ -1467,11 +1451,11 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-tabs&gt;&lt;md-primary-tab&gt;Photos&lt;/md-primary-tab&gt;&lt;md-primary-tab&gt;Videos&lt;/md-primary-tab&gt;&lt;/md-tabs&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-tabs&gt;&lt;md-primary-tab active&gt;Music&lt;/md-primary-tab&gt;&lt;md-primary-tab&gt;Podcasts&lt;/md-primary-tab&gt;&lt;/md-tabs&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-tabs aria-label=&#34;Content type&#34;&gt;&lt;md-secondary-tab&gt;All&lt;/md-secondary-tab&gt;&lt;md-secondary-tab&gt;Favorites&lt;/md-secondary-tab&gt;&lt;/md-tabs&gt;</code></pre>
             
         </div>
         

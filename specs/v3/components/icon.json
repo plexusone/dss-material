@@ -1,0 +1,110 @@
+{
+  "id": "icon",
+  "name": "Icon",
+  "description": "Icons communicate meaning through visual symbols. Material Symbols provide a set of over 2,500 glyphs in variable font format.",
+  "category": "communication",
+  "documentationUrl": "https://m3.material.io/styles/icons/overview",
+  "variants": [
+    {
+      "id": "outlined",
+      "name": "Outlined",
+      "description": "Icon with outlined strokes",
+      "isDefault": true
+    },
+    {
+      "id": "rounded",
+      "name": "Rounded",
+      "description": "Icon with rounded corners"
+    },
+    {
+      "id": "sharp",
+      "name": "Sharp",
+      "description": "Icon with sharp corners"
+    }
+  ],
+  "states": [],
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The icon name from Material Symbols"
+    },
+    {
+      "name": "filled",
+      "type": "boolean",
+      "description": "Use filled variant of the icon",
+      "default": false
+    },
+    {
+      "name": "weight",
+      "type": "number",
+      "description": "Icon weight from 100 to 700",
+      "default": 400
+    },
+    {
+      "name": "grade",
+      "type": "number",
+      "description": "Icon grade from -25 to 200",
+      "default": 0
+    },
+    {
+      "name": "opticalSize",
+      "type": "number",
+      "description": "Optical size from 20 to 48",
+      "default": 24
+    }
+  ],
+  "events": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Icon name as text content"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-on-surface",
+    "md-icon-size",
+    "md-icon-font"
+  ],
+  "accessibility": {
+    "role": "img (decorative) or aria-hidden=\"true\"",
+    "requiredAttributes": ["aria-hidden=\"true\" (decorative)", "aria-label (informative)"],
+    "keyboardSupport": [],
+    "screenReaderNotes": "Decorative icons should use aria-hidden=\"true\". Icons conveying meaning need aria-label. Icons within buttons/links are typically decorative.",
+    "focusManagement": "Icons should not be focusable."
+  },
+  "constraints": {
+    "defaultSize": "24px",
+    "responsiveBehavior": "Fixed size, scales with font-size"
+  },
+  "llm": {
+    "intent": "Provide visual symbols to communicate meaning",
+    "allowedContexts": [
+      "Button icons",
+      "Navigation indicators",
+      "Status indicators",
+      "List item decorations",
+      "Action affordances"
+    ],
+    "forbiddenContexts": [
+      "Primary content (use text)",
+      "Complex information (use illustrations)"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-icon>home</md-icon>",
+      "<md-icon>favorite</md-icon>",
+      "<md-icon filled>star</md-icon>"
+    ],
+    "antiPatterns": [
+      "Icon without aria-hidden or aria-label",
+      "Using icon alone without text for critical actions",
+      "Non-standard icons without labels",
+      "Too many icons overwhelming the interface"
+    ],
+    "semanticMeaning": "Visual symbol for communication and affordance",
+    "relatedElements": ["iconbutton"],
+    "priorityScore": 60,
+    "tags": ["visual", "symbol", "communication", "decorative"]
+  }
+}

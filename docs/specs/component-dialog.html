@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1223,7 +1223,7 @@ pre code {
                         
                         <li><a href="component-chips.html" >Chips</a></li>
                         
-                        <li><a href="component-dialog.html" >Dialog</a></li>
+                        <li><a href="component-dialog.html" class="active">Dialog</a></li>
                         
                         <li><a href="component-divider.html" >Divider</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Dialog
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Dialog</h1>
+    <span class="badge large">containment</span>
+    <p class="description">Dialogs provide important prompts in a user flow. They can require an action, communicate information, or help users accomplish a task.</p>
 </div>
 
 
@@ -1289,33 +1289,21 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Basic</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Standard dialog with headline, content, and actions</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Outlined</h4>
+            <h4>Alert</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
+            <p>Alert dialog requiring user acknowledgment or decision</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Text</h4>
+            <h4>Full-screen</h4>
             
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Dialog that covers the entire screen on mobile</p>
         </div>
         
     </div>
@@ -1338,35 +1326,43 @@ pre code {
         <tbody>
             
             <tr>
-                <td><code>variant</code></td>
+                <td><code>open</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Whether the dialog is open</td>
+            </tr>
+            
+            <tr>
+                <td><code>type</code></td>
                 <td><code>enum</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td>-</td>
+                <td>The type of dialog for accessibility</td>
             </tr>
             
             <tr>
-                <td><code>disabled</code></td>
+                <td><code>quick</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Skips opening and closing animations</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
+                <td><code>noFocusTrap</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Disables focus trapping within the dialog</td>
+            </tr>
+            
+            <tr>
+                <td><code>returnValue</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>The value returned when the dialog closes</td>
             </tr>
             
         </tbody>
@@ -1380,28 +1376,23 @@ pre code {
     <div class="states-grid">
         
         <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
+            <h4>closed</h4>
+            <p>Dialog is not visible</p>
         </div>
         
         <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
+            <h4>opening</h4>
+            <p>Dialog is animating open</p>
         </div>
         
         <div class="state-card">
-            <h4>hovered</h4>
-            <p>Mouse hover state</p>
+            <h4>open</h4>
+            <p>Dialog is visible and interactive</p>
         </div>
         
         <div class="state-card">
-            <h4>focused</h4>
-            <p>Keyboard focus state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>pressed</h4>
-            <p>Active/pressed state</p>
+            <h4>closing</h4>
+            <p>Dialog is animating closed</p>
         </div>
         
     </div>
@@ -1414,7 +1405,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>dialog</code>
         </div>
         
         
@@ -1422,16 +1413,18 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>Escape</kbd> - Close the dialog</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>Tab</kbd> - Move focus within dialog (trapped by default)</li>
+                
+                <li><kbd>Enter</kbd> - Activate focused button</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Dialog is labelled by headline slot. Use aria-label when no headline is present. Set type=&#34;alert&#34; for important messages requiring action.
         </div>
         
     </div>
@@ -1444,7 +1437,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Display important information requiring user attention or action
         </div>
         
         
@@ -1452,13 +1445,15 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Dialog without headline or aria-label</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Alert dialog without type=&#34;alert&#34;</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Using dialog for non-interruptive content</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Multiple stacked dialogs</li>
+                
+                <li>Dialog without clear dismiss action</li>
                 
             </ul>
         </div>
@@ -1467,11 +1462,9 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-dialog&gt;&lt;div slot=&#34;headline&#34;&gt;Confirm&lt;/div&gt;&lt;div slot=&#34;content&#34;&gt;Are you sure?&lt;/div&gt;&lt;div slot=&#34;actions&#34;&gt;&lt;md-text-button&gt;Cancel&lt;/md-text-button&gt;&lt;md-filled-button&gt;Confirm&lt;/md-filled-button&gt;&lt;/div&gt;&lt;/md-dialog&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
-            
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-dialog type=&#34;alert&#34;&gt;&lt;div slot=&#34;headline&#34;&gt;Error&lt;/div&gt;&lt;div slot=&#34;content&#34;&gt;Operation failed.&lt;/div&gt;&lt;div slot=&#34;actions&#34;&gt;&lt;md-filled-button&gt;OK&lt;/md-filled-button&gt;&lt;/div&gt;&lt;/md-dialog&gt;</code></pre>
             
         </div>
         

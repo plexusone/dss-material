@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1251,7 +1251,7 @@ pre code {
                         
                         <li><a href="component-slider.html" >Slider</a></li>
                         
-                        <li><a href="component-snackbar.html" >Snackbar</a></li>
+                        <li><a href="component-snackbar.html" class="active">Snackbar</a></li>
                         
                         <li><a href="component-switch.html" >Switch</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Snackbar
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Snackbar</h1>
+    <span class="badge large">communication</span>
+    <p class="description">Snackbars provide brief messages about app processes at the bottom of the screen. They automatically disappear after a timeout.</p>
 </div>
 
 
@@ -1289,33 +1289,21 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Single Line</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Snackbar with single line message</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Outlined</h4>
+            <h4>Two Line</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
+            <p>Snackbar with wrapped message text</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Text</h4>
+            <h4>With Action</h4>
             
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Snackbar with action button</p>
         </div>
         
     </div>
@@ -1338,35 +1326,51 @@ pre code {
         <tbody>
             
             <tr>
-                <td><code>variant</code></td>
-                <td><code>enum</code></td>
-                <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
-            </tr>
-            
-            <tr>
-                <td><code>disabled</code></td>
+                <td><code>open</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Whether the snackbar is visible</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
+                <td><code>message</code></td>
+                <td><code>string</code></td>
+                <td>Yes</td>
                 <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
+                <td>The message text to display</td>
             </tr>
             
             <tr>
-                <td><code>trailingIcon</code></td>
+                <td><code>action</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Text for the action button</td>
+            </tr>
+            
+            <tr>
+                <td><code>closeOnAction</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td><code>true</code></td>
+                <td>Close snackbar when action is clicked</td>
+            </tr>
+            
+            <tr>
+                <td><code>timeout</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td><code>5000</code></td>
+                <td>Duration in ms before auto-dismiss (0 = no auto-dismiss)</td>
+            </tr>
+            
+            <tr>
+                <td><code>stacked</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Stack action below message for longer text</td>
             </tr>
             
         </tbody>
@@ -1380,28 +1384,23 @@ pre code {
     <div class="states-grid">
         
         <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
+            <h4>hidden</h4>
+            <p>Snackbar is not visible</p>
         </div>
         
         <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
+            <h4>entering</h4>
+            <p>Snackbar is animating in</p>
         </div>
         
         <div class="state-card">
-            <h4>hovered</h4>
-            <p>Mouse hover state</p>
+            <h4>visible</h4>
+            <p>Snackbar is displayed</p>
         </div>
         
         <div class="state-card">
-            <h4>focused</h4>
-            <p>Keyboard focus state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>pressed</h4>
-            <p>Active/pressed state</p>
+            <h4>exiting</h4>
+            <p>Snackbar is animating out</p>
         </div>
         
     </div>
@@ -1414,7 +1413,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>status</code>
         </div>
         
         
@@ -1422,16 +1421,18 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>Tab</kbd> - Focus action button if present</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>Enter/Space</kbd> - Activate action button</li>
+                
+                <li><kbd>Escape</kbd> - Dismiss snackbar</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Use role=&#34;status&#34; and aria-live=&#34;polite&#34; for non-critical messages. Use aria-live=&#34;assertive&#34; only for critical messages.
         </div>
         
     </div>
@@ -1444,7 +1445,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Provide brief, non-blocking feedback about operations
         </div>
         
         
@@ -1452,13 +1453,15 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Multiple snackbars at once</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Critical errors in snackbar</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Very long messages</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Required actions in snackbar</li>
+                
+                <li>Snackbar without timeout (except for error recovery)</li>
                 
             </ul>
         </div>
@@ -1467,11 +1470,11 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-snackbar message=&#34;Message sent&#34; open&gt;&lt;/md-snackbar&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-snackbar message=&#34;Item deleted&#34; action=&#34;Undo&#34;&gt;&lt;/md-snackbar&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-snackbar message=&#34;Connection restored. Your data has been synced.&#34; stacked action=&#34;OK&#34;&gt;&lt;/md-snackbar&gt;</code></pre>
             
         </div>
         

@@ -1,0 +1,88 @@
+{
+  "id": "navigationrail",
+  "name": "Navigation Rail",
+  "description": "Navigation rails provide access to primary destinations in apps when using tablet and desktop screens.",
+  "category": "navigation",
+  "documentationUrl": "https://m3.material.io/components/navigation-rail/overview",
+  "variants": [],
+  "states": [],
+  "props": [
+    {
+      "name": "alignment",
+      "type": "enum",
+      "description": "Vertical alignment of navigation items",
+      "default": "start",
+      "enumValues": ["start", "center", "end"]
+    }
+  ],
+  "events": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Navigation items (3-7 destinations)",
+      "required": true
+    },
+    {
+      "name": "fab",
+      "description": "Optional FAB at the top"
+    },
+    {
+      "name": "menu",
+      "description": "Optional menu icon"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-sys-color-secondary-container",
+    "md-sys-color-on-secondary-container",
+    "md-navigation-rail-container-color",
+    "md-navigation-rail-container-shape",
+    "md-navigation-rail-active-indicator-color",
+    "md-navigation-rail-label-text-font"
+  ],
+  "accessibility": {
+    "role": "navigation",
+    "requiredAttributes": ["aria-label", "role=\"navigation\""],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move focus to rail"},
+      {"key": "ArrowUp/Down", "action": "Navigate between items"},
+      {"key": "Enter/Space", "action": "Activate item"}
+    ],
+    "screenReaderNotes": "Rail should have aria-label. Active item should have aria-current=\"page\". Items need accessible labels.",
+    "focusManagement": "Arrow keys navigate between items. Tab moves focus out."
+  },
+  "constraints": {
+    "width": "80px",
+    "responsiveBehavior": "Shows on medium screens (600-1240dp). Use drawer on large, bar on small."
+  },
+  "llm": {
+    "intent": "Provide compact primary navigation on tablet and desktop",
+    "allowedContexts": [
+      "Primary navigation on medium screens",
+      "Apps with 3-7 main destinations",
+      "Alongside content area"
+    ],
+    "forbiddenContexts": [
+      "Mobile screens (use navigation bar)",
+      "Large screens with space (use drawer)",
+      "More than 7 destinations"
+    ],
+    "dependencies": ["icon", "fab"],
+    "exampleUsage": [
+      "<md-navigation-rail><md-navigation-rail-item active><md-icon slot=\"icon\">home</md-icon>Home</md-navigation-rail-item><md-navigation-rail-item><md-icon slot=\"icon\">search</md-icon>Search</md-navigation-rail-item></md-navigation-rail>",
+      "<md-navigation-rail><md-fab slot=\"fab\"><md-icon slot=\"icon\">add</md-icon></md-fab><md-navigation-rail-item active>Inbox</md-navigation-rail-item></md-navigation-rail>"
+    ],
+    "antiPatterns": [
+      "Rail without aria-label",
+      "More than 7 destinations",
+      "Using rail on mobile",
+      "Items without icons"
+    ],
+    "semanticMeaning": "Compact side navigation for medium-sized screens",
+    "relatedElements": ["navigationdrawer", "navigationbar"],
+    "priorityScore": 75,
+    "tags": ["navigation", "rail", "sidebar", "tablet"]
+  }
+}

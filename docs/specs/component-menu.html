@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1235,7 +1235,7 @@ pre code {
                         
                         <li><a href="component-list.html" >List</a></li>
                         
-                        <li><a href="component-menu.html" >Menu</a></li>
+                        <li><a href="component-menu.html" class="active">Menu</a></li>
                         
                         <li><a href="component-navigationbar.html" >Navigation Bar</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Menu
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Menu</h1>
+    <span class="badge large">navigation</span>
+    <p class="description">Menus display a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.</p>
 </div>
 
 
@@ -1289,33 +1289,21 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Basic Menu</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Standard dropdown menu</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Outlined</h4>
+            <h4>Submenu</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
+            <p>Nested menu with cascading items</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Text</h4>
+            <h4>Context Menu</h4>
             
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Menu triggered by right-click or long-press</p>
         </div>
         
     </div>
@@ -1338,35 +1326,83 @@ pre code {
         <tbody>
             
             <tr>
-                <td><code>variant</code></td>
+                <td><code>open</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Whether the menu is open</td>
+            </tr>
+            
+            <tr>
+                <td><code>anchor</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>ID of the element to anchor the menu to</td>
+            </tr>
+            
+            <tr>
+                <td><code>positioning</code></td>
                 <td><code>enum</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td><code>absolute</code></td>
+                <td>Positioning strategy for the menu</td>
             </tr>
             
             <tr>
-                <td><code>disabled</code></td>
+                <td><code>quick</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Skip opening and closing animations</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
+                <td><code>hasOverflow</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Allow overflow for submenus</td>
+            </tr>
+            
+            <tr>
+                <td><code>anchorCorner</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td><code>end-start</code></td>
+                <td>Corner of anchor to align menu to</td>
+            </tr>
+            
+            <tr>
+                <td><code>menuCorner</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td><code>start-start</code></td>
+                <td>Corner of menu to align with anchor</td>
+            </tr>
+            
+            <tr>
+                <td><code>stayOpenOnOutsideClick</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Keep menu open when clicking outside</td>
+            </tr>
+            
+            <tr>
+                <td><code>stayOpenOnFocusout</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Keep menu open when focus leaves</td>
+            </tr>
+            
+            <tr>
+                <td><code>typeaheadDelay</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td><code>200</code></td>
+                <td>Delay before clearing typeahead buffer</td>
             </tr>
             
         </tbody>
@@ -1380,28 +1416,23 @@ pre code {
     <div class="states-grid">
         
         <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
+            <h4>closed</h4>
+            <p>Menu is not visible</p>
         </div>
         
         <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
+            <h4>opening</h4>
+            <p>Menu is animating open</p>
         </div>
         
         <div class="state-card">
-            <h4>hovered</h4>
-            <p>Mouse hover state</p>
+            <h4>open</h4>
+            <p>Menu is visible</p>
         </div>
         
         <div class="state-card">
-            <h4>focused</h4>
-            <p>Keyboard focus state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>pressed</h4>
-            <p>Active/pressed state</p>
+            <h4>closing</h4>
+            <p>Menu is animating closed</p>
         </div>
         
     </div>
@@ -1414,7 +1445,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>menu</code>
         </div>
         
         
@@ -1422,16 +1453,30 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>ArrowDown</kbd> - Move to next item</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>ArrowUp</kbd> - Move to previous item</li>
+                
+                <li><kbd>ArrowRight</kbd> - Open submenu</li>
+                
+                <li><kbd>ArrowLeft</kbd> - Close submenu</li>
+                
+                <li><kbd>Enter/Space</kbd> - Activate item</li>
+                
+                <li><kbd>Escape</kbd> - Close menu</li>
+                
+                <li><kbd>Home</kbd> - Move to first item</li>
+                
+                <li><kbd>End</kbd> - Move to last item</li>
+                
+                <li><kbd>Character</kbd> - Typeahead to matching item</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Menu container should have aria-label. Items use role=&#34;menuitem&#34;. Use role=&#34;separator&#34; for dividers.
         </div>
         
     </div>
@@ -1444,7 +1489,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Display a temporary list of actions or options
         </div>
         
         
@@ -1452,13 +1497,15 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Menu without anchor element</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Menu without aria-label</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Too many menu items (more than 10-12)</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Nested submenus more than 2 levels deep</li>
+                
+                <li>Menu that doesn&#39;t close on item selection</li>
                 
             </ul>
         </div>
@@ -1467,11 +1514,9 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;span style=&#34;position:relative&#34;&gt;&lt;md-icon-button id=&#34;anchor&#34;&gt;&lt;md-icon&gt;more_vert&lt;/md-icon&gt;&lt;/md-icon-button&gt;&lt;md-menu anchor=&#34;anchor&#34;&gt;&lt;md-menu-item&gt;&lt;div slot=&#34;headline&#34;&gt;Edit&lt;/div&gt;&lt;/md-menu-item&gt;&lt;md-menu-item&gt;&lt;div slot=&#34;headline&#34;&gt;Delete&lt;/div&gt;&lt;/md-menu-item&gt;&lt;/md-menu&gt;&lt;/span&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
-            
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-menu positioning=&#34;popover&#34; anchor=&#34;btn&#34;&gt;&lt;md-menu-item&gt;&lt;div slot=&#34;headline&#34;&gt;Option 1&lt;/div&gt;&lt;/md-menu-item&gt;&lt;/md-menu&gt;</code></pre>
             
         </div>
         

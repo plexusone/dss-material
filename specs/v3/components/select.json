@@ -1,0 +1,183 @@
+{
+  "id": "select",
+  "name": "Select",
+  "description": "Select menus display a list of choices in a dropdown, allowing users to make a single selection from the options.",
+  "category": "input",
+  "documentationUrl": "https://m3.material.io/components/menus/guidelines#eb4481d9-66a1-4b4b-a2f6-1e35cbe4a4e4",
+  "variants": [
+    {
+      "id": "filled",
+      "name": "Filled",
+      "description": "Select with filled background",
+      "isDefault": true
+    },
+    {
+      "id": "outlined",
+      "name": "Outlined",
+      "description": "Select with outlined border"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default interactive state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "error", "name": "Error", "description": "Validation error state"},
+    {"id": "open", "name": "Open", "description": "Dropdown menu is open"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Visual style of the select",
+      "default": "filled",
+      "enumValues": ["filled", "outlined"]
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The floating label text"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The currently selected value"
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the select is disabled",
+      "default": false
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "Whether selection is required",
+      "default": false
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "description": "Whether the select is in error state",
+      "default": false
+    },
+    {
+      "name": "errorText",
+      "type": "string",
+      "description": "Error message to display"
+    },
+    {
+      "name": "supportingText",
+      "type": "string",
+      "description": "Helper text below the select"
+    },
+    {
+      "name": "quick",
+      "type": "boolean",
+      "description": "Skip menu animations",
+      "default": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The HTML name for form submission"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Fired when the selected value changes",
+      "bubbles": true
+    },
+    {
+      "name": "input",
+      "description": "Fired on value change",
+      "bubbles": true
+    },
+    {
+      "name": "opening",
+      "description": "Fired when dropdown starts opening"
+    },
+    {
+      "name": "opened",
+      "description": "Fired when dropdown is fully open"
+    },
+    {
+      "name": "closing",
+      "description": "Fired when dropdown starts closing"
+    },
+    {
+      "name": "closed",
+      "description": "Fired when dropdown is fully closed"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Select options",
+      "required": true
+    },
+    {
+      "name": "leading-icon",
+      "description": "Icon before the selected text"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-sys-color-error",
+    "md-filled-select-text-field-container-color",
+    "md-filled-select-text-field-container-shape",
+    "md-filled-select-text-field-input-text-font",
+    "md-outlined-select-text-field-container-shape",
+    "md-outlined-select-text-field-outline-color"
+  ],
+  "accessibility": {
+    "role": "combobox",
+    "requiredAttributes": ["aria-label (when no visible label)", "aria-expanded", "aria-controls"],
+    "keyboardSupport": [
+      {"key": "Enter/Space", "action": "Open dropdown"},
+      {"key": "ArrowDown", "action": "Open dropdown or move to next option"},
+      {"key": "ArrowUp", "action": "Move to previous option"},
+      {"key": "Home", "action": "Move to first option"},
+      {"key": "End", "action": "Move to last option"},
+      {"key": "Escape", "action": "Close dropdown"},
+      {"key": "Character", "action": "Type-ahead selection"}
+    ],
+    "screenReaderNotes": "Announce label, selected value, and expanded state. Options should be announced when navigated.",
+    "focusManagement": "Focus stays on select element. Arrow keys navigate options within open dropdown."
+  },
+  "constraints": {
+    "minWidth": "112px",
+    "responsiveBehavior": "Adapts to container width"
+  },
+  "llm": {
+    "intent": "Allow single selection from a dropdown list of options",
+    "allowedContexts": [
+      "Form inputs with many options",
+      "Settings with predefined values",
+      "Filtering with single selection",
+      "Category selection"
+    ],
+    "forbiddenContexts": [
+      "Binary options (use switch or radio)",
+      "3 or fewer options (consider radio buttons)",
+      "Multiple selection (use checkboxes)"
+    ],
+    "dependencies": ["menu"],
+    "exampleUsage": [
+      "<md-filled-select label=\"Country\"><md-select-option value=\"us\">United States</md-select-option><md-select-option value=\"ca\">Canada</md-select-option></md-filled-select>",
+      "<md-outlined-select label=\"Size\" required><md-select-option value=\"s\">Small</md-select-option><md-select-option value=\"m\">Medium</md-select-option></md-outlined-select>"
+    ],
+    "antiPatterns": [
+      "Select without label",
+      "Select for very few options (use radio)",
+      "Select for binary choice (use switch)",
+      "Placeholder as only label"
+    ],
+    "semanticMeaning": "Single selection dropdown input",
+    "relatedElements": ["menu", "radio", "textfield"],
+    "priorityScore": 85,
+    "tags": ["input", "form", "selection", "dropdown", "interactive"]
+  }
+}

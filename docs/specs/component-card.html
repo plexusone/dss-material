@@ -1215,9 +1215,9 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
-                        <li><a href="component-card.html" >Card</a></li>
+                        <li><a href="component-card.html" class="active">Card</a></li>
                         
                         <li><a href="component-checkbox.html" >Checkbox</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Card
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Card</h1>
+    <span class="badge large">containment</span>
+    <p class="description">Cards contain content and actions about a single subject. They are surfaces that display content and actions on a single topic.</p>
 </div>
 
 
@@ -1289,33 +1289,21 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Elevated</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Card with shadow elevation</p>
+        </div>
+        
+        <div class="variant-card ">
+            <h4>Filled</h4>
+            
+            <p>Card with filled background, no shadow</p>
         </div>
         
         <div class="variant-card ">
             <h4>Outlined</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Text</h4>
-            
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Card with outline border, no shadow</p>
         </div>
         
     </div>
@@ -1341,32 +1329,24 @@ pre code {
                 <td><code>variant</code></td>
                 <td><code>enum</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td><code>elevated</code></td>
+                <td>Visual style of the card</td>
             </tr>
             
             <tr>
-                <td><code>disabled</code></td>
+                <td><code>clickable</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Whether the entire card is clickable</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
+                <td><code>draggable</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Whether the card can be dragged</td>
             </tr>
             
         </tbody>
@@ -1381,27 +1361,27 @@ pre code {
         
         <div class="state-card">
             <h4>enabled</h4>
-            <p>Default interactive state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
+            <p>Default state</p>
         </div>
         
         <div class="state-card">
             <h4>hovered</h4>
-            <p>Mouse hover state</p>
+            <p>Mouse hover state (interactive cards)</p>
         </div>
         
         <div class="state-card">
             <h4>focused</h4>
-            <p>Keyboard focus state</p>
+            <p>Keyboard focus state (interactive cards)</p>
         </div>
         
         <div class="state-card">
             <h4>pressed</h4>
-            <p>Active/pressed state</p>
+            <p>Active/pressed state (interactive cards)</p>
+        </div>
+        
+        <div class="state-card">
+            <h4>dragged</h4>
+            <p>Being dragged (draggable cards)</p>
         </div>
         
     </div>
@@ -1414,7 +1394,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>article (content) or button (clickable)</code>
         </div>
         
         
@@ -1422,16 +1402,16 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>Tab</kbd> - Move focus to card (clickable) or first focusable element</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>Enter/Space</kbd> - Activate clickable card</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Use role=&#34;article&#34; for content cards. Clickable cards should be role=&#34;button&#34; or use a button/link inside. Ensure card content is accessible.
         </div>
         
     </div>
@@ -1444,7 +1424,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Group related content and actions about a single subject
         </div>
         
         
@@ -1452,13 +1432,13 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Cards with too much content</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Clickable cards with too many internal actions</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Cards without clear visual hierarchy</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Using cards as general-purpose containers</li>
                 
             </ul>
         </div>
@@ -1467,11 +1447,11 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-elevated-card&gt;&lt;div slot=&#34;headline&#34;&gt;Card Title&lt;/div&gt;&lt;div slot=&#34;supporting-text&#34;&gt;Card content goes here.&lt;/div&gt;&lt;div slot=&#34;actions&#34;&gt;&lt;md-text-button&gt;Action&lt;/md-text-button&gt;&lt;/div&gt;&lt;/md-elevated-card&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-outlined-card clickable&gt;&lt;div slot=&#34;headline&#34;&gt;Clickable Card&lt;/div&gt;&lt;/md-outlined-card&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-filled-card&gt;&lt;img slot=&#34;media&#34; src=&#34;image.jpg&#34;&gt;&lt;div slot=&#34;headline&#34;&gt;Image Card&lt;/div&gt;&lt;/md-filled-card&gt;</code></pre>
             
         </div>
         

@@ -1,0 +1,114 @@
+{
+  "id": "radio",
+  "name": "Radio Button",
+  "description": "Radio buttons let people select one option from a set of options. Only one radio can be selected in a group at a time.",
+  "category": "selection",
+  "documentationUrl": "https://m3.material.io/components/radio-button/overview",
+  "variants": [],
+  "states": [
+    {"id": "unchecked", "name": "Unchecked", "description": "Default unselected state"},
+    {"id": "checked", "name": "Checked", "description": "Selected state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"}
+  ],
+  "props": [
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Whether the radio button is selected",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the radio button is disabled",
+      "default": false
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "Whether selection is required. If any radio in a group is required, all are implicitly required",
+      "default": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value submitted with the form when checked",
+      "default": "on"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The HTML name for form submission and grouping radios"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Fired when the radio state changes from user interaction",
+      "bubbles": true
+    },
+    {
+      "name": "input",
+      "description": "Fired when the radio receives input",
+      "bubbles": true
+    }
+  ],
+  "slots": [],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-surface-variant",
+    "md-radio-icon-color",
+    "md-radio-selected-icon-color",
+    "md-radio-icon-size"
+  ],
+  "accessibility": {
+    "role": "radio",
+    "requiredAttributes": ["aria-label (when no visible label)", "role=\"radiogroup\" (on parent container)"],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move focus to/from the radio group"},
+      {"key": "ArrowUp/ArrowDown", "action": "Move selection within vertical radio group"},
+      {"key": "ArrowLeft/ArrowRight", "action": "Move selection within horizontal radio group"},
+      {"key": "Space", "action": "Select the focused radio"}
+    ],
+    "screenReaderNotes": "Place radios inside role=\"radiogroup\" with aria-label or aria-labelledby. Each radio needs aria-label. Do not wrap radios inside label elements.",
+    "focusManagement": "Arrow keys move focus and selection within the group. Only the selected radio or first radio receives Tab focus."
+  },
+  "constraints": {
+    "minWidth": "48px",
+    "minHeight": "48px",
+    "responsiveBehavior": "Touch target maintains minimum 48x48px"
+  },
+  "llm": {
+    "intent": "Select one option from a mutually exclusive set",
+    "allowedContexts": [
+      "Forms requiring single selection",
+      "Settings with mutually exclusive options",
+      "Survey questions with single answer"
+    ],
+    "forbiddenContexts": [
+      "Multiple selection (use checkbox)",
+      "Binary toggle (use switch or checkbox)",
+      "More than 5-7 options (use select)"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<div role=\"radiogroup\" aria-label=\"Size\"><md-radio name=\"size\" value=\"small\" aria-label=\"Small\"></md-radio><md-radio name=\"size\" value=\"large\" aria-label=\"Large\"></md-radio></div>",
+      "<md-radio name=\"agree\" value=\"yes\" checked aria-label=\"Yes\"></md-radio>",
+      "<md-radio id=\"opt-1\" name=\"option\" value=\"1\"></md-radio><label for=\"opt-1\">Option 1</label>"
+    ],
+    "antiPatterns": [
+      "Radio without aria-label",
+      "Radio group without radiogroup role",
+      "Wrapping radio inside label element",
+      "Using radio for multiple selections",
+      "Too many radio options (use select instead)"
+    ],
+    "semanticMeaning": "Single selection from mutually exclusive options",
+    "relatedElements": ["checkbox", "select"],
+    "priorityScore": 75,
+    "tags": ["selection", "form", "input", "interactive"]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "id": "menu",
+  "name": "Menu",
+  "description": "Menus display a list of choices on a temporary surface. They appear when users interact with a button, action, or other control.",
+  "category": "navigation",
+  "documentationUrl": "https://m3.material.io/components/menus/overview",
+  "variants": [
+    {
+      "id": "basic",
+      "name": "Basic Menu",
+      "description": "Standard dropdown menu",
+      "isDefault": true
+    },
+    {
+      "id": "submenu",
+      "name": "Submenu",
+      "description": "Nested menu with cascading items"
+    },
+    {
+      "id": "context",
+      "name": "Context Menu",
+      "description": "Menu triggered by right-click or long-press"
+    }
+  ],
+  "states": [
+    {"id": "closed", "name": "Closed", "description": "Menu is not visible"},
+    {"id": "opening", "name": "Opening", "description": "Menu is animating open"},
+    {"id": "open", "name": "Open", "description": "Menu is visible"},
+    {"id": "closing", "name": "Closing", "description": "Menu is animating closed"}
+  ],
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Whether the menu is open",
+      "default": false
+    },
+    {
+      "name": "anchor",
+      "type": "string",
+      "description": "ID of the element to anchor the menu to"
+    },
+    {
+      "name": "positioning",
+      "type": "enum",
+      "description": "Positioning strategy for the menu",
+      "default": "absolute",
+      "enumValues": ["absolute", "fixed", "document", "popover"]
+    },
+    {
+      "name": "quick",
+      "type": "boolean",
+      "description": "Skip opening and closing animations",
+      "default": false
+    },
+    {
+      "name": "hasOverflow",
+      "type": "boolean",
+      "description": "Allow overflow for submenus",
+      "default": false
+    },
+    {
+      "name": "anchorCorner",
+      "type": "string",
+      "description": "Corner of anchor to align menu to",
+      "default": "end-start"
+    },
+    {
+      "name": "menuCorner",
+      "type": "string",
+      "description": "Corner of menu to align with anchor",
+      "default": "start-start"
+    },
+    {
+      "name": "stayOpenOnOutsideClick",
+      "type": "boolean",
+      "description": "Keep menu open when clicking outside",
+      "default": false
+    },
+    {
+      "name": "stayOpenOnFocusout",
+      "type": "boolean",
+      "description": "Keep menu open when focus leaves",
+      "default": false
+    },
+    {
+      "name": "typeaheadDelay",
+      "type": "number",
+      "description": "Delay before clearing typeahead buffer",
+      "default": 200
+    }
+  ],
+  "events": [
+    {
+      "name": "opening",
+      "description": "Fired before the opening animation"
+    },
+    {
+      "name": "opened",
+      "description": "Fired after the menu is open"
+    },
+    {
+      "name": "closing",
+      "description": "Fired before the closing animation"
+    },
+    {
+      "name": "closed",
+      "description": "Fired after the menu is closed"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Menu items",
+      "required": true
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface-container",
+    "md-sys-color-on-surface",
+    "md-sys-color-secondary-container",
+    "md-menu-container-color",
+    "md-menu-container-shape",
+    "md-menu-item-container-color",
+    "md-menu-item-selected-container-color"
+  ],
+  "accessibility": {
+    "role": "menu",
+    "requiredAttributes": ["aria-label or aria-labelledby", "role=\"menuitem\" on items"],
+    "keyboardSupport": [
+      {"key": "ArrowDown", "action": "Move to next item"},
+      {"key": "ArrowUp", "action": "Move to previous item"},
+      {"key": "ArrowRight", "action": "Open submenu"},
+      {"key": "ArrowLeft", "action": "Close submenu"},
+      {"key": "Enter/Space", "action": "Activate item"},
+      {"key": "Escape", "action": "Close menu"},
+      {"key": "Home", "action": "Move to first item"},
+      {"key": "End", "action": "Move to last item"},
+      {"key": "Character", "action": "Typeahead to matching item"}
+    ],
+    "screenReaderNotes": "Menu container should have aria-label. Items use role=\"menuitem\". Use role=\"separator\" for dividers.",
+    "focusManagement": "Focus moves to first item on open. Arrow keys navigate. Focus returns to anchor on close."
+  },
+  "constraints": {
+    "minWidth": "112px",
+    "maxWidth": "280px",
+    "responsiveBehavior": "Adapts to viewport boundaries, flips position if needed"
+  },
+  "llm": {
+    "intent": "Display a temporary list of actions or options",
+    "allowedContexts": [
+      "Overflow menus (more actions)",
+      "Dropdown selections",
+      "Context menus",
+      "Action menus in toolbars",
+      "Navigation dropdowns"
+    ],
+    "forbiddenContexts": [
+      "Primary navigation (use navigation components)",
+      "Permanent action lists (use list)",
+      "Complex forms (use dialog)"
+    ],
+    "dependencies": ["iconbutton", "divider"],
+    "exampleUsage": [
+      "<span style=\"position:relative\"><md-icon-button id=\"anchor\"><md-icon>more_vert</md-icon></md-icon-button><md-menu anchor=\"anchor\"><md-menu-item><div slot=\"headline\">Edit</div></md-menu-item><md-menu-item><div slot=\"headline\">Delete</div></md-menu-item></md-menu></span>",
+      "<md-menu positioning=\"popover\" anchor=\"btn\"><md-menu-item><div slot=\"headline\">Option 1</div></md-menu-item></md-menu>"
+    ],
+    "antiPatterns": [
+      "Menu without anchor element",
+      "Menu without aria-label",
+      "Too many menu items (more than 10-12)",
+      "Nested submenus more than 2 levels deep",
+      "Menu that doesn't close on item selection"
+    ],
+    "semanticMeaning": "Temporary overlay surface for action or option selection",
+    "relatedElements": ["list", "select", "dialog"],
+    "priorityScore": 80,
+    "tags": ["navigation", "overlay", "actions", "interactive"]
+  }
+}

@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1229,7 +1229,7 @@ pre code {
                         
                         <li><a href="component-fab.html" >Floating Action Button</a></li>
                         
-                        <li><a href="component-icon.html" >Icon</a></li>
+                        <li><a href="component-icon.html" class="active">Icon</a></li>
                         
                         <li><a href="component-iconbutton.html" >Icon Button</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Icon
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Icon</h1>
+    <span class="badge large">communication</span>
+    <p class="description">Icons communicate meaning through visual symbols. Material Symbols provide a set of over 2,500 glyphs in variable font format.</p>
 </div>
 
 
@@ -1289,33 +1289,21 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
-            <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
-        </div>
-        
-        <div class="variant-card ">
             <h4>Outlined</h4>
-            
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
+            <span class="badge">Default</span>
+            <p>Icon with outlined strokes</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Text</h4>
+            <h4>Rounded</h4>
             
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
+            <p>Icon with rounded corners</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Elevated</h4>
+            <h4>Sharp</h4>
             
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Icon with sharp corners</p>
         </div>
         
     </div>
@@ -1338,35 +1326,43 @@ pre code {
         <tbody>
             
             <tr>
-                <td><code>variant</code></td>
-                <td><code>enum</code></td>
+                <td><code>name</code></td>
+                <td><code>string</code></td>
                 <td>-</td>
+                <td>-</td>
+                <td>The icon name from Material Symbols</td>
+            </tr>
+            
+            <tr>
                 <td><code>filled</code></td>
-                <td>Visual style of the button</td>
-            </tr>
-            
-            <tr>
-                <td><code>disabled</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Use filled variant of the icon</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
+                <td><code>weight</code></td>
+                <td><code>number</code></td>
                 <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
+                <td><code>400</code></td>
+                <td>Icon weight from 100 to 700</td>
             </tr>
             
             <tr>
-                <td><code>trailingIcon</code></td>
-                <td><code>boolean</code></td>
+                <td><code>grade</code></td>
+                <td><code>number</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Icon grade from -25 to 200</td>
+            </tr>
+            
+            <tr>
+                <td><code>opticalSize</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td><code>24</code></td>
+                <td>Optical size from 20 to 48</td>
             </tr>
             
         </tbody>
@@ -1375,38 +1371,6 @@ pre code {
 
 
 
-<section class="section">
-    <h2>States</h2>
-    <div class="states-grid">
-        
-        <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>hovered</h4>
-            <p>Mouse hover state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>focused</h4>
-            <p>Keyboard focus state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>pressed</h4>
-            <p>Active/pressed state</p>
-        </div>
-        
-    </div>
-</section>
-
 
 
 <section class="section">
@@ -1414,24 +1378,13 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>img (decorative) or aria-hidden=&#34;true&#34;</code>
         </div>
         
         
-        <div class="a11y-item">
-            <strong>Keyboard Support:</strong>
-            <ul>
-                
-                <li><kbd>Enter</kbd> - Activate the button</li>
-                
-                <li><kbd>Space</kbd> - Activate the button</li>
-                
-            </ul>
-        </div>
-        
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Decorative icons should use aria-hidden=&#34;true&#34;. Icons conveying meaning need aria-label. Icons within buttons/links are typically decorative.
         </div>
         
     </div>
@@ -1444,7 +1397,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Provide visual symbols to communicate meaning
         </div>
         
         
@@ -1452,13 +1405,13 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Icon without aria-hidden or aria-label</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Using icon alone without text for critical actions</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Non-standard icons without labels</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Too many icons overwhelming the interface</li>
                 
             </ul>
         </div>
@@ -1467,11 +1420,11 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-icon&gt;home&lt;/md-icon&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-icon&gt;favorite&lt;/md-icon&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-icon filled&gt;star&lt;/md-icon&gt;</code></pre>
             
         </div>
         

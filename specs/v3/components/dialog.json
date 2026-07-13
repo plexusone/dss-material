@@ -1,0 +1,157 @@
+{
+  "id": "dialog",
+  "name": "Dialog",
+  "description": "Dialogs provide important prompts in a user flow. They can require an action, communicate information, or help users accomplish a task.",
+  "category": "containment",
+  "documentationUrl": "https://m3.material.io/components/dialogs/overview",
+  "variants": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "description": "Standard dialog with headline, content, and actions",
+      "isDefault": true
+    },
+    {
+      "id": "alert",
+      "name": "Alert",
+      "description": "Alert dialog requiring user acknowledgment or decision"
+    },
+    {
+      "id": "fullscreen",
+      "name": "Full-screen",
+      "description": "Dialog that covers the entire screen on mobile"
+    }
+  ],
+  "states": [
+    {"id": "closed", "name": "Closed", "description": "Dialog is not visible"},
+    {"id": "opening", "name": "Opening", "description": "Dialog is animating open"},
+    {"id": "open", "name": "Open", "description": "Dialog is visible and interactive"},
+    {"id": "closing", "name": "Closing", "description": "Dialog is animating closed"}
+  ],
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Whether the dialog is open",
+      "default": false
+    },
+    {
+      "name": "type",
+      "type": "enum",
+      "description": "The type of dialog for accessibility",
+      "enumValues": ["dialog", "alert"]
+    },
+    {
+      "name": "quick",
+      "type": "boolean",
+      "description": "Skips opening and closing animations",
+      "default": false
+    },
+    {
+      "name": "noFocusTrap",
+      "type": "boolean",
+      "description": "Disables focus trapping within the dialog",
+      "default": false
+    },
+    {
+      "name": "returnValue",
+      "type": "string",
+      "description": "The value returned when the dialog closes"
+    }
+  ],
+  "events": [
+    {
+      "name": "open",
+      "description": "Fired when the dialog starts opening"
+    },
+    {
+      "name": "opened",
+      "description": "Fired when the dialog has finished opening"
+    },
+    {
+      "name": "close",
+      "description": "Fired when the dialog starts closing"
+    },
+    {
+      "name": "closed",
+      "description": "Fired when the dialog has finished closing"
+    },
+    {
+      "name": "cancel",
+      "description": "Fired when dialog is dismissed by scrim click or Escape"
+    }
+  ],
+  "slots": [
+    {
+      "name": "headline",
+      "description": "The dialog title"
+    },
+    {
+      "name": "content",
+      "description": "The main dialog content"
+    },
+    {
+      "name": "actions",
+      "description": "Action buttons at the bottom"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface-container-high",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-dialog-container-color",
+    "md-dialog-container-shape",
+    "md-dialog-headline-color",
+    "md-dialog-headline-font",
+    "md-dialog-supporting-text-color",
+    "md-dialog-supporting-text-font"
+  ],
+  "accessibility": {
+    "role": "dialog",
+    "requiredAttributes": ["aria-label (when no headline)", "type=\"alert\" for alert dialogs"],
+    "keyboardSupport": [
+      {"key": "Escape", "action": "Close the dialog"},
+      {"key": "Tab", "action": "Move focus within dialog (trapped by default)"},
+      {"key": "Enter", "action": "Activate focused button"}
+    ],
+    "screenReaderNotes": "Dialog is labelled by headline slot. Use aria-label when no headline is present. Set type=\"alert\" for important messages requiring action.",
+    "focusManagement": "Focus moves to first focusable element or element with autofocus. Focus is trapped within dialog. Returns to trigger element on close."
+  },
+  "constraints": {
+    "minWidth": "280px",
+    "maxWidth": "560px",
+    "responsiveBehavior": "Centered with margin. Full-screen variant on mobile breakpoints."
+  },
+  "llm": {
+    "intent": "Display important information requiring user attention or action",
+    "allowedContexts": [
+      "Confirmation before destructive actions",
+      "Error messages requiring acknowledgment",
+      "Complex forms or multi-step processes",
+      "Settings or configuration panels",
+      "Information that interrupts normal flow"
+    ],
+    "forbiddenContexts": [
+      "Non-critical notifications (use snackbar)",
+      "Inline form validation (use error states)",
+      "Permanent UI elements",
+      "Content that should remain visible"
+    ],
+    "dependencies": ["button"],
+    "exampleUsage": [
+      "<md-dialog><div slot=\"headline\">Confirm</div><div slot=\"content\">Are you sure?</div><div slot=\"actions\"><md-text-button>Cancel</md-text-button><md-filled-button>Confirm</md-filled-button></div></md-dialog>",
+      "<md-dialog type=\"alert\"><div slot=\"headline\">Error</div><div slot=\"content\">Operation failed.</div><div slot=\"actions\"><md-filled-button>OK</md-filled-button></div></md-dialog>"
+    ],
+    "antiPatterns": [
+      "Dialog without headline or aria-label",
+      "Alert dialog without type=\"alert\"",
+      "Using dialog for non-interruptive content",
+      "Multiple stacked dialogs",
+      "Dialog without clear dismiss action"
+    ],
+    "semanticMeaning": "Modal container for focused user interaction",
+    "relatedElements": ["button", "snackbar"],
+    "priorityScore": 85,
+    "tags": ["modal", "container", "overlay", "interactive"]
+  }
+}

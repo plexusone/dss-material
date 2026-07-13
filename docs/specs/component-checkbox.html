@@ -1215,11 +1215,11 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
-                        <li><a href="component-checkbox.html" >Checkbox</a></li>
+                        <li><a href="component-checkbox.html" class="active">Checkbox</a></li>
                         
                         <li><a href="component-chips.html" >Chips</a></li>
                         
@@ -1276,50 +1276,13 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Checkbox
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Checkbox</h1>
+    <span class="badge large">selection</span>
+    <p class="description">Checkboxes allow users to select one or more items from a set. Checkboxes can turn an option on or off.</p>
 </div>
 
-
-<section class="section">
-    <h2>Variants</h2>
-    <div class="variants-grid">
-        
-        <div class="variant-card default">
-            <h4>Filled</h4>
-            <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Outlined</h4>
-            
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Text</h4>
-            
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
-        </div>
-        
-    </div>
-</section>
 
 
 
@@ -1338,11 +1301,19 @@ pre code {
         <tbody>
             
             <tr>
-                <td><code>variant</code></td>
-                <td><code>enum</code></td>
+                <td><code>checked</code></td>
+                <td><code>boolean</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td>-</td>
+                <td>Whether or not the checkbox is selected</td>
+            </tr>
+            
+            <tr>
+                <td><code>indeterminate</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Whether or not the checkbox is in an indeterminate state</td>
             </tr>
             
             <tr>
@@ -1350,23 +1321,31 @@ pre code {
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Whether the checkbox is disabled</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
+                <td><code>required</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Whether the checkbox must be selected for form submission</td>
+            </tr>
+            
+            <tr>
+                <td><code>value</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td><code>on</code></td>
+                <td>The value submitted with the form when checked</td>
+            </tr>
+            
+            <tr>
+                <td><code>name</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>The HTML name for form submission</td>
             </tr>
             
         </tbody>
@@ -1380,8 +1359,18 @@ pre code {
     <div class="states-grid">
         
         <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
+            <h4>unchecked</h4>
+            <p>Default unselected state</p>
+        </div>
+        
+        <div class="state-card">
+            <h4>checked</h4>
+            <p>Selected state</p>
+        </div>
+        
+        <div class="state-card">
+            <h4>indeterminate</h4>
+            <p>Partially selected state for parent checkboxes</p>
         </div>
         
         <div class="state-card">
@@ -1414,7 +1403,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>checkbox</code>
         </div>
         
         
@@ -1422,16 +1411,16 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>Space</kbd> - Toggle the checkbox state</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>Tab</kbd> - Move focus to the checkbox</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Announce checkbox label, checked state, and indeterminate state. Always provide aria-label for checkboxes without visible labels.
         </div>
         
     </div>
@@ -1444,7 +1433,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Allow users to make binary or multiple selections from a list
         </div>
         
         
@@ -1452,13 +1441,13 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Checkbox without visible or accessible label</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Using checkbox for mutually exclusive options</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Checkbox for simple on/off toggle (use switch)</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Not using indeterminate state for parent checkboxes</li>
                 
             </ul>
         </div>
@@ -1467,11 +1456,13 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-checkbox&gt;&lt;/md-checkbox&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-checkbox checked&gt;&lt;/md-checkbox&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-checkbox indeterminate&gt;&lt;/md-checkbox&gt;</code></pre>
+            
+            <pre><code>&lt;label&gt;&lt;md-checkbox&gt;&lt;/md-checkbox&gt;Accept terms&lt;/label&gt;</code></pre>
             
         </div>
         

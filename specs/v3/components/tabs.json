@@ -1,0 +1,122 @@
+{
+  "id": "tabs",
+  "name": "Tabs",
+  "description": "Tabs organize groups of related content that are at the same level of hierarchy. They enable navigation between different views.",
+  "category": "navigation",
+  "documentationUrl": "https://m3.material.io/components/tabs/overview",
+  "variants": [
+    {
+      "id": "primary",
+      "name": "Primary",
+      "description": "Primary tabs at top of content pane under app bar",
+      "isDefault": true
+    },
+    {
+      "id": "secondary",
+      "name": "Secondary",
+      "description": "Secondary tabs within content area to further separate content"
+    }
+  ],
+  "states": [
+    {"id": "inactive", "name": "Inactive", "description": "Tab is not selected"},
+    {"id": "active", "name": "Active", "description": "Tab is currently selected"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Type of tabs",
+      "default": "primary",
+      "enumValues": ["primary", "secondary"]
+    },
+    {
+      "name": "autoActivate",
+      "type": "boolean",
+      "description": "Automatically select tab when focused",
+      "default": false
+    },
+    {
+      "name": "activeTabIndex",
+      "type": "number",
+      "description": "Index of the active tab"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Fired when the selected tab changes",
+      "bubbles": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Tab items (primary-tab or secondary-tab elements)",
+      "required": true
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-surface",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-primary-tab-container-color",
+    "md-primary-tab-container-shape",
+    "md-primary-tab-active-indicator-color",
+    "md-primary-tab-label-text-font",
+    "md-primary-tab-icon-color",
+    "md-secondary-tab-container-color",
+    "md-secondary-tab-active-indicator-color"
+  ],
+  "accessibility": {
+    "role": "tablist",
+    "requiredAttributes": ["aria-label", "aria-controls (on each tab)", "role=\"tabpanel\" (on content panels)"],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move focus into/out of tab list"},
+      {"key": "ArrowLeft", "action": "Move to previous tab"},
+      {"key": "ArrowRight", "action": "Move to next tab"},
+      {"key": "Home", "action": "Move to first tab"},
+      {"key": "End", "action": "Move to last tab"},
+      {"key": "Enter/Space", "action": "Activate focused tab"}
+    ],
+    "screenReaderNotes": "Tab bar needs aria-label. Each tab should reference its panel with aria-controls. Panels need role=\"tabpanel\" and aria-labelledby.",
+    "focusManagement": "Arrow keys move focus between tabs. Tab key moves focus out of tab bar."
+  },
+  "constraints": {
+    "responsiveBehavior": "Tabs may scroll horizontally on narrow screens"
+  },
+  "llm": {
+    "intent": "Navigate between related content views at the same hierarchy level",
+    "allowedContexts": [
+      "Top-level content organization",
+      "Switching between related data views",
+      "Segmenting content within a page",
+      "Category or type filtering"
+    ],
+    "forbiddenContexts": [
+      "Primary site navigation (use navigation rail/drawer)",
+      "Wizard steps (use stepper)",
+      "Unrelated content"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-tabs><md-primary-tab>Photos</md-primary-tab><md-primary-tab>Videos</md-primary-tab></md-tabs>",
+      "<md-tabs><md-primary-tab active>Music</md-primary-tab><md-primary-tab>Podcasts</md-primary-tab></md-tabs>",
+      "<md-tabs aria-label=\"Content type\"><md-secondary-tab>All</md-secondary-tab><md-secondary-tab>Favorites</md-secondary-tab></md-tabs>"
+    ],
+    "antiPatterns": [
+      "Tabs without aria-label on container",
+      "Tab panels without proper ARIA relationship",
+      "Too many tabs (more than 5-7)",
+      "Mixing primary and secondary tabs",
+      "Tabs for unrelated content"
+    ],
+    "semanticMeaning": "Tabbed navigation for organizing related content",
+    "relatedElements": ["navigation-drawer", "navigation-rail"],
+    "priorityScore": 80,
+    "tags": ["navigation", "tabs", "organization", "interactive"]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "id": "snackbar",
+  "name": "Snackbar",
+  "description": "Snackbars provide brief messages about app processes at the bottom of the screen. They automatically disappear after a timeout.",
+  "category": "communication",
+  "documentationUrl": "https://m3.material.io/components/snackbar/overview",
+  "variants": [
+    {
+      "id": "single-line",
+      "name": "Single Line",
+      "description": "Snackbar with single line message",
+      "isDefault": true
+    },
+    {
+      "id": "two-line",
+      "name": "Two Line",
+      "description": "Snackbar with wrapped message text"
+    },
+    {
+      "id": "with-action",
+      "name": "With Action",
+      "description": "Snackbar with action button"
+    }
+  ],
+  "states": [
+    {"id": "hidden", "name": "Hidden", "description": "Snackbar is not visible"},
+    {"id": "entering", "name": "Entering", "description": "Snackbar is animating in"},
+    {"id": "visible", "name": "Visible", "description": "Snackbar is displayed"},
+    {"id": "exiting", "name": "Exiting", "description": "Snackbar is animating out"}
+  ],
+  "props": [
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Whether the snackbar is visible",
+      "default": false
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "description": "The message text to display",
+      "required": true
+    },
+    {
+      "name": "action",
+      "type": "string",
+      "description": "Text for the action button"
+    },
+    {
+      "name": "closeOnAction",
+      "type": "boolean",
+      "description": "Close snackbar when action is clicked",
+      "default": true
+    },
+    {
+      "name": "timeout",
+      "type": "number",
+      "description": "Duration in ms before auto-dismiss (0 = no auto-dismiss)",
+      "default": 5000
+    },
+    {
+      "name": "stacked",
+      "type": "boolean",
+      "description": "Stack action below message for longer text",
+      "default": false
+    }
+  ],
+  "events": [
+    {
+      "name": "action",
+      "description": "Fired when the action button is clicked"
+    },
+    {
+      "name": "close",
+      "description": "Fired when the snackbar closes"
+    },
+    {
+      "name": "open",
+      "description": "Fired when the snackbar opens"
+    }
+  ],
+  "slots": [],
+  "tokensUsed": [
+    "md-sys-color-inverse-surface",
+    "md-sys-color-inverse-on-surface",
+    "md-sys-color-inverse-primary",
+    "md-snackbar-container-color",
+    "md-snackbar-container-shape",
+    "md-snackbar-supporting-text-color",
+    "md-snackbar-supporting-text-font",
+    "md-snackbar-action-label-text-color"
+  ],
+  "accessibility": {
+    "role": "status",
+    "requiredAttributes": ["role=\"status\"", "aria-live=\"polite\""],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Focus action button if present"},
+      {"key": "Enter/Space", "action": "Activate action button"},
+      {"key": "Escape", "action": "Dismiss snackbar"}
+    ],
+    "screenReaderNotes": "Use role=\"status\" and aria-live=\"polite\" for non-critical messages. Use aria-live=\"assertive\" only for critical messages.",
+    "focusManagement": "Focus should not automatically move to snackbar. Action button is focusable when present."
+  },
+  "constraints": {
+    "minWidth": "288px",
+    "maxWidth": "568px",
+    "responsiveBehavior": "Fixed to bottom of viewport. On mobile, spans full width minus margins."
+  },
+  "llm": {
+    "intent": "Provide brief, non-blocking feedback about operations",
+    "allowedContexts": [
+      "Success confirmation",
+      "Undo actions",
+      "Brief status updates",
+      "Non-critical notifications"
+    ],
+    "forbiddenContexts": [
+      "Critical errors (use dialog)",
+      "Messages requiring user action (use dialog)",
+      "Permanent notifications",
+      "Multiple simultaneous messages"
+    ],
+    "dependencies": ["button"],
+    "exampleUsage": [
+      "<md-snackbar message=\"Message sent\" open></md-snackbar>",
+      "<md-snackbar message=\"Item deleted\" action=\"Undo\"></md-snackbar>",
+      "<md-snackbar message=\"Connection restored. Your data has been synced.\" stacked action=\"OK\"></md-snackbar>"
+    ],
+    "antiPatterns": [
+      "Multiple snackbars at once",
+      "Critical errors in snackbar",
+      "Very long messages",
+      "Required actions in snackbar",
+      "Snackbar without timeout (except for error recovery)"
+    ],
+    "semanticMeaning": "Temporary notification for process feedback",
+    "relatedElements": ["dialog"],
+    "priorityScore": 70,
+    "tags": ["feedback", "notification", "temporary", "communication"]
+  }
+}

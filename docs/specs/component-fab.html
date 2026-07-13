@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1227,7 +1227,7 @@ pre code {
                         
                         <li><a href="component-divider.html" >Divider</a></li>
                         
-                        <li><a href="component-fab.html" >Floating Action Button</a></li>
+                        <li><a href="component-fab.html" class="active">Floating Action Button</a></li>
                         
                         <li><a href="component-icon.html" >Icon</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Floating Action Button
     </nav>
-    <h1>Button</h1>
+    <h1>Floating Action Button</h1>
     <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <p class="description">FABs represent the most important action on a screen. They put key actions within reach and are used for high-emphasis, primary actions.</p>
 </div>
 
 
@@ -1289,33 +1289,33 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Surface</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>FAB with surface container color</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Outlined</h4>
+            <h4>Primary</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
+            <p>FAB with primary color</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Text</h4>
+            <h4>Secondary</h4>
             
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
+            <p>FAB with secondary color</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Elevated</h4>
+            <h4>Tertiary</h4>
             
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
+            <p>FAB with tertiary color</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Tonal</h4>
+            <h4>Branded</h4>
             
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>FAB with branded logo icon</p>
         </div>
         
     </div>
@@ -1341,32 +1341,32 @@ pre code {
                 <td><code>variant</code></td>
                 <td><code>enum</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td><code>surface</code></td>
+                <td>Color variant of the FAB</td>
             </tr>
             
             <tr>
-                <td><code>disabled</code></td>
+                <td><code>size</code></td>
+                <td><code>enum</code></td>
+                <td>-</td>
+                <td><code>medium</code></td>
+                <td>Size of the FAB</td>
+            </tr>
+            
+            <tr>
+                <td><code>label</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Text label for extended FAB</td>
+            </tr>
+            
+            <tr>
+                <td><code>lowered</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
-            </tr>
-            
-            <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
-                <td><code>boolean</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Lowers the FAB elevation</td>
             </tr>
             
         </tbody>
@@ -1382,11 +1382,6 @@ pre code {
         <div class="state-card">
             <h4>enabled</h4>
             <p>Default interactive state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
         </div>
         
         <div class="state-card">
@@ -1422,16 +1417,18 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>Enter</kbd> - Activate the FAB</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>Space</kbd> - Activate the FAB</li>
+                
+                <li><kbd>Tab</kbd> - Move focus to/from the FAB</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Icon-only FABs require aria-label. Extended FABs with label attribute are announced automatically.
         </div>
         
     </div>
@@ -1444,7 +1441,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Provide quick access to the primary action on a screen
         </div>
         
         
@@ -1452,13 +1449,15 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Multiple FABs on the same screen</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>FAB without aria-label (icon-only)</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Using FAB for navigation</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>FAB for destructive actions</li>
+                
+                <li>FAB that covers important content</li>
                 
             </ul>
         </div>
@@ -1467,11 +1466,13 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-fab aria-label=&#34;Create&#34;&gt;&lt;md-icon slot=&#34;icon&#34;&gt;add&lt;/md-icon&gt;&lt;/md-fab&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-fab variant=&#34;primary&#34; aria-label=&#34;Compose&#34;&gt;&lt;md-icon slot=&#34;icon&#34;&gt;edit&lt;/md-icon&gt;&lt;/md-fab&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-fab label=&#34;Compose&#34; variant=&#34;primary&#34;&gt;&lt;md-icon slot=&#34;icon&#34;&gt;edit&lt;/md-icon&gt;&lt;/md-fab&gt;</code></pre>
+            
+            <pre><code>&lt;md-fab size=&#34;small&#34; lowered aria-label=&#34;Add&#34;&gt;&lt;md-icon slot=&#34;icon&#34;&gt;add&lt;/md-icon&gt;&lt;/md-fab&gt;</code></pre>
             
         </div>
         

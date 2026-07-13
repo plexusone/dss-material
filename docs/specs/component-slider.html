@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1249,7 +1249,7 @@ pre code {
                         
                         <li><a href="component-select.html" >Select</a></li>
                         
-                        <li><a href="component-slider.html" >Slider</a></li>
+                        <li><a href="component-slider.html" class="active">Slider</a></li>
                         
                         <li><a href="component-snackbar.html" >Snackbar</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Slider
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Slider</h1>
+    <span class="badge large">input</span>
+    <p class="description">Sliders allow users to view and select a value or range along a track. They are ideal for adjusting settings like volume, brightness, or applying filters.</p>
 </div>
 
 
@@ -1289,33 +1289,21 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Continuous</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Slider allowing any value within the range</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Outlined</h4>
+            <h4>Discrete</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
+            <p>Slider with specific step values and optional tick marks</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Text</h4>
+            <h4>Range</h4>
             
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Slider with two handles for selecting a range</p>
         </div>
         
     </div>
@@ -1338,11 +1326,75 @@ pre code {
         <tbody>
             
             <tr>
-                <td><code>variant</code></td>
-                <td><code>enum</code></td>
+                <td><code>value</code></td>
+                <td><code>number</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td>-</td>
+                <td>Current slider value (single slider)</td>
+            </tr>
+            
+            <tr>
+                <td><code>valueStart</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Start value for range slider</td>
+            </tr>
+            
+            <tr>
+                <td><code>valueEnd</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>End value for range slider</td>
+            </tr>
+            
+            <tr>
+                <td><code>min</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Minimum value</td>
+            </tr>
+            
+            <tr>
+                <td><code>max</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td><code>100</code></td>
+                <td>Maximum value</td>
+            </tr>
+            
+            <tr>
+                <td><code>step</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td><code>1</code></td>
+                <td>Step increment between values</td>
+            </tr>
+            
+            <tr>
+                <td><code>ticks</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Show tick marks at step intervals</td>
+            </tr>
+            
+            <tr>
+                <td><code>labeled</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Show value label when handle is active</td>
+            </tr>
+            
+            <tr>
+                <td><code>range</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Enable range selection with two handles</td>
             </tr>
             
             <tr>
@@ -1350,23 +1402,15 @@ pre code {
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Whether the slider is disabled</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
+                <td><code>name</code></td>
+                <td><code>string</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
-                <td><code>boolean</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>The HTML name for form submission</td>
             </tr>
             
         </tbody>
@@ -1400,8 +1444,8 @@ pre code {
         </div>
         
         <div class="state-card">
-            <h4>pressed</h4>
-            <p>Active/pressed state</p>
+            <h4>dragging</h4>
+            <p>Handle being dragged</p>
         </div>
         
     </div>
@@ -1414,7 +1458,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>slider</code>
         </div>
         
         
@@ -1422,16 +1466,24 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>ArrowRight/ArrowUp</kbd> - Increase value by step</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>ArrowLeft/ArrowDown</kbd> - Decrease value by step</li>
+                
+                <li><kbd>Home</kbd> - Set to minimum value</li>
+                
+                <li><kbd>End</kbd> - Set to maximum value</li>
+                
+                <li><kbd>PageUp</kbd> - Increase by larger amount</li>
+                
+                <li><kbd>PageDown</kbd> - Decrease by larger amount</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Provide aria-label describing what the slider controls. Use aria-valuetext for semantic value descriptions (e.g., &#39;Medium&#39; instead of &#39;50&#39;).
         </div>
         
     </div>
@@ -1444,7 +1496,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Allow users to select a value or range within a defined scale
         </div>
         
         
@@ -1452,13 +1504,13 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Slider without aria-label</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Using slider for binary options</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Slider requiring precise values (use text input)</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Too many discrete steps without visual feedback</li>
                 
             </ul>
         </div>
@@ -1467,11 +1519,13 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-slider aria-label=&#34;Volume&#34; value=&#34;50&#34;&gt;&lt;/md-slider&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-slider aria-label=&#34;Steps&#34; ticks step=&#34;10&#34; min=&#34;0&#34; max=&#34;100&#34;&gt;&lt;/md-slider&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-slider aria-label=&#34;Price range&#34; range value-start=&#34;20&#34; value-end=&#34;80&#34;&gt;&lt;/md-slider&gt;</code></pre>
+            
+            <pre><code>&lt;md-slider aria-label=&#34;Brightness&#34; labeled value=&#34;75&#34;&gt;&lt;/md-slider&gt;</code></pre>
             
         </div>
         

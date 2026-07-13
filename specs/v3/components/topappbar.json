@@ -1,0 +1,121 @@
+{
+  "id": "topappbar",
+  "name": "Top App Bar",
+  "description": "Top app bars display navigation, actions, and text at the top of the screen. They provide content and actions related to the current screen.",
+  "category": "navigation",
+  "documentationUrl": "https://m3.material.io/components/top-app-bar/overview",
+  "variants": [
+    {
+      "id": "small",
+      "name": "Small",
+      "description": "Standard height app bar",
+      "isDefault": true
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "description": "Taller app bar with larger title"
+    },
+    {
+      "id": "large",
+      "name": "Large",
+      "description": "Tallest app bar with expanded title area"
+    },
+    {
+      "id": "center-aligned",
+      "name": "Center-aligned",
+      "description": "App bar with centered title"
+    }
+  ],
+  "states": [
+    {"id": "flat", "name": "Flat", "description": "No elevation at top of content"},
+    {"id": "elevated", "name": "Elevated", "description": "Elevated when content scrolls beneath"},
+    {"id": "expanded", "name": "Expanded", "description": "Full height (medium/large)"},
+    {"id": "collapsed", "name": "Collapsed", "description": "Compressed on scroll (medium/large)"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Size and layout of the app bar",
+      "default": "small",
+      "enumValues": ["small", "medium", "large", "center-aligned"]
+    },
+    {
+      "name": "headline",
+      "type": "string",
+      "description": "The title text"
+    },
+    {
+      "name": "scrollTarget",
+      "type": "string",
+      "description": "Selector for scroll container to respond to"
+    }
+  ],
+  "events": [],
+  "slots": [
+    {
+      "name": "leading",
+      "description": "Leading navigation icon (menu or back)"
+    },
+    {
+      "name": "headline",
+      "description": "Title content"
+    },
+    {
+      "name": "trailing",
+      "description": "Trailing action icons"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface",
+    "md-sys-color-surface-container",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-top-app-bar-container-color",
+    "md-top-app-bar-container-shape",
+    "md-top-app-bar-headline-font",
+    "md-top-app-bar-on-scroll-container-elevation"
+  ],
+  "accessibility": {
+    "role": "banner",
+    "requiredAttributes": ["role=\"banner\""],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move between action buttons"}
+    ],
+    "screenReaderNotes": "App bar acts as page banner. Title should be descriptive. Leading icon should have aria-label.",
+    "focusManagement": "Action buttons are focusable in tab order."
+  },
+  "constraints": {
+    "height": "64px (small), 112px (medium), 152px (large)",
+    "responsiveBehavior": "Full width. Medium/large collapse on scroll."
+  },
+  "llm": {
+    "intent": "Provide consistent header with navigation and actions",
+    "allowedContexts": [
+      "Page headers",
+      "Screen navigation",
+      "Action toolbar",
+      "Search interface"
+    ],
+    "forbiddenContexts": [
+      "Modal dialogs (use dialog header)",
+      "Non-primary screens"
+    ],
+    "dependencies": ["iconbutton", "icon"],
+    "exampleUsage": [
+      "<md-top-app-bar headline=\"Page Title\"><md-icon-button slot=\"leading\" aria-label=\"Menu\"><md-icon>menu</md-icon></md-icon-button><md-icon-button slot=\"trailing\" aria-label=\"Search\"><md-icon>search</md-icon></md-icon-button></md-top-app-bar>",
+      "<md-top-app-bar variant=\"medium\" headline=\"Settings\"><md-icon-button slot=\"leading\" aria-label=\"Back\"><md-icon>arrow_back</md-icon></md-icon-button></md-top-app-bar>"
+    ],
+    "antiPatterns": [
+      "App bar without title or aria-label",
+      "Too many action icons (more than 3)",
+      "Large variant on small screens",
+      "Missing leading navigation"
+    ],
+    "semanticMeaning": "Page header with navigation and contextual actions",
+    "relatedElements": ["iconbutton", "navigationdrawer"],
+    "priorityScore": 90,
+    "tags": ["navigation", "header", "toolbar", "layout"]
+  }
+}

@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1253,7 +1253,7 @@ pre code {
                         
                         <li><a href="component-snackbar.html" >Snackbar</a></li>
                         
-                        <li><a href="component-switch.html" >Switch</a></li>
+                        <li><a href="component-switch.html" class="active">Switch</a></li>
                         
                         <li><a href="component-tabs.html" >Tabs</a></li>
                         
@@ -1276,50 +1276,13 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Switch
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Switch</h1>
+    <span class="badge large">selection</span>
+    <p class="description">Switches toggle the state of an item on or off. They are used for binary settings that take effect immediately.</p>
 </div>
 
-
-<section class="section">
-    <h2>Variants</h2>
-    <div class="variants-grid">
-        
-        <div class="variant-card default">
-            <h4>Filled</h4>
-            <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Outlined</h4>
-            
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Text</h4>
-            
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
-        </div>
-        
-    </div>
-</section>
 
 
 
@@ -1338,11 +1301,11 @@ pre code {
         <tbody>
             
             <tr>
-                <td><code>variant</code></td>
-                <td><code>enum</code></td>
+                <td><code>selected</code></td>
+                <td><code>boolean</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td>-</td>
+                <td>Whether the switch is in the selected (on) state</td>
             </tr>
             
             <tr>
@@ -1350,23 +1313,47 @@ pre code {
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>Whether the switch is disabled</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
+                <td><code>icons</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Shows both selected and deselected icons</td>
+            </tr>
+            
+            <tr>
+                <td><code>showOnlySelectedIcon</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Shows only the selected icon, not the deselected icon</td>
+            </tr>
+            
+            <tr>
+                <td><code>required</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Whether the switch must be selected for form submission</td>
+            </tr>
+            
+            <tr>
+                <td><code>value</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td><code>on</code></td>
+                <td>The value submitted with the form when selected</td>
+            </tr>
+            
+            <tr>
+                <td><code>name</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>The HTML name for form submission</td>
             </tr>
             
         </tbody>
@@ -1380,8 +1367,13 @@ pre code {
     <div class="states-grid">
         
         <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
+            <h4>unselected</h4>
+            <p>Default off state</p>
+        </div>
+        
+        <div class="state-card">
+            <h4>selected</h4>
+            <p>On state</p>
         </div>
         
         <div class="state-card">
@@ -1414,7 +1406,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>switch</code>
         </div>
         
         
@@ -1422,16 +1414,16 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
+                <li><kbd>Space</kbd> - Toggle the switch state</li>
                 
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>Tab</kbd> - Move focus to the switch</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Announce switch label and on/off state. Always provide aria-label for switches without visible labels.
         </div>
         
     </div>
@@ -1444,7 +1436,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Provide immediate binary toggle for settings and preferences
         </div>
         
         
@@ -1452,13 +1444,13 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Switch without visible or accessible label</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Switch for deferred actions (use checkbox in form)</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Using switch in a list where checkbox is more appropriate</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Multiple switches that are mutually exclusive</li>
                 
             </ul>
         </div>
@@ -1467,11 +1459,13 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-switch&gt;&lt;/md-switch&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-switch selected&gt;&lt;/md-switch&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-switch icons&gt;&lt;/md-switch&gt;</code></pre>
+            
+            <pre><code>&lt;label&gt;Wi-Fi&lt;md-switch selected&gt;&lt;/md-switch&gt;&lt;/label&gt;</code></pre>
             
         </div>
         

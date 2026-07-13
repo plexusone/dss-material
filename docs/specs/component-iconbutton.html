@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1231,7 +1231,7 @@ pre code {
                         
                         <li><a href="component-icon.html" >Icon</a></li>
                         
-                        <li><a href="component-iconbutton.html" >Icon Button</a></li>
+                        <li><a href="component-iconbutton.html" class="active">Icon Button</a></li>
                         
                         <li><a href="component-list.html" >List</a></li>
                         
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Icon Button
     </nav>
-    <h1>Button</h1>
+    <h1>Icon Button</h1>
     <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <p class="description">Icon buttons help people take supplementary actions with a single tap. They display an icon without a text label.</p>
 </div>
 
 
@@ -1289,33 +1289,27 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Standard</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Icon button without background, lowest emphasis</p>
+        </div>
+        
+        <div class="variant-card ">
+            <h4>Filled</h4>
+            
+            <p>Icon button with solid background, highest emphasis</p>
+        </div>
+        
+        <div class="variant-card ">
+            <h4>Filled Tonal</h4>
+            
+            <p>Icon button with tonal background, medium emphasis</p>
         </div>
         
         <div class="variant-card ">
             <h4>Outlined</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Text</h4>
-            
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Elevated</h4>
-            
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>Icon button with outline border, medium emphasis</p>
         </div>
         
     </div>
@@ -1341,8 +1335,8 @@ pre code {
                 <td><code>variant</code></td>
                 <td><code>enum</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td><code>standard</code></td>
+                <td>Visual style of the icon button</td>
             </tr>
             
             <tr>
@@ -1354,19 +1348,59 @@ pre code {
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
+                <td><code>softDisabled</code></td>
                 <td><code>boolean</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Disabled but still focusable for accessibility</td>
+            </tr>
+            
+            <tr>
+                <td><code>toggle</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Whether the button toggles between selected states</td>
+            </tr>
+            
+            <tr>
+                <td><code>selected</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Whether the toggle button is selected</td>
+            </tr>
+            
+            <tr>
+                <td><code>href</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>URL to navigate to, making the button a link</td>
+            </tr>
+            
+            <tr>
+                <td><code>target</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Link target attribute</td>
+            </tr>
+            
+            <tr>
+                <td><code>flipIconInRtl</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Flips the icon in RTL layouts</td>
+            </tr>
+            
+            <tr>
+                <td><code>ariaLabelSelected</code></td>
+                <td><code>string</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Aria label when toggle button is selected</td>
             </tr>
             
         </tbody>
@@ -1390,6 +1424,11 @@ pre code {
         </div>
         
         <div class="state-card">
+            <h4>soft-disabled</h4>
+            <p>Disabled but still focusable</p>
+        </div>
+        
+        <div class="state-card">
             <h4>hovered</h4>
             <p>Mouse hover state</p>
         </div>
@@ -1402,6 +1441,11 @@ pre code {
         <div class="state-card">
             <h4>pressed</h4>
             <p>Active/pressed state</p>
+        </div>
+        
+        <div class="state-card">
+            <h4>selected</h4>
+            <p>Toggle selected state</p>
         </div>
         
     </div>
@@ -1426,12 +1470,14 @@ pre code {
                 
                 <li><kbd>Space</kbd> - Activate the button</li>
                 
+                <li><kbd>Tab</kbd> - Move focus to/from the button</li>
+                
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> Always requires aria-label since there is no visible text. For toggle buttons, provide aria-label-selected for selected state.
         </div>
         
     </div>
@@ -1444,7 +1490,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Provide compact supplementary actions
         </div>
         
         
@@ -1452,13 +1498,13 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>Icon button without aria-label</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Using icon button for primary actions</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Icon that is not universally recognizable without label</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Too many icon buttons without grouping</li>
                 
             </ul>
         </div>
@@ -1467,11 +1513,11 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-icon-button aria-label=&#34;Search&#34;&gt;&lt;md-icon&gt;search&lt;/md-icon&gt;&lt;/md-icon-button&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-filled-icon-button aria-label=&#34;Add&#34;&gt;&lt;md-icon&gt;add&lt;/md-icon&gt;&lt;/md-filled-icon-button&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-icon-button toggle aria-label=&#34;Favorite&#34;&gt;&lt;md-icon&gt;favorite_border&lt;/md-icon&gt;&lt;md-icon slot=&#34;selected&#34;&gt;favorite&lt;/md-icon&gt;&lt;/md-icon-button&gt;</code></pre>
             
         </div>
         

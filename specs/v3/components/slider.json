@@ -1,0 +1,169 @@
+{
+  "id": "slider",
+  "name": "Slider",
+  "description": "Sliders allow users to view and select a value or range along a track. They are ideal for adjusting settings like volume, brightness, or applying filters.",
+  "category": "input",
+  "documentationUrl": "https://m3.material.io/components/sliders/overview",
+  "variants": [
+    {
+      "id": "continuous",
+      "name": "Continuous",
+      "description": "Slider allowing any value within the range",
+      "isDefault": true
+    },
+    {
+      "id": "discrete",
+      "name": "Discrete",
+      "description": "Slider with specific step values and optional tick marks"
+    },
+    {
+      "id": "range",
+      "name": "Range",
+      "description": "Slider with two handles for selecting a range"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default interactive state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "dragging", "name": "Dragging", "description": "Handle being dragged"}
+  ],
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "description": "Current slider value (single slider)"
+    },
+    {
+      "name": "valueStart",
+      "type": "number",
+      "description": "Start value for range slider"
+    },
+    {
+      "name": "valueEnd",
+      "type": "number",
+      "description": "End value for range slider"
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "description": "Minimum value",
+      "default": 0
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Maximum value",
+      "default": 100
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "description": "Step increment between values",
+      "default": 1
+    },
+    {
+      "name": "ticks",
+      "type": "boolean",
+      "description": "Show tick marks at step intervals",
+      "default": false
+    },
+    {
+      "name": "labeled",
+      "type": "boolean",
+      "description": "Show value label when handle is active",
+      "default": false
+    },
+    {
+      "name": "range",
+      "type": "boolean",
+      "description": "Enable range selection with two handles",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the slider is disabled",
+      "default": false
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The HTML name for form submission"
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "description": "Fired continuously as the value changes",
+      "bubbles": true
+    },
+    {
+      "name": "change",
+      "description": "Fired when the value changes and interaction ends",
+      "bubbles": true
+    }
+  ],
+  "slots": [],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-surface-container-highest",
+    "md-slider-active-track-color",
+    "md-slider-active-track-shape",
+    "md-slider-inactive-track-color",
+    "md-slider-inactive-track-shape",
+    "md-slider-handle-color",
+    "md-slider-handle-shape"
+  ],
+  "accessibility": {
+    "role": "slider",
+    "requiredAttributes": ["aria-label", "aria-valuenow", "aria-valuemin", "aria-valuemax", "aria-valuetext (when appropriate)"],
+    "keyboardSupport": [
+      {"key": "ArrowRight/ArrowUp", "action": "Increase value by step"},
+      {"key": "ArrowLeft/ArrowDown", "action": "Decrease value by step"},
+      {"key": "Home", "action": "Set to minimum value"},
+      {"key": "End", "action": "Set to maximum value"},
+      {"key": "PageUp", "action": "Increase by larger amount"},
+      {"key": "PageDown", "action": "Decrease by larger amount"}
+    ],
+    "screenReaderNotes": "Provide aria-label describing what the slider controls. Use aria-valuetext for semantic value descriptions (e.g., 'Medium' instead of '50').",
+    "focusManagement": "Receives focus in tab order. For range sliders, both handles are focusable."
+  },
+  "constraints": {
+    "minWidth": "200px",
+    "responsiveBehavior": "Stretches to container width"
+  },
+  "llm": {
+    "intent": "Allow users to select a value or range within a defined scale",
+    "allowedContexts": [
+      "Volume control",
+      "Brightness adjustment",
+      "Price range filtering",
+      "Image editing (opacity, saturation)",
+      "Time range selection"
+    ],
+    "forbiddenContexts": [
+      "Precise numeric input (use text field)",
+      "Binary selection (use switch)",
+      "Displaying progress (use progress indicator)"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-slider aria-label=\"Volume\" value=\"50\"></md-slider>",
+      "<md-slider aria-label=\"Steps\" ticks step=\"10\" min=\"0\" max=\"100\"></md-slider>",
+      "<md-slider aria-label=\"Price range\" range value-start=\"20\" value-end=\"80\"></md-slider>",
+      "<md-slider aria-label=\"Brightness\" labeled value=\"75\"></md-slider>"
+    ],
+    "antiPatterns": [
+      "Slider without aria-label",
+      "Using slider for binary options",
+      "Slider requiring precise values (use text input)",
+      "Too many discrete steps without visual feedback"
+    ],
+    "semanticMeaning": "Value selection within a continuous or discrete range",
+    "relatedElements": ["progress", "textfield"],
+    "priorityScore": 70,
+    "tags": ["input", "range", "adjustment", "interactive"]
+  }
+}

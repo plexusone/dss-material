@@ -1,0 +1,130 @@
+{
+  "id": "switch",
+  "name": "Switch",
+  "description": "Switches toggle the state of an item on or off. They are used for binary settings that take effect immediately.",
+  "category": "selection",
+  "documentationUrl": "https://m3.material.io/components/switch/overview",
+  "variants": [],
+  "states": [
+    {"id": "unselected", "name": "Unselected", "description": "Default off state"},
+    {"id": "selected", "name": "Selected", "description": "On state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"}
+  ],
+  "props": [
+    {
+      "name": "selected",
+      "type": "boolean",
+      "description": "Whether the switch is in the selected (on) state",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the switch is disabled",
+      "default": false
+    },
+    {
+      "name": "icons",
+      "type": "boolean",
+      "description": "Shows both selected and deselected icons",
+      "default": false
+    },
+    {
+      "name": "showOnlySelectedIcon",
+      "type": "boolean",
+      "description": "Shows only the selected icon, not the deselected icon",
+      "default": false
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "Whether the switch must be selected for form submission",
+      "default": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value submitted with the form when selected",
+      "default": "on"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The HTML name for form submission"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Fired when the switch state changes due to user interaction",
+      "bubbles": true
+    },
+    {
+      "name": "input",
+      "description": "Fired when the switch receives input",
+      "bubbles": true
+    }
+  ],
+  "slots": [],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-primary",
+    "md-sys-color-outline",
+    "md-sys-color-surface-container-highest",
+    "md-switch-handle-color",
+    "md-switch-handle-shape",
+    "md-switch-track-color",
+    "md-switch-track-shape",
+    "md-switch-selected-handle-color",
+    "md-switch-selected-track-color"
+  ],
+  "accessibility": {
+    "role": "switch",
+    "requiredAttributes": ["aria-label (when no visible label)"],
+    "keyboardSupport": [
+      {"key": "Space", "action": "Toggle the switch state"},
+      {"key": "Tab", "action": "Move focus to the switch"}
+    ],
+    "screenReaderNotes": "Announce switch label and on/off state. Always provide aria-label for switches without visible labels.",
+    "focusManagement": "Receives focus in tab order. Focus ring visible on keyboard focus."
+  },
+  "constraints": {
+    "minWidth": "52px",
+    "minHeight": "32px",
+    "responsiveBehavior": "Fixed size, does not scale"
+  },
+  "llm": {
+    "intent": "Provide immediate binary toggle for settings and preferences",
+    "allowedContexts": [
+      "Settings pages with binary options",
+      "Feature toggles (Wi-Fi, Bluetooth)",
+      "Preferences that take effect immediately",
+      "Enable/disable functionality"
+    ],
+    "forbiddenContexts": [
+      "Form submissions requiring explicit save",
+      "Multi-select scenarios (use checkbox)",
+      "Mutually exclusive groups (use radio)"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-switch></md-switch>",
+      "<md-switch selected></md-switch>",
+      "<md-switch icons></md-switch>",
+      "<label>Wi-Fi<md-switch selected></md-switch></label>"
+    ],
+    "antiPatterns": [
+      "Switch without visible or accessible label",
+      "Switch for deferred actions (use checkbox in form)",
+      "Using switch in a list where checkbox is more appropriate",
+      "Multiple switches that are mutually exclusive"
+    ],
+    "semanticMeaning": "Binary toggle for immediate effect settings",
+    "relatedElements": ["checkbox", "radio"],
+    "priorityScore": 80,
+    "tags": ["selection", "toggle", "settings", "interactive"]
+  }
+}

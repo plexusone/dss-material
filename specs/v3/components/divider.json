@@ -1,0 +1,92 @@
+{
+  "id": "divider",
+  "name": "Divider",
+  "description": "Dividers are thin lines that group content in lists and containers, or separate content into sections.",
+  "category": "containment",
+  "documentationUrl": "https://m3.material.io/components/divider/overview",
+  "variants": [
+    {
+      "id": "full-width",
+      "name": "Full Width",
+      "description": "Divider spanning the full container width",
+      "isDefault": true
+    },
+    {
+      "id": "inset",
+      "name": "Inset",
+      "description": "Divider with start margin aligned to content"
+    },
+    {
+      "id": "middle-inset",
+      "name": "Middle Inset",
+      "description": "Divider with margins on both sides"
+    }
+  ],
+  "states": [],
+  "props": [
+    {
+      "name": "inset",
+      "type": "boolean",
+      "description": "Indent the divider with start padding",
+      "default": false
+    },
+    {
+      "name": "insetStart",
+      "type": "boolean",
+      "description": "Indent the divider from the start",
+      "default": false
+    },
+    {
+      "name": "insetEnd",
+      "type": "boolean",
+      "description": "Indent the divider from the end",
+      "default": false
+    }
+  ],
+  "events": [],
+  "slots": [],
+  "tokensUsed": [
+    "md-sys-color-outline-variant",
+    "md-divider-color",
+    "md-divider-thickness"
+  ],
+  "accessibility": {
+    "role": "separator",
+    "requiredAttributes": ["role=\"separator\"", "tabindex=\"-1\" (when in focusable context)"],
+    "keyboardSupport": [],
+    "screenReaderNotes": "Use role=\"separator\" for semantic dividers. Use role=\"none\" for purely decorative dividers.",
+    "focusManagement": "Dividers should not receive focus."
+  },
+  "constraints": {
+    "minHeight": "1px",
+    "responsiveBehavior": "Stretches to container width"
+  },
+  "llm": {
+    "intent": "Visually separate content into sections",
+    "allowedContexts": [
+      "Between list item groups",
+      "Section separators in dialogs",
+      "Content area divisions",
+      "Menu section separators"
+    ],
+    "forbiddenContexts": [
+      "As decoration without semantic purpose",
+      "Between every single list item"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-divider></md-divider>",
+      "<md-divider inset></md-divider>",
+      "<md-divider inset-start inset-end></md-divider>"
+    ],
+    "antiPatterns": [
+      "Overusing dividers between every item",
+      "Dividers as primary visual structure",
+      "Missing role=\"separator\" in interactive contexts"
+    ],
+    "semanticMeaning": "Visual separator between content sections",
+    "relatedElements": ["list"],
+    "priorityScore": 40,
+    "tags": ["layout", "separator", "visual"]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "list",
+  "name": "List",
+  "description": "Lists are continuous, vertical indexes of text and images. They display related content in a consistent format.",
+  "category": "containment",
+  "documentationUrl": "https://m3.material.io/components/lists/overview",
+  "variants": [
+    {
+      "id": "single-line",
+      "name": "Single-line",
+      "description": "List items with headline only",
+      "isDefault": true
+    },
+    {
+      "id": "two-line",
+      "name": "Two-line",
+      "description": "List items with headline and supporting text"
+    },
+    {
+      "id": "three-line",
+      "name": "Three-line",
+      "description": "List items with headline and multi-line supporting text"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover on item"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus on item"},
+    {"id": "pressed", "name": "Pressed", "description": "Item being pressed"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive item"}
+  ],
+  "props": [
+    {
+      "name": "role",
+      "type": "string",
+      "description": "ARIA role for the list container",
+      "default": "list"
+    }
+  ],
+  "events": [],
+  "slots": [
+    {
+      "name": "default",
+      "description": "List items",
+      "required": true
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-list-container-color",
+    "md-list-item-container-shape",
+    "md-list-item-label-text-color",
+    "md-list-item-label-text-font",
+    "md-list-item-supporting-text-color",
+    "md-list-item-supporting-text-font",
+    "md-list-item-leading-icon-color",
+    "md-list-item-trailing-icon-color"
+  ],
+  "accessibility": {
+    "role": "list",
+    "requiredAttributes": ["role=\"list\" on container", "role=\"listitem\" on items"],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move focus into/out of list"},
+      {"key": "ArrowUp", "action": "Move to previous item"},
+      {"key": "ArrowDown", "action": "Move to next item"},
+      {"key": "Home", "action": "Move to first item"},
+      {"key": "End", "action": "Move to last item"}
+    ],
+    "screenReaderNotes": "Lists announce number of items. Interactive items should use type=\"button\" or type=\"link\" with appropriate roles.",
+    "focusManagement": "Arrow keys navigate between items. Tab moves focus out of list."
+  },
+  "constraints": {
+    "responsiveBehavior": "Fills container width, vertical scrolling when content overflows"
+  },
+  "llm": {
+    "intent": "Display related content items in a vertical format",
+    "allowedContexts": [
+      "Content listings (files, messages, contacts)",
+      "Navigation menus",
+      "Settings options",
+      "Search results",
+      "Data presentation"
+    ],
+    "forbiddenContexts": [
+      "Tabular data (use data table)",
+      "Grid layouts (use grid)",
+      "Horizontal scrolling content"
+    ],
+    "dependencies": ["divider", "icon"],
+    "exampleUsage": [
+      "<md-list><md-list-item>Item 1</md-list-item><md-list-item>Item 2</md-list-item></md-list>",
+      "<md-list><md-list-item><div slot=\"headline\">Title</div><div slot=\"supporting-text\">Description</div></md-list-item></md-list>",
+      "<md-list><md-list-item type=\"button\"><md-icon slot=\"start\">star</md-icon>Favorites</md-list-item></md-list>"
+    ],
+    "antiPatterns": [
+      "Using lists for tabular data",
+      "Interactive items without proper type attribute",
+      "Missing dividers between distinct sections",
+      "Overly long lists without virtualization"
+    ],
+    "semanticMeaning": "Vertical container for related content items",
+    "relatedElements": ["divider", "menu"],
+    "priorityScore": 85,
+    "tags": ["container", "navigation", "content", "vertical"]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "id": "checkbox",
+  "name": "Checkbox",
+  "description": "Checkboxes allow users to select one or more items from a set. Checkboxes can turn an option on or off.",
+  "category": "selection",
+  "documentationUrl": "https://m3.material.io/components/checkbox/overview",
+  "variants": [],
+  "states": [
+    {"id": "unchecked", "name": "Unchecked", "description": "Default unselected state"},
+    {"id": "checked", "name": "Checked", "description": "Selected state"},
+    {"id": "indeterminate", "name": "Indeterminate", "description": "Partially selected state for parent checkboxes"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"}
+  ],
+  "props": [
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Whether or not the checkbox is selected",
+      "default": false
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "description": "Whether or not the checkbox is in an indeterminate state",
+      "default": false
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the checkbox is disabled",
+      "default": false
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "Whether the checkbox must be selected for form submission",
+      "default": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value submitted with the form when checked",
+      "default": "on"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The HTML name for form submission"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Fired when the checkbox state changes",
+      "bubbles": true
+    },
+    {
+      "name": "input",
+      "description": "Fired when the checkbox receives input",
+      "bubbles": true
+    }
+  ],
+  "slots": [],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-primary",
+    "md-sys-color-on-surface-variant",
+    "md-checkbox-outline-color",
+    "md-checkbox-selected-container-color",
+    "md-checkbox-selected-icon-color",
+    "md-checkbox-container-shape"
+  ],
+  "accessibility": {
+    "role": "checkbox",
+    "requiredAttributes": ["aria-label (when no visible label)"],
+    "keyboardSupport": [
+      {"key": "Space", "action": "Toggle the checkbox state"},
+      {"key": "Tab", "action": "Move focus to the checkbox"}
+    ],
+    "screenReaderNotes": "Announce checkbox label, checked state, and indeterminate state. Always provide aria-label for checkboxes without visible labels.",
+    "focusManagement": "Receives focus in tab order. Focus ring visible on keyboard focus."
+  },
+  "constraints": {
+    "minWidth": "48px",
+    "minHeight": "48px",
+    "responsiveBehavior": "Touch target maintains minimum 48x48px"
+  },
+  "llm": {
+    "intent": "Allow users to make binary or multiple selections from a list",
+    "allowedContexts": [
+      "Multi-select lists",
+      "Terms and conditions acceptance",
+      "Settings toggles with list presentation",
+      "Bulk selection in tables or lists"
+    ],
+    "forbiddenContexts": [
+      "Single selection from mutually exclusive options (use radio instead)",
+      "Binary toggles better suited for switch",
+      "Navigation items"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-checkbox></md-checkbox>",
+      "<md-checkbox checked></md-checkbox>",
+      "<md-checkbox indeterminate></md-checkbox>",
+      "<label><md-checkbox></md-checkbox>Accept terms</label>"
+    ],
+    "antiPatterns": [
+      "Checkbox without visible or accessible label",
+      "Using checkbox for mutually exclusive options",
+      "Checkbox for simple on/off toggle (use switch)",
+      "Not using indeterminate state for parent checkboxes"
+    ],
+    "semanticMeaning": "Selection control for binary or multiple choices",
+    "relatedElements": ["switch", "radio"],
+    "priorityScore": 85,
+    "tags": ["selection", "form", "input", "interactive"]
+  }
+}

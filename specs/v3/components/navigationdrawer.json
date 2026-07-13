@@ -1,0 +1,132 @@
+{
+  "id": "navigationdrawer",
+  "name": "Navigation Drawer",
+  "description": "Navigation drawers let people switch between UI views on larger devices. They are permanent, standard, or modal surfaces containing navigation destinations.",
+  "category": "navigation",
+  "documentationUrl": "https://m3.material.io/components/navigation-drawer/overview",
+  "variants": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "description": "Drawer that coexists with content",
+      "isDefault": true
+    },
+    {
+      "id": "modal",
+      "name": "Modal",
+      "description": "Drawer that overlays content with scrim"
+    }
+  ],
+  "states": [
+    {"id": "closed", "name": "Closed", "description": "Drawer is not visible (modal only)"},
+    {"id": "open", "name": "Open", "description": "Drawer is visible"},
+    {"id": "opening", "name": "Opening", "description": "Drawer is animating open"},
+    {"id": "closing", "name": "Closing", "description": "Drawer is animating closed"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Type of drawer",
+      "default": "standard",
+      "enumValues": ["standard", "modal"]
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Whether the modal drawer is open",
+      "default": false
+    },
+    {
+      "name": "pivot",
+      "type": "enum",
+      "description": "Side the drawer opens from",
+      "default": "start",
+      "enumValues": ["start", "end"]
+    }
+  ],
+  "events": [
+    {
+      "name": "open",
+      "description": "Fired when drawer opens"
+    },
+    {
+      "name": "opened",
+      "description": "Fired after drawer open animation"
+    },
+    {
+      "name": "close",
+      "description": "Fired when drawer closes"
+    },
+    {
+      "name": "closed",
+      "description": "Fired after drawer close animation"
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Drawer content (navigation items)",
+      "required": true
+    },
+    {
+      "name": "headline",
+      "description": "Drawer header/title"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface",
+    "md-sys-color-surface-container-low",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-sys-color-secondary-container",
+    "md-navigation-drawer-container-color",
+    "md-navigation-drawer-container-shape",
+    "md-navigation-drawer-container-width",
+    "md-navigation-drawer-scrim-color"
+  ],
+  "accessibility": {
+    "role": "navigation",
+    "requiredAttributes": ["aria-label", "role=\"navigation\""],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move between drawer items"},
+      {"key": "ArrowUp/Down", "action": "Navigate items"},
+      {"key": "Enter/Space", "action": "Activate item"},
+      {"key": "Escape", "action": "Close modal drawer"}
+    ],
+    "screenReaderNotes": "Drawer should have aria-label describing its purpose. Items should indicate current selection with aria-current.",
+    "focusManagement": "Modal drawer traps focus. Standard drawer items are in tab order."
+  },
+  "constraints": {
+    "width": "360px (standard)",
+    "responsiveBehavior": "Standard on large screens, modal on medium/small screens"
+  },
+  "llm": {
+    "intent": "Provide primary navigation for apps with many destinations",
+    "allowedContexts": [
+      "Primary app navigation",
+      "Secondary navigation sections",
+      "User account menus",
+      "Settings and preferences"
+    ],
+    "forbiddenContexts": [
+      "Simple apps with few destinations (use navigation bar)",
+      "Temporary actions (use menu)"
+    ],
+    "dependencies": ["list", "icon"],
+    "exampleUsage": [
+      "<md-navigation-drawer><md-navigation-drawer-item active>Home</md-navigation-drawer-item><md-navigation-drawer-item>Settings</md-navigation-drawer-item></md-navigation-drawer>",
+      "<md-navigation-drawer variant=\"modal\" open><md-navigation-drawer-item>Profile</md-navigation-drawer-item></md-navigation-drawer>"
+    ],
+    "antiPatterns": [
+      "Drawer without aria-label",
+      "Too many items without grouping",
+      "Modal drawer on large screens",
+      "Standard drawer on mobile"
+    ],
+    "semanticMeaning": "Primary navigation container for app destinations",
+    "relatedElements": ["navigationrail", "navigationbar", "list"],
+    "priorityScore": 80,
+    "tags": ["navigation", "drawer", "sidebar", "interactive"]
+  }
+}

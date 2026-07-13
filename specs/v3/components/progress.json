@@ -1,0 +1,124 @@
+{
+  "id": "progress",
+  "name": "Progress Indicator",
+  "description": "Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates.",
+  "category": "communication",
+  "documentationUrl": "https://m3.material.io/components/progress-indicators/overview",
+  "variants": [
+    {
+      "id": "linear",
+      "name": "Linear",
+      "description": "Horizontal bar progress indicator",
+      "isDefault": true
+    },
+    {
+      "id": "circular",
+      "name": "Circular",
+      "description": "Circular spinning progress indicator"
+    }
+  ],
+  "states": [
+    {"id": "determinate", "name": "Determinate", "description": "Shows specific progress amount"},
+    {"id": "indeterminate", "name": "Indeterminate", "description": "Shows ongoing activity without specific progress"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Type of progress indicator",
+      "default": "linear",
+      "enumValues": ["linear", "circular"]
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "description": "Current progress value (0 to max)",
+      "default": 0
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Maximum progress value",
+      "default": 1
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "description": "Show indeterminate progress animation",
+      "default": false
+    },
+    {
+      "name": "fourColor",
+      "type": "boolean",
+      "description": "Use four-color animation for indeterminate state",
+      "default": false
+    },
+    {
+      "name": "buffer",
+      "type": "number",
+      "description": "Buffer amount for linear progress (0 to max)",
+      "default": 0
+    }
+  ],
+  "events": [],
+  "slots": [],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-primary-container",
+    "md-sys-color-tertiary",
+    "md-sys-color-tertiary-container",
+    "md-sys-color-surface-container-highest",
+    "md-circular-progress-active-indicator-color",
+    "md-circular-progress-size",
+    "md-circular-progress-active-indicator-width",
+    "md-linear-progress-track-color",
+    "md-linear-progress-track-height",
+    "md-linear-progress-track-shape",
+    "md-linear-progress-active-indicator-color",
+    "md-linear-progress-active-indicator-height"
+  ],
+  "accessibility": {
+    "role": "progressbar",
+    "requiredAttributes": ["aria-label", "aria-valuenow (for determinate)", "aria-valuemin", "aria-valuemax"],
+    "keyboardSupport": [],
+    "screenReaderNotes": "Add aria-label describing what is loading. For determinate progress, include aria-valuenow, aria-valuemin (0), and aria-valuemax.",
+    "focusManagement": "Progress indicators are not focusable."
+  },
+  "constraints": {
+    "minWidth": "48px (circular)",
+    "responsiveBehavior": "Linear stretches to container width. Circular maintains fixed size."
+  },
+  "llm": {
+    "intent": "Communicate ongoing process status to users",
+    "allowedContexts": [
+      "Page loading",
+      "Form submission",
+      "File upload/download",
+      "Data synchronization",
+      "Content refresh"
+    ],
+    "forbiddenContexts": [
+      "Static status indicators",
+      "User input (use slider)",
+      "Completed states without progress"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-linear-progress indeterminate></md-linear-progress>",
+      "<md-linear-progress value=\"0.5\"></md-linear-progress>",
+      "<md-circular-progress indeterminate></md-circular-progress>",
+      "<md-circular-progress value=\"0.75\" aria-label=\"Loading\"></md-circular-progress>",
+      "<md-linear-progress value=\"0.5\" buffer=\"0.8\" aria-label=\"Download progress\"></md-linear-progress>"
+    ],
+    "antiPatterns": [
+      "Progress indicator without aria-label",
+      "Using determinate when progress is unknown",
+      "Progress at 100% without transitioning away",
+      "Multiple progress indicators for same process"
+    ],
+    "semanticMeaning": "Visual indicator of ongoing process completion",
+    "relatedElements": ["slider"],
+    "priorityScore": 70,
+    "tags": ["feedback", "loading", "status", "visual"]
+  }
+}

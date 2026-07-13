@@ -1215,7 +1215,7 @@ pre code {
                     <ul>
                         <li><a href="components.html" >All Components</a></li>
                         
-                        <li><a href="component-button.html" class="active">Button</a></li>
+                        <li><a href="component-button.html" >Button</a></li>
                         
                         <li><a href="component-card.html" >Card</a></li>
                         
@@ -1259,7 +1259,7 @@ pre code {
                         
                         <li><a href="component-textfield.html" >Text Field</a></li>
                         
-                        <li><a href="component-topappbar.html" >Top App Bar</a></li>
+                        <li><a href="component-topappbar.html" class="active">Top App Bar</a></li>
                         
                     </ul>
                 </li>
@@ -1276,11 +1276,11 @@ pre code {
         <main class="dss-content">
             <div class="page-header">
     <nav class="breadcrumb">
-        <a href="components.html">Components</a> / Button
+        <a href="components.html">Components</a> / Top App Bar
     </nav>
-    <h1>Button</h1>
-    <span class="badge large">actions</span>
-    <p class="description">Buttons communicate actions that users can take. They help users interact with and take action on content.</p>
+    <h1>Top App Bar</h1>
+    <span class="badge large">navigation</span>
+    <p class="description">Top app bars display navigation, actions, and text at the top of the screen. They provide content and actions related to the current screen.</p>
 </div>
 
 
@@ -1289,33 +1289,27 @@ pre code {
     <div class="variants-grid">
         
         <div class="variant-card default">
-            <h4>Filled</h4>
+            <h4>Small</h4>
             <span class="badge">Default</span>
-            <p>High-emphasis buttons for primary, important, or final actions.</p>
+            <p>Standard height app bar</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Outlined</h4>
+            <h4>Medium</h4>
             
-            <p>Medium-emphasis buttons for important actions that don&#39;t distract from other content.</p>
+            <p>Taller app bar with larger title</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Text</h4>
+            <h4>Large</h4>
             
-            <p>Low-emphasis buttons for less important actions, often used in cards and dialogs.</p>
+            <p>Tallest app bar with expanded title area</p>
         </div>
         
         <div class="variant-card ">
-            <h4>Elevated</h4>
+            <h4>Center-aligned</h4>
             
-            <p>Medium-emphasis buttons that lift up from the page with shadow.</p>
-        </div>
-        
-        <div class="variant-card ">
-            <h4>Tonal</h4>
-            
-            <p>Medium-emphasis buttons using secondary container color.</p>
+            <p>App bar with centered title</p>
         </div>
         
     </div>
@@ -1341,32 +1335,24 @@ pre code {
                 <td><code>variant</code></td>
                 <td><code>enum</code></td>
                 <td>-</td>
-                <td><code>filled</code></td>
-                <td>Visual style of the button</td>
+                <td><code>small</code></td>
+                <td>Size and layout of the app bar</td>
             </tr>
             
             <tr>
-                <td><code>disabled</code></td>
-                <td><code>boolean</code></td>
+                <td><code>headline</code></td>
+                <td><code>string</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Whether the button is disabled</td>
+                <td>The title text</td>
             </tr>
             
             <tr>
-                <td><code>icon</code></td>
-                <td><code>node</code></td>
+                <td><code>scrollTarget</code></td>
+                <td><code>string</code></td>
                 <td>-</td>
                 <td>-</td>
-                <td>Optional leading icon</td>
-            </tr>
-            
-            <tr>
-                <td><code>trailingIcon</code></td>
-                <td><code>boolean</code></td>
-                <td>-</td>
-                <td>-</td>
-                <td>Whether icon appears after text</td>
+                <td>Selector for scroll container to respond to</td>
             </tr>
             
         </tbody>
@@ -1380,28 +1366,23 @@ pre code {
     <div class="states-grid">
         
         <div class="state-card">
-            <h4>enabled</h4>
-            <p>Default interactive state</p>
+            <h4>flat</h4>
+            <p>No elevation at top of content</p>
         </div>
         
         <div class="state-card">
-            <h4>disabled</h4>
-            <p>Non-interactive state</p>
+            <h4>elevated</h4>
+            <p>Elevated when content scrolls beneath</p>
         </div>
         
         <div class="state-card">
-            <h4>hovered</h4>
-            <p>Mouse hover state</p>
+            <h4>expanded</h4>
+            <p>Full height (medium/large)</p>
         </div>
         
         <div class="state-card">
-            <h4>focused</h4>
-            <p>Keyboard focus state</p>
-        </div>
-        
-        <div class="state-card">
-            <h4>pressed</h4>
-            <p>Active/pressed state</p>
+            <h4>collapsed</h4>
+            <p>Compressed on scroll (medium/large)</p>
         </div>
         
     </div>
@@ -1414,7 +1395,7 @@ pre code {
     <div class="a11y-info">
         
         <div class="a11y-item">
-            <strong>Role:</strong> <code>button</code>
+            <strong>Role:</strong> <code>banner</code>
         </div>
         
         
@@ -1422,16 +1403,14 @@ pre code {
             <strong>Keyboard Support:</strong>
             <ul>
                 
-                <li><kbd>Enter</kbd> - Activate the button</li>
-                
-                <li><kbd>Space</kbd> - Activate the button</li>
+                <li><kbd>Tab</kbd> - Move between action buttons</li>
                 
             </ul>
         </div>
         
         
         <div class="a11y-item">
-            <strong>Screen Reader Notes:</strong> Announce button label and state. For icon-only buttons, provide aria-label.
+            <strong>Screen Reader Notes:</strong> App bar acts as page banner. Title should be descriptive. Leading icon should have aria-label.
         </div>
         
     </div>
@@ -1444,7 +1423,7 @@ pre code {
     <div class="llm-info">
         
         <div class="llm-item">
-            <strong>Intent:</strong> Trigger user actions and form submissions
+            <strong>Intent:</strong> Provide consistent header with navigation and actions
         </div>
         
         
@@ -1452,13 +1431,13 @@ pre code {
             <strong>Anti-Patterns:</strong>
             <ul class="anti-patterns">
                 
-                <li>Multiple filled buttons in the same view - use one primary action</li>
+                <li>App bar without title or aria-label</li>
                 
-                <li>Icon-only button without aria-label</li>
+                <li>Too many action icons (more than 3)</li>
                 
-                <li>Disabled button without explanation why</li>
+                <li>Large variant on small screens</li>
                 
-                <li>Using button for navigation instead of link</li>
+                <li>Missing leading navigation</li>
                 
             </ul>
         </div>
@@ -1467,11 +1446,9 @@ pre code {
         <div class="llm-item">
             <strong>Example Usage:</strong>
             
-            <pre><code>&lt;Button variant=&#34;filled&#34;&gt;Submit&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-top-app-bar headline=&#34;Page Title&#34;&gt;&lt;md-icon-button slot=&#34;leading&#34; aria-label=&#34;Menu&#34;&gt;&lt;md-icon&gt;menu&lt;/md-icon&gt;&lt;/md-icon-button&gt;&lt;md-icon-button slot=&#34;trailing&#34; aria-label=&#34;Search&#34;&gt;&lt;md-icon&gt;search&lt;/md-icon&gt;&lt;/md-icon-button&gt;&lt;/md-top-app-bar&gt;</code></pre>
             
-            <pre><code>&lt;Button variant=&#34;outlined&#34; icon={&lt;AddIcon /&gt;}&gt;Add Item&lt;/Button&gt;</code></pre>
-            
-            <pre><code>&lt;Button variant=&#34;text&#34; disabled&gt;Loading...&lt;/Button&gt;</code></pre>
+            <pre><code>&lt;md-top-app-bar variant=&#34;medium&#34; headline=&#34;Settings&#34;&gt;&lt;md-icon-button slot=&#34;leading&#34; aria-label=&#34;Back&#34;&gt;&lt;md-icon&gt;arrow_back&lt;/md-icon&gt;&lt;/md-icon-button&gt;&lt;/md-top-app-bar&gt;</code></pre>
             
         </div>
         

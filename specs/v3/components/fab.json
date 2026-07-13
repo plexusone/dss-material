@@ -1,0 +1,152 @@
+{
+  "id": "fab",
+  "name": "Floating Action Button",
+  "description": "FABs represent the most important action on a screen. They put key actions within reach and are used for high-emphasis, primary actions.",
+  "category": "actions",
+  "documentationUrl": "https://m3.material.io/components/floating-action-button/overview",
+  "variants": [
+    {
+      "id": "surface",
+      "name": "Surface",
+      "description": "FAB with surface container color",
+      "isDefault": true
+    },
+    {
+      "id": "primary",
+      "name": "Primary",
+      "description": "FAB with primary color"
+    },
+    {
+      "id": "secondary",
+      "name": "Secondary",
+      "description": "FAB with secondary color"
+    },
+    {
+      "id": "tertiary",
+      "name": "Tertiary",
+      "description": "FAB with tertiary color"
+    },
+    {
+      "id": "branded",
+      "name": "Branded",
+      "description": "FAB with branded logo icon"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default interactive state"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Color variant of the FAB",
+      "default": "surface",
+      "enumValues": ["surface", "primary", "secondary", "tertiary"]
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "description": "Size of the FAB",
+      "default": "medium",
+      "enumValues": ["small", "medium", "large"]
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "Text label for extended FAB"
+    },
+    {
+      "name": "lowered",
+      "type": "boolean",
+      "description": "Lowers the FAB elevation",
+      "default": false
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "Fired when the FAB is clicked",
+      "bubbles": true
+    },
+    {
+      "name": "focus",
+      "description": "Fired when the FAB receives focus"
+    },
+    {
+      "name": "blur",
+      "description": "Fired when the FAB loses focus"
+    }
+  ],
+  "slots": [
+    {
+      "name": "icon",
+      "description": "The icon to display",
+      "required": true
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-primary",
+    "md-sys-color-surface-container-high",
+    "md-sys-color-surface-container-low",
+    "md-fab-container-color",
+    "md-fab-container-shape",
+    "md-fab-icon-color",
+    "md-fab-icon-size",
+    "md-fab-lowered-container-color",
+    "md-fab-small-container-shape",
+    "md-fab-large-container-shape",
+    "md-fab-label-text-font"
+  ],
+  "accessibility": {
+    "role": "button",
+    "requiredAttributes": ["aria-label (for icon-only FABs)"],
+    "keyboardSupport": [
+      {"key": "Enter", "action": "Activate the FAB"},
+      {"key": "Space", "action": "Activate the FAB"},
+      {"key": "Tab", "action": "Move focus to/from the FAB"}
+    ],
+    "screenReaderNotes": "Icon-only FABs require aria-label. Extended FABs with label attribute are announced automatically.",
+    "focusManagement": "Receives focus in tab order. Typically positioned fixed at bottom-right."
+  },
+  "constraints": {
+    "minWidth": "40px (small), 56px (medium), 96px (large)",
+    "responsiveBehavior": "Position fixed, typically bottom-right. Extended FAB may collapse to icon-only on small screens."
+  },
+  "llm": {
+    "intent": "Provide quick access to the primary action on a screen",
+    "allowedContexts": [
+      "Primary page action (compose, add, create)",
+      "Floating action in list views",
+      "Create/add new content",
+      "Primary call-to-action in empty states"
+    ],
+    "forbiddenContexts": [
+      "Multiple FABs on one screen",
+      "Secondary or supplementary actions (use button)",
+      "Navigation actions",
+      "Destructive actions"
+    ],
+    "dependencies": ["icon"],
+    "exampleUsage": [
+      "<md-fab aria-label=\"Create\"><md-icon slot=\"icon\">add</md-icon></md-fab>",
+      "<md-fab variant=\"primary\" aria-label=\"Compose\"><md-icon slot=\"icon\">edit</md-icon></md-fab>",
+      "<md-fab label=\"Compose\" variant=\"primary\"><md-icon slot=\"icon\">edit</md-icon></md-fab>",
+      "<md-fab size=\"small\" lowered aria-label=\"Add\"><md-icon slot=\"icon\">add</md-icon></md-fab>"
+    ],
+    "antiPatterns": [
+      "Multiple FABs on the same screen",
+      "FAB without aria-label (icon-only)",
+      "Using FAB for navigation",
+      "FAB for destructive actions",
+      "FAB that covers important content"
+    ],
+    "semanticMeaning": "Primary floating action button for main screen action",
+    "relatedElements": ["button", "iconbutton"],
+    "priorityScore": 90,
+    "tags": ["action", "primary", "floating", "interactive"]
+  }
+}

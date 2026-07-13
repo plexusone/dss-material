@@ -1,0 +1,224 @@
+{
+  "id": "textfield",
+  "name": "Text Field",
+  "description": "Text fields let users enter and edit text. They provide a container with labels for user input.",
+  "category": "input",
+  "documentationUrl": "https://m3.material.io/components/text-fields/overview",
+  "variants": [
+    {
+      "id": "filled",
+      "name": "Filled",
+      "description": "Text field with a filled container background",
+      "isDefault": true
+    },
+    {
+      "id": "outlined",
+      "name": "Outlined",
+      "description": "Text field with an outlined border"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default interactive state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "focused", "name": "Focused", "description": "Input is focused"},
+    {"id": "error", "name": "Error", "description": "Validation error state"},
+    {"id": "readonly", "name": "Read-only", "description": "Value visible but not editable"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Visual style of the text field",
+      "default": "filled",
+      "enumValues": ["filled", "outlined"]
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "description": "The floating label text"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The current input value",
+      "default": ""
+    },
+    {
+      "name": "type",
+      "type": "enum",
+      "description": "The input type",
+      "default": "text",
+      "enumValues": ["text", "email", "number", "password", "search", "tel", "url", "textarea"]
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the text field is disabled",
+      "default": false
+    },
+    {
+      "name": "readonly",
+      "type": "boolean",
+      "description": "Whether the text field is read-only",
+      "default": false
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "description": "Whether the field is required for form submission",
+      "default": false
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "description": "Whether the field is in an error state",
+      "default": false
+    },
+    {
+      "name": "errorText",
+      "type": "string",
+      "description": "Error message to display when in error state"
+    },
+    {
+      "name": "supportingText",
+      "type": "string",
+      "description": "Helper text displayed below the field"
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "description": "Placeholder text when empty"
+    },
+    {
+      "name": "prefixText",
+      "type": "string",
+      "description": "Text displayed before the input value"
+    },
+    {
+      "name": "suffixText",
+      "type": "string",
+      "description": "Text displayed after the input value"
+    },
+    {
+      "name": "maxLength",
+      "type": "number",
+      "description": "Maximum number of characters allowed"
+    },
+    {
+      "name": "minLength",
+      "type": "number",
+      "description": "Minimum number of characters required"
+    },
+    {
+      "name": "pattern",
+      "type": "string",
+      "description": "Regex pattern for validation"
+    },
+    {
+      "name": "rows",
+      "type": "number",
+      "description": "Number of visible rows for textarea type",
+      "default": 2
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "The HTML name for form submission"
+    }
+  ],
+  "events": [
+    {
+      "name": "input",
+      "description": "Fired when the value changes",
+      "bubbles": true
+    },
+    {
+      "name": "change",
+      "description": "Fired when the value changes and field loses focus",
+      "bubbles": true
+    },
+    {
+      "name": "focus",
+      "description": "Fired when the field receives focus"
+    },
+    {
+      "name": "blur",
+      "description": "Fired when the field loses focus"
+    },
+    {
+      "name": "select",
+      "description": "Fired when text is selected",
+      "bubbles": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "leading-icon",
+      "description": "Icon displayed at the start of the field"
+    },
+    {
+      "name": "trailing-icon",
+      "description": "Icon displayed at the end of the field"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-sys-color-error",
+    "md-sys-color-surface-container-highest",
+    "md-filled-text-field-container-shape",
+    "md-filled-text-field-container-color",
+    "md-filled-text-field-focus-active-indicator-color",
+    "md-filled-text-field-input-text-font",
+    "md-filled-text-field-label-text-font",
+    "md-outlined-text-field-container-shape",
+    "md-outlined-text-field-focus-outline-color"
+  ],
+  "accessibility": {
+    "role": "textbox",
+    "requiredAttributes": ["aria-label (when no visible label)"],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move focus into/out of the field"},
+      {"key": "Enter", "action": "Submit form (single-line) or new line (textarea)"}
+    ],
+    "screenReaderNotes": "Announce label, current value, error state, and supporting text. For external labels, use aria-label.",
+    "focusManagement": "Receives focus in tab order. Floating label moves up when focused or has value."
+  },
+  "constraints": {
+    "minWidth": "280px",
+    "responsiveBehavior": "Scales with container width"
+  },
+  "llm": {
+    "intent": "Capture user text input for forms and data entry",
+    "allowedContexts": [
+      "Form inputs",
+      "Search fields",
+      "User profile data entry",
+      "Comments and feedback",
+      "Login credentials"
+    ],
+    "forbiddenContexts": [
+      "Display-only text (use text element)",
+      "Selection from predefined options (use select)"
+    ],
+    "dependencies": [],
+    "exampleUsage": [
+      "<md-filled-text-field label=\"Email\" type=\"email\"></md-filled-text-field>",
+      "<md-outlined-text-field label=\"Password\" type=\"password\"></md-outlined-text-field>",
+      "<md-filled-text-field label=\"Comments\" type=\"textarea\" rows=\"4\"></md-filled-text-field>",
+      "<md-outlined-text-field label=\"Phone\" type=\"tel\" prefix-text=\"+1\"></md-outlined-text-field>"
+    ],
+    "antiPatterns": [
+      "Text field without label or aria-label",
+      "Using placeholder as the only label",
+      "Error state without error message",
+      "Required field without visual indicator",
+      "Disabled field with important information"
+    ],
+    "semanticMeaning": "Input field for user-entered text data",
+    "relatedElements": ["select", "textarea"],
+    "priorityScore": 95,
+    "tags": ["input", "form", "text", "interactive"]
+  }
+}

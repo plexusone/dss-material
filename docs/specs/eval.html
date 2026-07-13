@@ -1217,6 +1217,50 @@ pre code {
                         
                         <li><a href="component-button.html" >Button</a></li>
                         
+                        <li><a href="component-card.html" >Card</a></li>
+                        
+                        <li><a href="component-checkbox.html" >Checkbox</a></li>
+                        
+                        <li><a href="component-chips.html" >Chips</a></li>
+                        
+                        <li><a href="component-dialog.html" >Dialog</a></li>
+                        
+                        <li><a href="component-divider.html" >Divider</a></li>
+                        
+                        <li><a href="component-fab.html" >Floating Action Button</a></li>
+                        
+                        <li><a href="component-icon.html" >Icon</a></li>
+                        
+                        <li><a href="component-iconbutton.html" >Icon Button</a></li>
+                        
+                        <li><a href="component-list.html" >List</a></li>
+                        
+                        <li><a href="component-menu.html" >Menu</a></li>
+                        
+                        <li><a href="component-navigationbar.html" >Navigation Bar</a></li>
+                        
+                        <li><a href="component-navigationdrawer.html" >Navigation Drawer</a></li>
+                        
+                        <li><a href="component-navigationrail.html" >Navigation Rail</a></li>
+                        
+                        <li><a href="component-progress.html" >Progress Indicator</a></li>
+                        
+                        <li><a href="component-radio.html" >Radio Button</a></li>
+                        
+                        <li><a href="component-select.html" >Select</a></li>
+                        
+                        <li><a href="component-slider.html" >Slider</a></li>
+                        
+                        <li><a href="component-snackbar.html" >Snackbar</a></li>
+                        
+                        <li><a href="component-switch.html" >Switch</a></li>
+                        
+                        <li><a href="component-tabs.html" >Tabs</a></li>
+                        
+                        <li><a href="component-textfield.html" >Text Field</a></li>
+                        
+                        <li><a href="component-topappbar.html" >Top App Bar</a></li>
+                        
                     </ul>
                 </li>
             </ul>
@@ -1237,13 +1281,13 @@ pre code {
 
 
 <div class="eval-header">
-    <div class="score-circle grade-b">
-        <span class="score">4/5</span>
-        <span class="grade">B</span>
+    <div class="score-circle grade-a">
+        <span class="score">5/5</span>
+        <span class="grade">A</span>
     </div>
     <div class="eval-meta">
-        <p>Good</p>
-        <p>Evaluated: 2026-07-13 04:58:02</p>
+        <p>Excellent</p>
+        <p>Evaluated: 2026-07-13 05:46:02</p>
         <p>Decision: conditional</p>
     </div>
 </div>
@@ -1266,10 +1310,10 @@ pre code {
         <div class="category-card">
             <h3>agent-readiness</h3>
             <div class="score-bar">
-                <div class="score-fill" style="width: 60%;"></div>
+                <div class="score-fill" style="width: 100%;"></div>
             </div>
             <div class="category-meta">
-                <span class="score">3/5 (Acceptable)</span>
+                <span class="score">5/5 (Excellent)</span>
                 <span class="weight">Weight: 30%</span>
             </div>
         </div>
@@ -1277,10 +1321,10 @@ pre code {
         <div class="category-card">
             <h3>accessibility</h3>
             <div class="score-bar">
-                <div class="score-fill" style="width: 80%;"></div>
+                <div class="score-fill" style="width: 100%;"></div>
             </div>
             <div class="category-meta">
-                <span class="score">4/5 (Good)</span>
+                <span class="score">5/5 (Excellent)</span>
                 <span class="weight">Weight: 25%</span>
             </div>
         </div>
@@ -1308,7 +1352,7 @@ pre code {
             <div class="coverage-bar">
                 <div class="coverage-fill" style="width: 100%;"></div>
             </div>
-            <span>1/1 (100%)</span>
+            <span>23/23 (100%)</span>
         </div>
         <div class="coverage-item">
             <h4>Foundations</h4>
@@ -1331,13 +1375,13 @@ pre code {
 
 <section class="section">
     <h2>Summary</h2>
-    <p>Categories: 3 pass, 1 partial, 0 fail. 2 findings (1 medium, 1 low). Decision: conditional. Coverage: components 100%, foundations 100%, patterns 0%, accessibility 100%, overall 83%.</p>
+    <p>Categories: 4 pass, 0 partial, 0 fail. 5 findings (1 medium, 4 low). Decision: conditional. Coverage: components 100%, foundations 100%, patterns 0%, accessibility 100%, overall 83%.</p>
 </section>
 
 
 
 <section class="section">
-    <h2>Findings (2)</h2>
+    <h2>Findings (5)</h2>
     <div class="issues-list">
         
         <div class="issue-card warning">
@@ -1360,6 +1404,39 @@ pre code {
             <code class="path">patterns</code>
             <p class="description">Patterns document common usage scenarios</p>
             <p class="suggestion">Add patterns array with usage patterns</p>
+        </div>
+        
+        <div class="issue-card info">
+            <div class="issue-header">
+                <span class="severity-badge info">low</span>
+                <code class="rule">accessibility-component-divider-keyboard</code>
+            </div>
+            <p class="message">Component &#39;Divider&#39; should define keyboard interactions</p>
+            <code class="path">components.divider.accessibility.keyboardSupport</code>
+            <p class="description">Keyboard support ensures the component is accessible</p>
+            <p class="suggestion">Add keyboardSupport array with key bindings</p>
+        </div>
+        
+        <div class="issue-card info">
+            <div class="issue-header">
+                <span class="severity-badge info">low</span>
+                <code class="rule">accessibility-component-icon-keyboard</code>
+            </div>
+            <p class="message">Component &#39;Icon&#39; should define keyboard interactions</p>
+            <code class="path">components.icon.accessibility.keyboardSupport</code>
+            <p class="description">Keyboard support ensures the component is accessible</p>
+            <p class="suggestion">Add keyboardSupport array with key bindings</p>
+        </div>
+        
+        <div class="issue-card info">
+            <div class="issue-header">
+                <span class="severity-badge info">low</span>
+                <code class="rule">accessibility-component-progress-keyboard</code>
+            </div>
+            <p class="message">Component &#39;Progress Indicator&#39; should define keyboard interactions</p>
+            <code class="path">components.progress.accessibility.keyboardSupport</code>
+            <p class="description">Keyboard support ensures the component is accessible</p>
+            <p class="suggestion">Add keyboardSupport array with key bindings</p>
         </div>
         
     </div>

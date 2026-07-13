@@ -1,0 +1,184 @@
+{
+  "id": "iconbutton",
+  "name": "Icon Button",
+  "description": "Icon buttons help people take supplementary actions with a single tap. They display an icon without a text label.",
+  "category": "actions",
+  "documentationUrl": "https://m3.material.io/components/icon-buttons/overview",
+  "variants": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "description": "Icon button without background, lowest emphasis",
+      "isDefault": true
+    },
+    {
+      "id": "filled",
+      "name": "Filled",
+      "description": "Icon button with solid background, highest emphasis"
+    },
+    {
+      "id": "filled-tonal",
+      "name": "Filled Tonal",
+      "description": "Icon button with tonal background, medium emphasis"
+    },
+    {
+      "id": "outlined",
+      "name": "Outlined",
+      "description": "Icon button with outline border, medium emphasis"
+    }
+  ],
+  "states": [
+    {"id": "enabled", "name": "Enabled", "description": "Default interactive state"},
+    {"id": "disabled", "name": "Disabled", "description": "Non-interactive state"},
+    {"id": "soft-disabled", "name": "Soft Disabled", "description": "Disabled but still focusable"},
+    {"id": "hovered", "name": "Hovered", "description": "Mouse hover state"},
+    {"id": "focused", "name": "Focused", "description": "Keyboard focus state"},
+    {"id": "pressed", "name": "Pressed", "description": "Active/pressed state"},
+    {"id": "selected", "name": "Selected", "description": "Toggle selected state"}
+  ],
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "description": "Visual style of the icon button",
+      "default": "standard",
+      "enumValues": ["standard", "filled", "filled-tonal", "outlined"]
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "description": "Whether the button is disabled",
+      "default": false
+    },
+    {
+      "name": "softDisabled",
+      "type": "boolean",
+      "description": "Disabled but still focusable for accessibility",
+      "default": false
+    },
+    {
+      "name": "toggle",
+      "type": "boolean",
+      "description": "Whether the button toggles between selected states",
+      "default": false
+    },
+    {
+      "name": "selected",
+      "type": "boolean",
+      "description": "Whether the toggle button is selected",
+      "default": false
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "description": "URL to navigate to, making the button a link"
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "description": "Link target attribute"
+    },
+    {
+      "name": "flipIconInRtl",
+      "type": "boolean",
+      "description": "Flips the icon in RTL layouts",
+      "default": false
+    },
+    {
+      "name": "ariaLabelSelected",
+      "type": "string",
+      "description": "Aria label when toggle button is selected"
+    }
+  ],
+  "events": [
+    {
+      "name": "click",
+      "description": "Fired when the button is clicked",
+      "bubbles": true
+    },
+    {
+      "name": "input",
+      "description": "Fired when a toggle button toggles",
+      "bubbles": true
+    },
+    {
+      "name": "change",
+      "description": "Fired when a toggle button state changes",
+      "bubbles": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "The icon to display",
+      "required": true
+    },
+    {
+      "name": "selected",
+      "description": "Icon to display when toggle is selected"
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-primary",
+    "md-sys-color-on-surface-variant",
+    "md-sys-color-secondary-container",
+    "md-sys-color-on-secondary-container",
+    "md-sys-color-outline",
+    "md-icon-button-icon-color",
+    "md-icon-button-icon-size",
+    "md-icon-button-state-layer-shape",
+    "md-filled-icon-button-container-shape",
+    "md-filled-icon-button-container-width",
+    "md-filled-icon-button-container-height",
+    "md-filled-icon-button-selected-container-color",
+    "md-outlined-icon-button-outline-color",
+    "md-outlined-icon-button-outline-width"
+  ],
+  "accessibility": {
+    "role": "button",
+    "requiredAttributes": ["aria-label"],
+    "keyboardSupport": [
+      {"key": "Enter", "action": "Activate the button"},
+      {"key": "Space", "action": "Activate the button"},
+      {"key": "Tab", "action": "Move focus to/from the button"}
+    ],
+    "screenReaderNotes": "Always requires aria-label since there is no visible text. For toggle buttons, provide aria-label-selected for selected state.",
+    "focusManagement": "Receives focus in tab order. Use soft-disabled for better discoverability in toolbars."
+  },
+  "constraints": {
+    "minWidth": "40px",
+    "minHeight": "40px",
+    "responsiveBehavior": "Fixed size, does not scale"
+  },
+  "llm": {
+    "intent": "Provide compact supplementary actions",
+    "allowedContexts": [
+      "Toolbars",
+      "App bars",
+      "Card actions",
+      "Toggle controls (favorite, bookmark)",
+      "Supplementary actions alongside primary buttons"
+    ],
+    "forbiddenContexts": [
+      "Primary page actions (use regular button)",
+      "Actions requiring text explanation",
+      "Navigation (use link or navigation components)"
+    ],
+    "dependencies": ["icon"],
+    "exampleUsage": [
+      "<md-icon-button aria-label=\"Search\"><md-icon>search</md-icon></md-icon-button>",
+      "<md-filled-icon-button aria-label=\"Add\"><md-icon>add</md-icon></md-filled-icon-button>",
+      "<md-icon-button toggle aria-label=\"Favorite\"><md-icon>favorite_border</md-icon><md-icon slot=\"selected\">favorite</md-icon></md-icon-button>"
+    ],
+    "antiPatterns": [
+      "Icon button without aria-label",
+      "Using icon button for primary actions",
+      "Icon that is not universally recognizable without label",
+      "Too many icon buttons without grouping"
+    ],
+    "semanticMeaning": "Compact button for supplementary or toggle actions",
+    "relatedElements": ["button", "fab"],
+    "priorityScore": 75,
+    "tags": ["action", "icon", "toolbar", "interactive", "toggle"]
+  }
+}

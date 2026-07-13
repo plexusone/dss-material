@@ -1,0 +1,85 @@
+{
+  "id": "navigationbar",
+  "name": "Navigation Bar",
+  "description": "Navigation bars let people switch between UI views on smaller devices. They are fixed to the bottom of the screen.",
+  "category": "navigation",
+  "documentationUrl": "https://m3.material.io/components/navigation-bar/overview",
+  "variants": [],
+  "states": [],
+  "props": [
+    {
+      "name": "activeIndex",
+      "type": "number",
+      "description": "Index of the currently active tab"
+    }
+  ],
+  "events": [
+    {
+      "name": "change",
+      "description": "Fired when the active tab changes",
+      "bubbles": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "default",
+      "description": "Navigation tabs (3-5 destinations)",
+      "required": true
+    }
+  ],
+  "tokensUsed": [
+    "md-sys-color-surface-container",
+    "md-sys-color-on-surface",
+    "md-sys-color-on-surface-variant",
+    "md-sys-color-secondary-container",
+    "md-sys-color-on-secondary-container",
+    "md-navigation-bar-container-color",
+    "md-navigation-bar-container-elevation",
+    "md-navigation-bar-container-shape",
+    "md-navigation-bar-active-indicator-color",
+    "md-navigation-bar-label-text-font"
+  ],
+  "accessibility": {
+    "role": "navigation",
+    "requiredAttributes": ["aria-label", "role=\"navigation\""],
+    "keyboardSupport": [
+      {"key": "Tab", "action": "Move focus to bar"},
+      {"key": "ArrowLeft/Right", "action": "Navigate between items"},
+      {"key": "Enter/Space", "action": "Activate item"}
+    ],
+    "screenReaderNotes": "Bar should have aria-label. Active item should have aria-current=\"page\". Icons need accessible labels.",
+    "focusManagement": "Arrow keys navigate between items. Tab moves focus out."
+  },
+  "constraints": {
+    "height": "80px",
+    "responsiveBehavior": "Fixed to bottom. Use on mobile (< 600dp). Use rail or drawer on larger screens."
+  },
+  "llm": {
+    "intent": "Provide primary navigation on mobile devices",
+    "allowedContexts": [
+      "Primary navigation on mobile",
+      "Apps with 3-5 main destinations",
+      "Bottom of screen navigation"
+    ],
+    "forbiddenContexts": [
+      "Tablet or desktop screens (use rail or drawer)",
+      "More than 5 destinations",
+      "Secondary navigation"
+    ],
+    "dependencies": ["icon"],
+    "exampleUsage": [
+      "<md-navigation-bar><md-navigation-tab active><md-icon slot=\"icon\">home</md-icon>Home</md-navigation-tab><md-navigation-tab><md-icon slot=\"icon\">explore</md-icon>Explore</md-navigation-tab><md-navigation-tab><md-icon slot=\"icon\">account_circle</md-icon>Profile</md-navigation-tab></md-navigation-bar>"
+    ],
+    "antiPatterns": [
+      "Bar without aria-label",
+      "More than 5 destinations",
+      "Using bar on tablet/desktop",
+      "Items without icons",
+      "Long labels that truncate"
+    ],
+    "semanticMeaning": "Bottom navigation for mobile primary destinations",
+    "relatedElements": ["navigationrail", "navigationdrawer"],
+    "priorityScore": 85,
+    "tags": ["navigation", "mobile", "bottom", "tabs"]
+  }
+}
