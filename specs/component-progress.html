@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Design 3 - Material Design 3</title>
+    <link rel="stylesheet" href="https://plexusone.dev/css/plexusone-mkdocs.css">
+    <style>
+/* DSS HTML Documentation - Enhanced Theme */
+
+/* ========================================
+   CSS Variables - Light/Dark Modes
+   ======================================== */
+:root,
+[data-theme="light"] {
+  --dss-primary: #6366f1;
+  --dss-primary-hover: #4f46e5;
+  --dss-secondary: #8b5cf6;
+  --dss-success: #10b981;
+  --dss-warning: #f59e0b;
+  --dss-error: #ef4444;
+  --dss-info: #3b82f6;
+
+  --dss-bg: #ffffff;
+  --dss-bg-secondary: #f8fafc;
+  --dss-bg-tertiary: #f1f5f9;
+  --dss-surface: #ffffff;
+  --dss-border: #e2e8f0;
+  --dss-border-light: #f1f5f9;
+
+  --dss-text: #1e293b;
+  --dss-text-secondary: #64748b;
+  --dss-text-muted: #94a3b8;
+
+  --dss-sidebar-bg: #f8fafc;
+  --dss-sidebar-width: 280px;
+  --dss-header-height: 56px;
+
+  --dss-radius-sm: 6px;
+  --dss-radius-md: 8px;
+  --dss-radius-lg: 12px;
+
+  --dss-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --dss-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --dss-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+
+  --dss-transition: 150ms ease;
+}
+
+[data-theme="dark"] {
+  --dss-primary: #818cf8;
+  --dss-primary-hover: #a5b4fc;
+  --dss-secondary: #a78bfa;
+  --dss-success: #34d399;
+  --dss-warning: #fbbf24;
+  --dss-error: #f87171;
+  --dss-info: #60a5fa;
+
+  --dss-bg: #0f172a;
+  --dss-bg-secondary: #1e293b;
+  --dss-bg-tertiary: #334155;
+  --dss-surface: #1e293b;
+  --dss-border: #334155;
+  --dss-border-light: #1e293b;
+
+  --dss-text: #f1f5f9;
+  --dss-text-secondary: #94a3b8;
+  --dss-text-muted: #64748b;
+
+  --dss-sidebar-bg: #1e293b;
+
+  --dss-shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --dss-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.3);
+  --dss-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.4);
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--dss-text);
+  background: var(--dss-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   App Layout
+   ======================================== */
+.dss-app {
+  display: flex;
+  min-height: 100vh;
+  padding-top: var(--dss-header-height);
+}
+
+/* ========================================
+   Sidebar Navigation
+   ======================================== */
+.dss-sidebar {
+  position: fixed;
+  left: 0;
+  top: var(--dss-header-height);
+  bottom: 0;
+  width: var(--dss-sidebar-width);
+  background: var(--dss-sidebar-bg);
+  border-right: 1px solid var(--dss-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--dss-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--dss-text);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.logo-icon {
+  font-size: 1.25rem;
+  color: var(--dss-primary);
+}
+
+.version-badge {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  background: var(--dss-bg-tertiary);
+  color: var(--dss-text-secondary);
+  border-radius: 9999px;
+}
+
+.sidebar-search {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--dss-border);
+}
+
+.sidebar-search input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: var(--dss-bg);
+  border: 1px solid var(--dss-border);
+  border-radius: var(--dss-radius-md);
+  color: var(--dss-text);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color var(--dss-transition);
+}
+
+.sidebar-search input:focus {
+  border-color: var(--dss-primary);
+}
+
+.sidebar-search input::placeholder {
+  color: var(--dss-text-muted);
+}
+
+.nav-list {
+  list-style: none;
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+
+.nav-section {
+  margin-bottom: 0.5rem;
+}
+
+.nav-section-title {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dss-text-muted);
+}
+
+.nav-section ul {
+  list-style: none;
+}
+
+.nav-section a {
+  display: block;
+  padding: 0.4rem 1.5rem 0.4rem 1.75rem;
+  color: var(--dss-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-left: 2px solid transparent;
+  transition: all var(--dss-transition);
+}
+
+.nav-section a:hover {
+  color: var(--dss-text);
+  background: var(--dss-bg-tertiary);
+}
+
+.nav-section a.active {
+  color: var(--dss-primary);
+  background: rgba(99, 102, 241, 0.1);
+  border-left-color: var(--dss-primary);
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--dss-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-link {
+  color: var(--dss-text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color var(--dss-transition);
+}
+
+.back-link:hover {
+  color: var(--dss-primary);
+}
+
+.theme-toggle {
+  background: var(--dss-bg-tertiary);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--dss-radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dss-transition);
+}
+
+.theme-toggle:hover {
+  background: var(--dss-border);
+}
+
+.theme-icon {
+  font-size: 1rem;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+.dss-content {
+  flex: 1;
+  margin-left: var(--dss-sidebar-width);
+  padding: 2rem 3rem;
+  max-width: calc(100% - var(--dss-sidebar-width));
+}
+
+/* ========================================
+   Page Header
+   ======================================== */
+.page-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--dss-border);
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.page-header .description {
+  color: var(--dss-text-secondary);
+  font-size: 1.1rem;
+  max-width: 65ch;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.breadcrumb a {
+  color: var(--dss-primary);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Tabs
+   ======================================== */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--dss-border);
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  padding: 0.75rem 1.25rem;
+  background: none;
+  border: none;
+  color: var(--dss-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all var(--dss-transition);
+}
+
+.tab:hover {
+  color: var(--dss-text);
+}
+
+.tab.active {
+  color: var(--dss-primary);
+  border-bottom-color: var(--dss-primary);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ========================================
+   Section
+   ======================================== */
+.section {
+  margin: 2rem 0;
+}
+
+.section h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+}
+
+.section h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+}
+
+/* ========================================
+   Stats Grid
+   ======================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1.25rem;
+  border-radius: var(--dss-radius-lg);
+  text-align: center;
+  transition: transform var(--dss-transition), box-shadow var(--dss-transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dss-shadow-md);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dss-primary);
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: var(--dss-text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.stat-card.grade-a .stat-value { color: var(--dss-success); }
+.stat-card.grade-b .stat-value { color: #22c55e; }
+.stat-card.grade-c .stat-value { color: var(--dss-warning); }
+.stat-card.grade-d .stat-value { color: #f97316; }
+.stat-card.grade-f .stat-value { color: var(--dss-error); }
+
+/* ========================================
+   Component Grid
+   ======================================== */
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.component-card {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1.5rem;
+  border-radius: var(--dss-radius-lg);
+  text-decoration: none;
+  color: var(--dss-text);
+  transition: all var(--dss-transition);
+}
+
+.component-card:hover {
+  border-color: var(--dss-primary);
+  box-shadow: var(--dss-shadow-md);
+  transform: translateY(-2px);
+}
+
+.component-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--dss-text);
+}
+
+.component-card p {
+  color: var(--dss-text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.component-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--dss-text-muted);
+}
+
+/* ========================================
+   Badge
+   ======================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  background: var(--dss-bg-tertiary);
+  color: var(--dss-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+}
+
+.badge.primary {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--dss-primary);
+}
+
+.badge.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--dss-success);
+}
+
+.badge.warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--dss-warning);
+}
+
+.badge.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--dss-error);
+}
+
+.badge.large {
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8125rem;
+}
+
+/* ========================================
+   Variants Grid
+   ======================================== */
+.variants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.variant-card {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1.25rem;
+  border-radius: var(--dss-radius-md);
+  transition: border-color var(--dss-transition);
+}
+
+.variant-card:hover {
+  border-color: var(--dss-primary);
+}
+
+.variant-card.default {
+  border-color: var(--dss-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.variant-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.375rem;
+}
+
+.variant-card p {
+  font-size: 0.875rem;
+  color: var(--dss-text-secondary);
+}
+
+/* ========================================
+   Props Table
+   ======================================== */
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.props-table th,
+.props-table td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--dss-border);
+}
+
+.props-table th {
+  background: var(--dss-bg-secondary);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--dss-text-secondary);
+}
+
+.props-table tr:hover td {
+  background: var(--dss-bg-secondary);
+}
+
+.props-table code {
+  background: var(--dss-bg-tertiary);
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--dss-radius-sm);
+  font-size: 0.8125rem;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+}
+
+/* ========================================
+   Color Grid
+   ======================================== */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.color-swatch {
+  border-radius: var(--dss-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--dss-border);
+  background: var(--dss-surface);
+}
+
+.color-swatch .swatch {
+  height: 80px;
+}
+
+.color-swatch .color-info {
+  padding: 0.875rem;
+}
+
+.color-swatch strong {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.color-swatch code {
+  font-size: 0.75rem;
+  color: var(--dss-text-muted);
+  font-family: 'SF Mono', Monaco, monospace;
+}
+
+.color-swatch .usage {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--dss-text-secondary);
+  margin-top: 0.375rem;
+}
+
+/* ========================================
+   Spacing Scale
+   ======================================== */
+.spacing-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.spacing-item {
+  text-align: center;
+}
+
+.spacing-box {
+  background: var(--dss-primary);
+  margin-bottom: 0.5rem;
+  border-radius: var(--dss-radius-sm);
+  opacity: 0.8;
+}
+
+.spacing-item strong {
+  display: block;
+  font-size: 0.875rem;
+}
+
+.spacing-item code {
+  font-size: 0.75rem;
+  color: var(--dss-text-muted);
+}
+
+/* ========================================
+   Elevation Grid
+   ======================================== */
+.elevation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2rem;
+}
+
+.elevation-card {
+  background: var(--dss-surface);
+  padding: 1.5rem;
+  border-radius: var(--dss-radius-md);
+  text-align: center;
+}
+
+.elevation-card strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   Eval Styles
+   ======================================== */
+.eval-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.score-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--dss-surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid var(--dss-primary);
+  box-shadow: var(--dss-shadow-md);
+}
+
+.score-circle .score {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-circle .grade {
+  font-size: 1rem;
+  color: var(--dss-text-secondary);
+  margin-top: 0.25rem;
+}
+
+.score-circle.grade-a { border-color: var(--dss-success); }
+.score-circle.grade-a .score { color: var(--dss-success); }
+.score-circle.grade-b { border-color: #22c55e; }
+.score-circle.grade-b .score { color: #22c55e; }
+.score-circle.grade-c { border-color: var(--dss-warning); }
+.score-circle.grade-c .score { color: var(--dss-warning); }
+.score-circle.grade-d { border-color: #f97316; }
+.score-circle.grade-d .score { color: #f97316; }
+.score-circle.grade-f { border-color: var(--dss-error); }
+.score-circle.grade-f .score { color: var(--dss-error); }
+
+.eval-summary {
+  flex: 1;
+}
+
+.eval-summary h2 {
+  margin-bottom: 0.5rem;
+}
+
+.eval-summary .decision {
+  font-size: 1.125rem;
+  color: var(--dss-text-secondary);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.category-card {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1.25rem;
+  border-radius: var(--dss-radius-md);
+}
+
+.category-card h3 {
+  text-transform: capitalize;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.score-bar,
+.coverage-bar {
+  height: 6px;
+  background: var(--dss-bg-tertiary);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.score-fill,
+.coverage-fill {
+  height: 100%;
+  background: var(--dss-primary);
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.category-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--dss-text-secondary);
+}
+
+.checks {
+  font-size: 0.75rem;
+  color: var(--dss-text-muted);
+}
+
+.coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.coverage-item {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1rem;
+  border-radius: var(--dss-radius-md);
+}
+
+.coverage-item h4 {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.coverage-item span {
+  font-size: 0.875rem;
+  color: var(--dss-text-secondary);
+}
+
+/* ========================================
+   Issues
+   ======================================== */
+.issues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.issue-card {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1rem 1.25rem;
+  border-radius: var(--dss-radius-md);
+  border-left: 3px solid var(--dss-border);
+}
+
+.issue-card.error { border-left-color: var(--dss-error); }
+.issue-card.warning { border-left-color: var(--dss-warning); }
+.issue-card.info { border-left-color: var(--dss-info); }
+
+.issue-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.issue-title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.severity-badge {
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--dss-radius-sm);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.severity-badge.error { background: rgba(239, 68, 68, 0.15); color: var(--dss-error); }
+.severity-badge.warning { background: rgba(245, 158, 11, 0.15); color: var(--dss-warning); }
+.severity-badge.info { background: rgba(59, 130, 246, 0.15); color: var(--dss-info); }
+
+.issue-card .message {
+  color: var(--dss-text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.issue-card .path {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--dss-text-muted);
+  font-family: 'SF Mono', Monaco, monospace;
+  margin-bottom: 0.5rem;
+}
+
+.issue-card .suggestion {
+  font-size: 0.875rem;
+  color: var(--dss-success);
+}
+
+/* ========================================
+   Accessibility & LLM Info
+   ======================================== */
+.a11y-info,
+.llm-info {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1.25rem;
+  border-radius: var(--dss-radius-md);
+}
+
+.a11y-item,
+.llm-item {
+  margin-bottom: 1.25rem;
+}
+
+.a11y-item:last-child,
+.llm-item:last-child {
+  margin-bottom: 0;
+}
+
+.a11y-item strong,
+.llm-item strong {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  color: var(--dss-text);
+}
+
+.a11y-item ul,
+.llm-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.a11y-item li,
+.llm-item li {
+  padding: 0.25rem 0;
+  font-size: 0.875rem;
+  color: var(--dss-text-secondary);
+}
+
+kbd {
+  background: var(--dss-bg-tertiary);
+  border: 1px solid var(--dss-border);
+  border-radius: var(--dss-radius-sm);
+  padding: 0.125rem 0.5rem;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 0.8125rem;
+}
+
+pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem 1.25rem;
+  border-radius: var(--dss-radius-md);
+  overflow-x: auto;
+  margin-top: 0.5rem;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+[data-theme="light"] pre {
+  background: #1e293b;
+}
+
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.anti-patterns li {
+  color: var(--dss-error);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.anti-patterns li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+}
+
+/* ========================================
+   States Grid
+   ======================================== */
+.states-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.state-card {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1rem;
+  border-radius: var(--dss-radius-md);
+  text-align: center;
+}
+
+.state-card h4 {
+  text-transform: capitalize;
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.state-card p {
+  font-size: 0.75rem;
+  color: var(--dss-text-muted);
+}
+
+/* ========================================
+   Principles
+   ======================================== */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.principle-card {
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  padding: 1.5rem;
+  border-radius: var(--dss-radius-md);
+}
+
+.principle-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+}
+
+.principle-card p {
+  color: var(--dss-text-secondary);
+  font-size: 0.9375rem;
+}
+
+/* ========================================
+   Links Grid
+   ======================================== */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.link-card {
+  display: block;
+  padding: 1.5rem;
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  border-radius: var(--dss-radius-md);
+  text-decoration: none;
+  color: var(--dss-text);
+  transition: all var(--dss-transition);
+}
+
+.link-card:hover {
+  border-color: var(--dss-primary);
+  transform: translateY(-2px);
+}
+
+.link-card h3 {
+  color: var(--dss-primary);
+  margin-bottom: 0.375rem;
+  font-size: 1rem;
+}
+
+.link-card p {
+  font-size: 0.875rem;
+  color: var(--dss-text-secondary);
+}
+
+/* ========================================
+   No Eval State
+   ======================================== */
+.no-eval {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--dss-surface);
+  border: 1px dashed var(--dss-border);
+  border-radius: var(--dss-radius-lg);
+}
+
+.no-eval p {
+  color: var(--dss-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.no-eval code {
+  background: var(--dss-bg-tertiary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--dss-radius-sm);
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   Typography Preview
+   ======================================== */
+.font-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.font-card {
+  padding: 1.25rem;
+  background: var(--dss-surface);
+  border: 1px solid var(--dss-border);
+  border-radius: var(--dss-radius-md);
+}
+
+.font-preview {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--dss-text);
+}
+
+.font-card strong {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.font-card code {
+  font-size: 0.75rem;
+  color: var(--dss-text-muted);
+}
+
+.size-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+.size-item {
+  text-align: center;
+}
+
+.size-preview {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--dss-text);
+}
+
+.size-item strong {
+  font-size: 0.75rem;
+}
+
+.size-item code {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--dss-text-muted);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 1024px) {
+  .dss-sidebar {
+    width: 240px;
+  }
+
+  .dss-content {
+    margin-left: 240px;
+    padding: 1.5rem 2rem;
+    max-width: calc(100% - 240px);
+  }
+}
+
+@media (max-width: 768px) {
+  .dss-app {
+    flex-direction: column;
+  }
+
+  .dss-sidebar {
+    position: relative;
+    width: 100%;
+    top: 0;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--dss-border);
+  }
+
+  .nav-list {
+    max-height: 200px;
+  }
+
+  .dss-content {
+    margin-left: 0;
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .eval-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+    </style>
+</head>
+<body>
+    
+    <div id="plexus-nav-root"></div>
+    <script src="https://plexusone.dev/js/plexus-nav.js"></script>
+
+    <div class="dss-app">
+        <nav class="dss-sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">◇</span>
+                    <span class="logo-text">Material Design 3</span>
+                </a>
+                <span class="version-badge">v3.0.0</span>
+            </div>
+
+            <div class="sidebar-search">
+                <input type="search" id="dss-search" placeholder="Search specs..." autocomplete="off">
+            </div>
+
+            <ul class="nav-list">
+                <li class="nav-section">
+                    <span class="nav-section-title">Overview</span>
+                    <ul>
+                        <li><a href="index.html" >Dashboard</a></li>
+                        <li><a href="eval.html" >Evaluation</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <span class="nav-section-title">Foundations</span>
+                    <ul>
+                        <li><a href="tokens.html" >Design Tokens</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <span class="nav-section-title">Components</span>
+                    <ul>
+                        <li><a href="components.html" >All Components</a></li>
+                        
+                        <li><a href="component-button.html" >Button</a></li>
+                        
+                        <li><a href="component-card.html" >Card</a></li>
+                        
+                        <li><a href="component-checkbox.html" >Checkbox</a></li>
+                        
+                        <li><a href="component-chips.html" >Chips</a></li>
+                        
+                        <li><a href="component-dialog.html" >Dialog</a></li>
+                        
+                        <li><a href="component-divider.html" >Divider</a></li>
+                        
+                        <li><a href="component-fab.html" >Floating Action Button</a></li>
+                        
+                        <li><a href="component-icon.html" >Icon</a></li>
+                        
+                        <li><a href="component-iconbutton.html" >Icon Button</a></li>
+                        
+                        <li><a href="component-list.html" >List</a></li>
+                        
+                        <li><a href="component-menu.html" >Menu</a></li>
+                        
+                        <li><a href="component-navigationbar.html" >Navigation Bar</a></li>
+                        
+                        <li><a href="component-navigationdrawer.html" >Navigation Drawer</a></li>
+                        
+                        <li><a href="component-navigationrail.html" >Navigation Rail</a></li>
+                        
+                        <li><a href="component-progress.html" class="active">Progress Indicator</a></li>
+                        
+                        <li><a href="component-radio.html" >Radio Button</a></li>
+                        
+                        <li><a href="component-select.html" >Select</a></li>
+                        
+                        <li><a href="component-slider.html" >Slider</a></li>
+                        
+                        <li><a href="component-snackbar.html" >Snackbar</a></li>
+                        
+                        <li><a href="component-switch.html" >Switch</a></li>
+                        
+                        <li><a href="component-tabs.html" >Tabs</a></li>
+                        
+                        <li><a href="component-textfield.html" >Text Field</a></li>
+                        
+                        <li><a href="component-topappbar.html" >Top App Bar</a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a href="../index.html" class="back-link">← Back to Docs</a>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+                    <span class="theme-icon">◐</span>
+                </button>
+            </div>
+        </nav>
+
+        <main class="dss-content">
+            <div class="page-header">
+    <nav class="breadcrumb">
+        <a href="components.html">Components</a> / Progress Indicator
+    </nav>
+    <h1>Progress Indicator</h1>
+    <span class="badge large">communication</span>
+    <p class="description">Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates.</p>
+</div>
+
+
+<section class="section">
+    <h2>Variants</h2>
+    <div class="variants-grid">
+        
+        <div class="variant-card default">
+            <h4>Linear</h4>
+            <span class="badge">Default</span>
+            <p>Horizontal bar progress indicator</p>
+        </div>
+        
+        <div class="variant-card ">
+            <h4>Circular</h4>
+            
+            <p>Circular spinning progress indicator</p>
+        </div>
+        
+    </div>
+</section>
+
+
+
+<section class="section">
+    <h2>Properties</h2>
+    <table class="props-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td><code>variant</code></td>
+                <td><code>enum</code></td>
+                <td>-</td>
+                <td><code>linear</code></td>
+                <td>Type of progress indicator</td>
+            </tr>
+            
+            <tr>
+                <td><code>value</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Current progress value (0 to max)</td>
+            </tr>
+            
+            <tr>
+                <td><code>max</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td><code>1</code></td>
+                <td>Maximum progress value</td>
+            </tr>
+            
+            <tr>
+                <td><code>indeterminate</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Show indeterminate progress animation</td>
+            </tr>
+            
+            <tr>
+                <td><code>fourColor</code></td>
+                <td><code>boolean</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Use four-color animation for indeterminate state</td>
+            </tr>
+            
+            <tr>
+                <td><code>buffer</code></td>
+                <td><code>number</code></td>
+                <td>-</td>
+                <td>-</td>
+                <td>Buffer amount for linear progress (0 to max)</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>
+
+
+
+<section class="section">
+    <h2>States</h2>
+    <div class="states-grid">
+        
+        <div class="state-card">
+            <h4>determinate</h4>
+            <p>Shows specific progress amount</p>
+        </div>
+        
+        <div class="state-card">
+            <h4>indeterminate</h4>
+            <p>Shows ongoing activity without specific progress</p>
+        </div>
+        
+    </div>
+</section>
+
+
+
+<section class="section">
+    <h2>Accessibility</h2>
+    <div class="a11y-info">
+        
+        <div class="a11y-item">
+            <strong>Role:</strong> <code>progressbar</code>
+        </div>
+        
+        
+        
+        <div class="a11y-item">
+            <strong>Screen Reader Notes:</strong> Add aria-label describing what is loading. For determinate progress, include aria-valuenow, aria-valuemin (0), and aria-valuemax.
+        </div>
+        
+    </div>
+</section>
+
+
+
+<section class="section">
+    <h2>LLM Context</h2>
+    <div class="llm-info">
+        
+        <div class="llm-item">
+            <strong>Intent:</strong> Communicate ongoing process status to users
+        </div>
+        
+        
+        <div class="llm-item">
+            <strong>Anti-Patterns:</strong>
+            <ul class="anti-patterns">
+                
+                <li>Progress indicator without aria-label</li>
+                
+                <li>Using determinate when progress is unknown</li>
+                
+                <li>Progress at 100% without transitioning away</li>
+                
+                <li>Multiple progress indicators for same process</li>
+                
+            </ul>
+        </div>
+        
+        
+        <div class="llm-item">
+            <strong>Example Usage:</strong>
+            
+            <pre><code>&lt;md-linear-progress indeterminate&gt;&lt;/md-linear-progress&gt;</code></pre>
+            
+            <pre><code>&lt;md-linear-progress value=&#34;0.5&#34;&gt;&lt;/md-linear-progress&gt;</code></pre>
+            
+            <pre><code>&lt;md-circular-progress indeterminate&gt;&lt;/md-circular-progress&gt;</code></pre>
+            
+            <pre><code>&lt;md-circular-progress value=&#34;0.75&#34; aria-label=&#34;Loading&#34;&gt;&lt;/md-circular-progress&gt;</code></pre>
+            
+            <pre><code>&lt;md-linear-progress value=&#34;0.5&#34; buffer=&#34;0.8&#34; aria-label=&#34;Download progress&#34;&gt;&lt;/md-linear-progress&gt;</code></pre>
+            
+        </div>
+        
+    </div>
+</section>
+
+
+        </main>
+    </div>
+
+    <script>
+        
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+            localStorage.setItem('dss-theme', html.getAttribute('data-theme'));
+        }
+
+        
+        const savedTheme = localStorage.getItem('dss-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        
+        document.getElementById('dss-search')?.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.nav-list a').forEach(link => {
+                const text = link.textContent.toLowerCase();
+                link.parentElement.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
