@@ -26,7 +26,7 @@ Machine-readable Material Design 3 specifications in Design System Spec format.
 
     ---
 
-    30+ Material Design 3 component specifications
+    23 Material Design 3 component specifications
 
     [:octicons-arrow-right-24: View Components](specs/components.html)
 
@@ -106,8 +106,9 @@ specs/v3/
 │   └── elevation.json  # Shadow definitions
 └── components/
     ├── button.json     # 5 variants
-    ├── card.json
-    └── ...             # 30+ components
+    ├── textfield.json  # filled, outlined
+    ├── dialog.json
+    └── ...             # 23 components
 ```
 
 ## License

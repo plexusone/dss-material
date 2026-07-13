@@ -78,23 +78,38 @@ specs/v3/
 │   ├── motion.json        # Animation tokens
 │   └── shape.json         # Border radius
 └── components/
-    ├── button.json
-    ├── fab.json
-    ├── card.json
-    └── ... (30+ components)
+    ├── button.json        # 5 variants
+    ├── textfield.json     # Filled, outlined
+    ├── checkbox.json
+    ├── tabs.json
+    ├── dialog.json
+    └── ... (23 components)
 ```
 
 ## Component Coverage
 
-| Component | Status | Notes |
-|-----------|--------|-------|
-| Button | In Progress | Filled, outlined, text, elevated, tonal |
-| FAB | Planned | Regular, small, large, extended |
-| Card | Planned | Elevated, filled, outlined |
-| Checkbox | Planned | |
-| Chips | Planned | Assist, filter, input, suggestion |
-| Dialog | Planned | Basic, full-screen |
-| ... | | |
+23 components with full DSS specifications:
+
+**Input Controls**
+- Button (5 variants: filled, outlined, text, elevated, tonal)
+- Checkbox, Radio, Switch, Slider
+- Text Field (filled, outlined), Select
+
+**Actions**
+- Icon Button (4 variants: standard, filled, filled-tonal, outlined)
+- FAB (surface, primary, secondary, tertiary, branded)
+- Chips (assist, filter, input, suggestion)
+
+**Navigation**
+- Tabs (primary, secondary)
+- Menu, Navigation Drawer, Navigation Rail, Navigation Bar
+- Top App Bar (small, medium, large, center-aligned)
+
+**Containment**
+- Dialog, Card (elevated, filled, outlined), List, Divider
+
+**Communication**
+- Progress Indicator (linear, circular), Snackbar, Icon
 
 ## Evaluation
 
