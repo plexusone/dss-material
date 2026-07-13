@@ -20,7 +20,7 @@ Machine-readable Material Design 3 specifications in Design System Spec format.
 
     Design tokens: colors, typography, spacing, elevation
 
-    [:octicons-arrow-right-24: View Foundations](specs/v3/index.md#foundations)
+    [:octicons-arrow-right-24: View Foundations](specs/tokens.html)
 
 -   :material-view-grid:{ .lg .middle } __Components__
 
@@ -28,7 +28,7 @@ Machine-readable Material Design 3 specifications in Design System Spec format.
 
     30+ Material Design 3 component specifications
 
-    [:octicons-arrow-right-24: View Components](specs/v3/components/index.md)
+    [:octicons-arrow-right-24: View Components](specs/components.html)
 
 -   :material-chart-bar:{ .lg .middle } __Evaluation__
 
@@ -36,7 +36,7 @@ Machine-readable Material Design 3 specifications in Design System Spec format.
 
     Spec completeness metrics and coverage dashboard
 
-    [:octicons-arrow-right-24: View Evaluation](evals/index.md)
+    [:octicons-arrow-right-24: View Evaluation](specs/eval.html)
 
 -   :material-code-braces:{ .lg .middle } __MCP Server__
 

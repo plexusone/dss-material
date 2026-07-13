@@ -171,5 +171,5 @@ Run with verbose logging:
 ## Related
 
 - [Claude Desktop Setup](claude-desktop.md)
-- [Component Specifications](../specs/v3/components/index.md)
-- [Design Tokens](../specs/v3/index.md#foundations)
+- [Component Specifications](../specs/components.html)
+- [Design Tokens](../specs/tokens.html)

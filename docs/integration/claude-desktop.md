@@ -166,10 +166,10 @@ Claude will:
 
 ### "Unknown component"
 
-The component may not be in the spec yet. Check [coverage](../evals/coverage.md) for available components.
+The component may not be in the spec yet. Check the [Spec Viewer](../specs/index.html) for available components.
 
 ## Next Steps
 
-- Explore [Component Specifications](../specs/v3/components/index.md)
-- Review [Design Tokens](../specs/v3/index.md#foundations)
-- Check [Evaluation Dashboard](../evals/index.md) for spec completeness
+- Explore [Component Specifications](../specs/components.html)
+- Review [Design Tokens](../specs/tokens.html)
+- Check [Evaluation Dashboard](../specs/eval.html) for spec completeness
