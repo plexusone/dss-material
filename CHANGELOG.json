@@ -1,0 +1,52 @@
+{
+  "irVersion": "1.0",
+  "project": "dss-material",
+  "repository": "https://github.com/plexusone/dss-material",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "maintainers": ["plexusone", "johncwang@gmail.com"],
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-07-13",
+      "commit": "33b4fc9",
+      "highlights": [
+        { "description": "Material Design 3 specifications in machine-readable DSS format with 23 component specs" },
+        { "description": "MkDocs documentation site with live Material Web component demos" },
+        { "description": "MCP server for Claude Desktop integration" }
+      ],
+      "added": [
+        { "description": "Material Design 3 DSS specifications with meta, accessibility, and foundations", "commit": "47bec09" },
+        { "description": "Go module with embedded specs via `//go:embed`", "commit": "073422d" },
+        { "description": "MkDocs documentation site with Material theme", "commit": "977e89b" },
+        { "description": "Auto-generated DSS canonical layer documentation", "commit": "e8b3742" },
+        { "description": "PlexusOne unified navigation override for consistent branding", "commit": "f05e8b6" },
+        { "description": "Standalone HTML spec viewer with enhanced UI", "commit": "0e271fb" },
+        { "description": "22 Material Design 3 component specifications (initial batch)", "commit": "69405ff" },
+        { "description": "Live Material Web component demos in MkDocs via esm.run CDN", "commit": "33b0078" }
+      ],
+      "fixed": [
+        { "description": "Regenerate specs with corrected HTML wrapper structure", "commit": "4b87c88" }
+      ],
+      "documentation": [
+        { "description": "Update component coverage documentation to reflect 23 specs", "commit": "2051bda" },
+        { "description": "Add generated HTML documentation with live component demos", "commit": "3247cfc" },
+        { "description": "Add shields/badges to README.md", "commit": "c8aa859" }
+      ],
+      "changed": [
+        { "description": "Use left sidebar navigation to match omnillm-core theme", "commit": "8bfa2df" }
+      ],
+      "build": [
+        { "description": "Add project configuration files (CLAUDE.md, .gitignore)", "commit": "ab8bbea" },
+        { "description": "Add standard GitHub Actions workflows (CI, lint, SAST)", "commit": "33b4fc9" }
+      ],
+      "dependencies": [
+        { "description": "Update Go module dependencies", "commit": "617f3a5" }
+      ],
+      "infrastructure": [
+        { "description": "Regenerate eval with updated timestamp", "commit": "3587f2d" },
+        { "description": "Update LICENSE file", "commit": "2d12671" }
+      ]
+    }
+  ]
+}

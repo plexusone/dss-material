@@ -163,6 +163,10 @@ Categories evaluated:
 - [Material Design 3](https://m3.material.io) - Official M3 documentation
 - [material-web](https://github.com/material-components/material-web) - Web Components (maintenance mode)
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release history.
+
 ## License
 
 Apache 2.0
